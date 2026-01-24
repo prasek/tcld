@@ -10,6 +10,7 @@ import (
 	math "math"
 	math_bits "math/bits"
 	reflect "reflect"
+	strconv "strconv"
 	strings "strings"
 )
 
@@ -24,16 +25,50 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
+// The cloud provider that's hosting the region.
+type Region_CloudProvider int32
+
+const (
+	CLOUD_PROVIDER_UNSPECIFIED Region_CloudProvider = 0
+	CLOUD_PROVIDER_AWS         Region_CloudProvider = 1
+	CLOUD_PROVIDER_GCP         Region_CloudProvider = 2
+)
+
+var Region_CloudProvider_name = map[int32]string{
+	0: "CloudProviderUnspecified",
+	1: "CloudProviderAws",
+	2: "CloudProviderGcp",
+}
+
+var Region_CloudProvider_value = map[string]int32{
+	"CloudProviderUnspecified": 0,
+	"CloudProviderAws":         1,
+	"CloudProviderGcp":         2,
+}
+
+func (Region_CloudProvider) EnumDescriptor() ([]byte, []int) {
+	return fileDescriptor_ec4b65943296208a, []int{0, 0}
+}
+
 type Region struct {
 	// The id of the temporal cloud region.
 	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	// The name of the cloud provider that's hosting the region.
 	// Currently only "aws" is supported.
-	CloudProvider string `protobuf:"bytes,2,opt,name=cloud_provider,json=cloudProvider,proto3" json:"cloud_provider,omitempty"`
+	// Deprecated: Use cloud_provider instead.
+	// temporal:versioning:max_version=v0.3.0
+	CloudProviderDeprecated string `protobuf:"bytes,2,opt,name=cloud_provider_deprecated,json=cloudProviderDeprecated,proto3" json:"cloud_provider_deprecated,omitempty"` // Deprecated: Do not use.
+	// The cloud provider that's hosting the region.
+	// temporal:versioning:min_version=v0.3.0
+	// temporal:enums:replaces=cloud_provider_deprecated
+	CloudProvider Region_CloudProvider `protobuf:"varint,5,opt,name=cloud_provider,json=cloudProvider,proto3,enum=temporal.api.cloud.region.v1.Region_CloudProvider" json:"cloud_provider,omitempty"`
 	// The region identifier as defined by the cloud provider.
 	CloudProviderRegion string `protobuf:"bytes,3,opt,name=cloud_provider_region,json=cloudProviderRegion,proto3" json:"cloud_provider_region,omitempty"`
 	// The human readable location of the region.
 	Location string `protobuf:"bytes,4,opt,name=location,proto3" json:"location,omitempty"`
+	// The allow list of connection between the current region with a target region.
+	// temporal:dev
+	ConnectableRegionIds []string `protobuf:"bytes,6,rep,name=connectable_region_ids,json=connectableRegionIds,proto3" json:"connectable_region_ids,omitempty"`
 }
 
 func (m *Region) Reset()      { *m = Region{} }
@@ -75,11 +110,19 @@ func (m *Region) GetId() string {
 	return ""
 }
 
-func (m *Region) GetCloudProvider() string {
+// Deprecated: Do not use.
+func (m *Region) GetCloudProviderDeprecated() string {
+	if m != nil {
+		return m.CloudProviderDeprecated
+	}
+	return ""
+}
+
+func (m *Region) GetCloudProvider() Region_CloudProvider {
 	if m != nil {
 		return m.CloudProvider
 	}
-	return ""
+	return CLOUD_PROVIDER_UNSPECIFIED
 }
 
 func (m *Region) GetCloudProviderRegion() string {
@@ -96,7 +139,15 @@ func (m *Region) GetLocation() string {
 	return ""
 }
 
+func (m *Region) GetConnectableRegionIds() []string {
+	if m != nil {
+		return m.ConnectableRegionIds
+	}
+	return nil
+}
+
 func init() {
+	proto.RegisterEnum("temporal.api.cloud.region.v1.Region_CloudProvider", Region_CloudProvider_name, Region_CloudProvider_value)
 	proto.RegisterType((*Region)(nil), "temporal.api.cloud.region.v1.Region")
 }
 
@@ -105,25 +156,44 @@ func init() {
 }
 
 var fileDescriptor_ec4b65943296208a = []byte{
-	// 244 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xd2, 0x2a, 0x49, 0xcd, 0x2d,
-	0xc8, 0x2f, 0x4a, 0xcc, 0xd1, 0x4f, 0x2c, 0xc8, 0xd4, 0x4f, 0xce, 0xc9, 0x2f, 0x4d, 0xd1, 0x2f,
-	0x4a, 0x4d, 0xcf, 0xcc, 0xcf, 0xd3, 0x2f, 0x33, 0xd4, 0xcf, 0x4d, 0x2d, 0x2e, 0x4e, 0x4c, 0x4f,
-	0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x92, 0x81, 0xa9, 0xd5, 0x4b, 0x2c, 0xc8, 0xd4, 0x03,
-	0xab, 0xd5, 0x83, 0xa8, 0xd5, 0x2b, 0x33, 0x54, 0xea, 0x67, 0xe4, 0x62, 0x0b, 0x02, 0xf3, 0x84,
-	0xf8, 0xb8, 0x98, 0x32, 0x53, 0x24, 0x18, 0x15, 0x18, 0x35, 0x38, 0x83, 0x98, 0x32, 0x53, 0x84,
-	0x54, 0xb9, 0xf8, 0xc0, 0xaa, 0xe3, 0x0b, 0x8a, 0xf2, 0xcb, 0x32, 0x53, 0x52, 0x8b, 0x24, 0x98,
-	0xc0, 0x72, 0xbc, 0x60, 0xd1, 0x00, 0xa8, 0xa0, 0x90, 0x11, 0x97, 0x28, 0xaa, 0xb2, 0x78, 0x88,
-	0xe9, 0x12, 0xcc, 0x60, 0xd5, 0xc2, 0x28, 0xaa, 0xa1, 0x56, 0x49, 0x71, 0x71, 0xe4, 0xe4, 0x27,
-	0x27, 0x96, 0x80, 0x94, 0xb1, 0x80, 0x95, 0xc1, 0xf9, 0x4e, 0xf1, 0x17, 0x1e, 0xca, 0x31, 0xdc,
-	0x78, 0x28, 0xc7, 0xf0, 0xe1, 0xa1, 0x1c, 0x63, 0xc3, 0x23, 0x39, 0xc6, 0x15, 0x8f, 0xe4, 0x18,
-	0x4f, 0x3c, 0x92, 0x63, 0xbc, 0xf0, 0x48, 0x8e, 0xf1, 0xc1, 0x23, 0x39, 0xc6, 0x17, 0x8f, 0xe4,
-	0x18, 0x3e, 0x3c, 0x92, 0x63, 0x9c, 0xf0, 0x58, 0x8e, 0xe1, 0xc2, 0x63, 0x39, 0x86, 0x1b, 0x8f,
-	0xe5, 0x18, 0xa2, 0x34, 0xd3, 0xf3, 0xf5, 0xe0, 0x1e, 0xcd, 0xcc, 0xc7, 0x16, 0x2e, 0xd6, 0x10,
-	0x56, 0x12, 0x1b, 0x38, 0x5c, 0x8c, 0x01, 0x01, 0x00, 0x00, 0xff, 0xff, 0xbd, 0xac, 0x1a, 0xad,
-	0x45, 0x01, 0x00, 0x00,
+	// 436 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0xd2, 0xc1, 0x6e, 0xd3, 0x30,
+	0x18, 0x07, 0xf0, 0x38, 0x85, 0x8a, 0x59, 0xac, 0xaa, 0x0c, 0x8c, 0x30, 0x21, 0x53, 0xf5, 0x54,
+	0x38, 0x38, 0x6a, 0xe1, 0x64, 0x24, 0xa4, 0xb6, 0x29, 0x28, 0x12, 0xb0, 0x28, 0x63, 0x45, 0x70,
+	0x89, 0xb2, 0xd8, 0xaa, 0x2c, 0x65, 0xb5, 0x95, 0x84, 0x9e, 0x79, 0x04, 0xce, 0x3c, 0x01, 0xe2,
+	0x49, 0x38, 0xf6, 0x84, 0x76, 0xa4, 0xe9, 0x05, 0x71, 0xda, 0x23, 0xa0, 0xda, 0xd9, 0xd6, 0x4c,
+	0xd3, 0x6e, 0x71, 0xfc, 0xfb, 0xbe, 0xfc, 0x63, 0x7f, 0xf0, 0x59, 0xc1, 0x4f, 0x94, 0xcc, 0xe2,
+	0xd4, 0x8d, 0x95, 0x70, 0x93, 0x54, 0x7e, 0x61, 0x6e, 0xc6, 0x67, 0x42, 0xce, 0xdd, 0x45, 0xdf,
+	0x3d, 0xe1, 0x79, 0x1e, 0xcf, 0x38, 0x51, 0x99, 0x2c, 0x24, 0x7a, 0x7c, 0x6e, 0x49, 0xac, 0x04,
+	0xd1, 0x96, 0x18, 0x4b, 0x16, 0xfd, 0xee, 0xf7, 0x06, 0x6c, 0x86, 0x7a, 0x85, 0x5a, 0xd0, 0x16,
+	0xcc, 0x01, 0x1d, 0xd0, 0xdb, 0x09, 0x6d, 0xc1, 0xd0, 0x2b, 0xf8, 0x48, 0xeb, 0x48, 0x65, 0x72,
+	0x21, 0x18, 0xcf, 0x22, 0xc6, 0x55, 0xc6, 0x93, 0xb8, 0xe0, 0xcc, 0xb1, 0x37, 0x6c, 0x64, 0x3b,
+	0x20, 0x7c, 0xa8, 0x51, 0x50, 0x19, 0xef, 0x82, 0xa0, 0x4f, 0xb0, 0x55, 0xaf, 0x77, 0x6e, 0x77,
+	0x40, 0xaf, 0x35, 0x18, 0x90, 0x9b, 0x12, 0x11, 0x93, 0x86, 0x8c, 0xb7, 0xbb, 0x86, 0xbb, 0xb5,
+	0x8f, 0xa0, 0x01, 0x7c, 0x70, 0x25, 0x9a, 0xa9, 0x77, 0x1a, 0x3a, 0xfd, 0xbd, 0x9a, 0xae, 0x7e,
+	0x6f, 0x1f, 0xde, 0x49, 0x65, 0x12, 0x17, 0x1b, 0x76, 0x4b, 0xb3, 0x8b, 0x35, 0x7a, 0x01, 0xf7,
+	0x12, 0x39, 0x9f, 0xf3, 0xa4, 0x88, 0x8f, 0x53, 0x5e, 0x35, 0x8b, 0x04, 0xcb, 0x9d, 0x66, 0xa7,
+	0xd1, 0xdb, 0x09, 0xef, 0x6f, 0xed, 0x9a, 0x76, 0x3e, 0xcb, 0xbb, 0x11, 0xdc, 0xad, 0xa5, 0x44,
+	0x18, 0xee, 0x8f, 0xdf, 0x1e, 0x1c, 0x79, 0x51, 0x10, 0x1e, 0x4c, 0x7d, 0x6f, 0x12, 0x46, 0x47,
+	0xef, 0x0f, 0x83, 0xc9, 0xd8, 0x7f, 0xed, 0x4f, 0xbc, 0xb6, 0x85, 0xf6, 0x20, 0xba, 0xb2, 0x3f,
+	0xfc, 0x78, 0xd8, 0x06, 0xd7, 0xbc, 0x7f, 0x33, 0x0e, 0xda, 0xf6, 0xe8, 0x37, 0x58, 0xae, 0xb0,
+	0x75, 0xba, 0xc2, 0xd6, 0xd9, 0x0a, 0x83, 0xaf, 0x25, 0x06, 0x3f, 0x4a, 0x0c, 0x7e, 0x95, 0x18,
+	0x2c, 0x4b, 0x0c, 0xfe, 0x94, 0x18, 0xfc, 0x2d, 0xb1, 0x75, 0x56, 0x62, 0xf0, 0x6d, 0x8d, 0xad,
+	0xe5, 0x1a, 0x5b, 0xa7, 0x6b, 0x6c, 0xc1, 0x27, 0x42, 0xde, 0x78, 0xc4, 0xa3, 0xbb, 0xef, 0xcc,
+	0x84, 0x04, 0x9b, 0x01, 0x09, 0xc0, 0xe7, 0xa7, 0xb3, 0xad, 0x02, 0x21, 0xaf, 0x1b, 0xaa, 0x97,
+	0xe6, 0xe9, 0xa7, 0x8d, 0x3f, 0x54, 0x50, 0x48, 0x32, 0x54, 0xc2, 0xdc, 0xd3, 0xf9, 0xa5, 0x4d,
+	0xfb, 0xff, 0xec, 0xee, 0x25, 0xa0, 0x74, 0xa8, 0x04, 0xa5, 0x9a, 0x50, 0x6a, 0x0c, 0xa5, 0xd3,
+	0xfe, 0x71, 0x53, 0x8f, 0xe6, 0xf3, 0xff, 0x01, 0x00, 0x00, 0xff, 0xff, 0x22, 0x37, 0x77, 0xe4,
+	0xc8, 0x02, 0x00, 0x00,
 }
 
+func (x Region_CloudProvider) String() string {
+	s, ok := Region_CloudProvider_name[int32(x)]
+	if ok {
+		return s
+	}
+	return strconv.Itoa(int(x))
+}
 func (this *Region) Equal(that interface{}) bool {
 	if that == nil {
 		return this == nil
@@ -146,6 +216,9 @@ func (this *Region) Equal(that interface{}) bool {
 	if this.Id != that1.Id {
 		return false
 	}
+	if this.CloudProviderDeprecated != that1.CloudProviderDeprecated {
+		return false
+	}
 	if this.CloudProvider != that1.CloudProvider {
 		return false
 	}
@@ -155,18 +228,28 @@ func (this *Region) Equal(that interface{}) bool {
 	if this.Location != that1.Location {
 		return false
 	}
+	if len(this.ConnectableRegionIds) != len(that1.ConnectableRegionIds) {
+		return false
+	}
+	for i := range this.ConnectableRegionIds {
+		if this.ConnectableRegionIds[i] != that1.ConnectableRegionIds[i] {
+			return false
+		}
+	}
 	return true
 }
 func (this *Region) GoString() string {
 	if this == nil {
 		return "nil"
 	}
-	s := make([]string, 0, 8)
+	s := make([]string, 0, 10)
 	s = append(s, "&region.Region{")
 	s = append(s, "Id: "+fmt.Sprintf("%#v", this.Id)+",\n")
+	s = append(s, "CloudProviderDeprecated: "+fmt.Sprintf("%#v", this.CloudProviderDeprecated)+",\n")
 	s = append(s, "CloudProvider: "+fmt.Sprintf("%#v", this.CloudProvider)+",\n")
 	s = append(s, "CloudProviderRegion: "+fmt.Sprintf("%#v", this.CloudProviderRegion)+",\n")
 	s = append(s, "Location: "+fmt.Sprintf("%#v", this.Location)+",\n")
+	s = append(s, "ConnectableRegionIds: "+fmt.Sprintf("%#v", this.ConnectableRegionIds)+",\n")
 	s = append(s, "}")
 	return strings.Join(s, "")
 }
@@ -198,6 +281,20 @@ func (m *Region) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
+	if len(m.ConnectableRegionIds) > 0 {
+		for iNdEx := len(m.ConnectableRegionIds) - 1; iNdEx >= 0; iNdEx-- {
+			i -= len(m.ConnectableRegionIds[iNdEx])
+			copy(dAtA[i:], m.ConnectableRegionIds[iNdEx])
+			i = encodeVarintMessage(dAtA, i, uint64(len(m.ConnectableRegionIds[iNdEx])))
+			i--
+			dAtA[i] = 0x32
+		}
+	}
+	if m.CloudProvider != 0 {
+		i = encodeVarintMessage(dAtA, i, uint64(m.CloudProvider))
+		i--
+		dAtA[i] = 0x28
+	}
 	if len(m.Location) > 0 {
 		i -= len(m.Location)
 		copy(dAtA[i:], m.Location)
@@ -212,10 +309,10 @@ func (m *Region) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		i--
 		dAtA[i] = 0x1a
 	}
-	if len(m.CloudProvider) > 0 {
-		i -= len(m.CloudProvider)
-		copy(dAtA[i:], m.CloudProvider)
-		i = encodeVarintMessage(dAtA, i, uint64(len(m.CloudProvider)))
+	if len(m.CloudProviderDeprecated) > 0 {
+		i -= len(m.CloudProviderDeprecated)
+		copy(dAtA[i:], m.CloudProviderDeprecated)
+		i = encodeVarintMessage(dAtA, i, uint64(len(m.CloudProviderDeprecated)))
 		i--
 		dAtA[i] = 0x12
 	}
@@ -250,7 +347,7 @@ func (m *Region) Size() (n int) {
 	if l > 0 {
 		n += 1 + l + sovMessage(uint64(l))
 	}
-	l = len(m.CloudProvider)
+	l = len(m.CloudProviderDeprecated)
 	if l > 0 {
 		n += 1 + l + sovMessage(uint64(l))
 	}
@@ -261,6 +358,15 @@ func (m *Region) Size() (n int) {
 	l = len(m.Location)
 	if l > 0 {
 		n += 1 + l + sovMessage(uint64(l))
+	}
+	if m.CloudProvider != 0 {
+		n += 1 + sovMessage(uint64(m.CloudProvider))
+	}
+	if len(m.ConnectableRegionIds) > 0 {
+		for _, s := range m.ConnectableRegionIds {
+			l = len(s)
+			n += 1 + l + sovMessage(uint64(l))
+		}
 	}
 	return n
 }
@@ -277,9 +383,11 @@ func (this *Region) String() string {
 	}
 	s := strings.Join([]string{`&Region{`,
 		`Id:` + fmt.Sprintf("%v", this.Id) + `,`,
-		`CloudProvider:` + fmt.Sprintf("%v", this.CloudProvider) + `,`,
+		`CloudProviderDeprecated:` + fmt.Sprintf("%v", this.CloudProviderDeprecated) + `,`,
 		`CloudProviderRegion:` + fmt.Sprintf("%v", this.CloudProviderRegion) + `,`,
 		`Location:` + fmt.Sprintf("%v", this.Location) + `,`,
+		`CloudProvider:` + fmt.Sprintf("%v", this.CloudProvider) + `,`,
+		`ConnectableRegionIds:` + fmt.Sprintf("%v", this.ConnectableRegionIds) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -355,7 +463,7 @@ func (m *Region) Unmarshal(dAtA []byte) error {
 			iNdEx = postIndex
 		case 2:
 			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field CloudProvider", wireType)
+				return fmt.Errorf("proto: wrong wireType = %d for field CloudProviderDeprecated", wireType)
 			}
 			var stringLen uint64
 			for shift := uint(0); ; shift += 7 {
@@ -383,7 +491,7 @@ func (m *Region) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.CloudProvider = string(dAtA[iNdEx:postIndex])
+			m.CloudProviderDeprecated = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 3:
 			if wireType != 2 {
@@ -448,6 +556,57 @@ func (m *Region) Unmarshal(dAtA []byte) error {
 				return io.ErrUnexpectedEOF
 			}
 			m.Location = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 5:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field CloudProvider", wireType)
+			}
+			m.CloudProvider = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMessage
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.CloudProvider |= Region_CloudProvider(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		case 6:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ConnectableRegionIds", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMessage
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthMessage
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ConnectableRegionIds = append(m.ConnectableRegionIds, string(dAtA[iNdEx:postIndex]))
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex

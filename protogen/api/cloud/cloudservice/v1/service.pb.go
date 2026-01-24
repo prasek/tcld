@@ -30,98 +30,169 @@ func init() {
 }
 
 var fileDescriptor_9201a2f120d8d47c = []byte{
-	// 1450 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x99, 0x4d, 0x6c, 0xdc, 0x44,
-	0x14, 0xc7, 0x77, 0x38, 0xf0, 0x31, 0x4a, 0x15, 0x3a, 0x49, 0x9b, 0x90, 0x34, 0x4e, 0xeb, 0x02,
-	0xa5, 0x8b, 0x76, 0xdd, 0x7c, 0xb5, 0xf9, 0x6c, 0xbb, 0x09, 0x64, 0x91, 0x90, 0x8a, 0x94, 0xa8,
-	0x17, 0x2e, 0x91, 0xbb, 0x3b, 0x84, 0x55, 0x92, 0xb5, 0xb1, 0xbd, 0x11, 0xd1, 0x2a, 0x12, 0xe2,
-	0xcc, 0x01, 0xa9, 0x70, 0x01, 0x24, 0xa8, 0xc4, 0x01, 0x2a, 0x71, 0x41, 0x54, 0xdc, 0x10, 0x70,
-	0x01, 0x09, 0x09, 0x22, 0xf5, 0xd2, 0x23, 0xd9, 0x70, 0xe0, 0xd8, 0x1b, 0x1c, 0x2b, 0xcf, 0xbc,
-	0xf1, 0xda, 0x5e, 0x6f, 0xd6, 0xcf, 0xb9, 0x34, 0xdb, 0xcd, 0xfc, 0x9f, 0x7f, 0xff, 0x79, 0xcf,
-	0xcf, 0x6f, 0x1c, 0x7a, 0xc5, 0xe3, 0x3b, 0xb6, 0xe5, 0x98, 0xdb, 0x86, 0x69, 0xd7, 0x8c, 0xca,
-	0xb6, 0xd5, 0xa8, 0xca, 0x7f, 0x5d, 0xee, 0xec, 0xd6, 0x2a, 0xdc, 0xd8, 0x9d, 0x30, 0xe0, 0x63,
-	0xd1, 0x76, 0x2c, 0xcf, 0x62, 0xba, 0x52, 0x14, 0x4d, 0xbb, 0x56, 0x14, 0x6b, 0x8b, 0x61, 0x45,
-	0x71, 0x77, 0x62, 0x64, 0x2e, 0x45, 0x54, 0x87, 0xbf, 0xd7, 0xe0, 0xae, 0xb7, 0xe1, 0x70, 0xd7,
-	0xb6, 0xea, 0x2e, 0x84, 0x1f, 0x39, 0xb7, 0x69, 0x59, 0x9b, 0xdb, 0x5c, 0x08, 0xcd, 0x7a, 0xdd,
-	0xf2, 0x4c, 0xaf, 0x66, 0xd5, 0x5d, 0xf9, 0xdb, 0xc9, 0x1f, 0xe6, 0x68, 0xdf, 0x8a, 0x1f, 0x68,
-	0x5d, 0x06, 0x62, 0x1f, 0x11, 0xfa, 0x6c, 0x99, 0x7b, 0xb7, 0x5d, 0xee, 0xb8, 0x6c, 0xaa, 0xd8,
-	0x9b, 0xad, 0xa8, 0x56, 0xaf, 0xc9, 0xeb, 0x8f, 0x4c, 0xe3, 0x44, 0x12, 0x56, 0x3f, 0xf3, 0xe1,
-	0xc3, 0x7f, 0xee, 0x3e, 0xd5, 0xcf, 0x4e, 0x09, 0xd0, 0xdd, 0x09, 0xa3, 0x21, 0x08, 0xee, 0x12,
-	0xfa, 0x0c, 0xac, 0x65, 0x93, 0x88, 0xc0, 0x0a, 0x66, 0x0a, 0xa5, 0x01, 0x96, 0x71, 0xc1, 0xf2,
-	0x02, 0x1b, 0x8a, 0xb0, 0x18, 0x4d, 0xff, 0xc7, 0x46, 0xad, 0xba, 0xcf, 0x3e, 0x25, 0x94, 0xae,
-	0x38, 0xdc, 0xf4, 0xb8, 0x00, 0x9b, 0x49, 0x73, 0x91, 0xf6, 0x7a, 0xc5, 0x76, 0x15, 0x2b, 0x03,
-	0xbc, 0x61, 0x81, 0xc7, 0xf4, 0xe8, 0x56, 0xcd, 0x93, 0x3c, 0xfb, 0x92, 0x50, 0x7a, 0xdb, 0xae,
-	0xa2, 0xb8, 0xda, 0xeb, 0x51, 0x5c, 0x61, 0x19, 0x70, 0xe9, 0x82, 0xeb, 0x9c, 0xde, 0x6d, 0xdb,
-	0x7c, 0xc2, 0x2f, 0x08, 0xa5, 0xaf, 0xf1, 0x6d, 0x8e, 0x21, 0x6c, 0xaf, 0x47, 0x11, 0x86, 0x65,
-	0xd1, 0xc4, 0xe6, 0xbb, 0x26, 0xf6, 0x90, 0xd0, 0xb3, 0xeb, 0xb2, 0x1a, 0x6e, 0x99, 0x3b, 0xdc,
-	0xb5, 0xcd, 0x0a, 0x2f, 0x55, 0x2a, 0xdc, 0x75, 0x59, 0x29, 0xcd, 0x35, 0x93, 0xb5, 0x0a, 0x7b,
-	0xf9, 0x24, 0x21, 0xc0, 0xc2, 0x4d, 0x61, 0x61, 0x5e, 0x9f, 0x51, 0x16, 0xea, 0x6a, 0xa1, 0x6b,
-	0x34, 0x83, 0xcf, 0xfb, 0x71, 0x67, 0x86, 0x29, 0xc2, 0xf8, 0x29, 0xf8, 0x85, 0xd0, 0xd3, 0x65,
-	0xee, 0x95, 0xdc, 0xbd, 0x7a, 0xe5, 0x2d, 0x9b, 0x3b, 0xa2, 0x1f, 0xb0, 0xc5, 0x94, 0x37, 0x4a,
-	0x54, 0xa6, 0x9c, 0x2d, 0x65, 0x54, 0x83, 0x29, 0x43, 0x98, 0xba, 0xcc, 0x2e, 0x29, 0x53, 0x96,
-	0x5a, 0xe2, 0x1a, 0x4d, 0xd3, 0xd7, 0x6c, 0x04, 0xdf, 0x88, 0x3c, 0x7d, 0x4b, 0x68, 0xbf, 0xbc,
-	0x33, 0x82, 0x7d, 0x62, 0xf3, 0xe9, 0x6f, 0xa7, 0x40, 0xa4, 0xf8, 0x17, 0x32, 0x69, 0x81, 0x7e,
-	0x4c, 0xd0, 0x0f, 0xe9, 0xac, 0x33, 0x25, 0xfe, 0x7e, 0x7f, 0x45, 0xe8, 0xa9, 0x32, 0xf7, 0x02,
-	0x9d, 0xcb, 0x66, 0x53, 0xee, 0x56, 0x5b, 0xa2, 0x38, 0xe7, 0x32, 0x28, 0x81, 0x72, 0x44, 0x50,
-	0x0e, 0xb2, 0x04, 0x4a, 0x7f, 0x3b, 0xfb, 0xc2, 0x2a, 0x76, 0x0d, 0x7b, 0x1d, 0x05, 0x38, 0x8b,
-	0x17, 0x02, 0xdf, 0xcb, 0x82, 0xef, 0x3c, 0xd3, 0x8e, 0x2f, 0x6c, 0xf6, 0x80, 0xd0, 0x7e, 0xd9,
-	0x7c, 0x90, 0xa9, 0x8f, 0x89, 0x50, 0xa9, 0xef, 0xd0, 0x02, 0xf4, 0x65, 0x01, 0x7d, 0x51, 0xef,
-	0x01, 0xed, 0x97, 0xc1, 0xff, 0x84, 0x8e, 0xae, 0x71, 0xff, 0xbb, 0x95, 0x86, 0xeb, 0x59, 0x3b,
-	0xeb, 0xdc, 0x74, 0x2a, 0xef, 0x96, 0x3c, 0xcf, 0xa9, 0xdd, 0x69, 0x78, 0x9c, 0xad, 0xa6, 0xe1,
-	0x38, 0x26, 0x80, 0xf2, 0x53, 0x3e, 0x71, 0x1c, 0xf0, 0xf6, 0x86, 0xf0, 0xb6, 0xac, 0x2f, 0xf5,
-	0xe8, 0x34, 0x8e, 0x88, 0x55, 0xa8, 0x88, 0x60, 0x05, 0x57, 0x44, 0x2b, 0x98, 0x2a, 0x9c, 0x6f,
-	0xfd, 0x7b, 0x42, 0xfb, 0x65, 0x37, 0x46, 0xa6, 0x2c, 0x26, 0x42, 0xa5, 0xac, 0x43, 0x1b, 0xad,
-	0xb3, 0x7c, 0xaf, 0x3a, 0x3b, 0x22, 0x74, 0x68, 0xd5, 0xac, 0x6d, 0x5b, 0xbb, 0xa1, 0x66, 0xbc,
-	0xc6, 0x37, 0xfd, 0x66, 0x99, 0xaa, 0x91, 0x77, 0x11, 0x2b, 0x13, 0x2b, 0x27, 0x8a, 0x01, 0x66,
-	0x6e, 0x08, 0x33, 0x73, 0xfa, 0xb4, 0x32, 0x23, 0x47, 0xc3, 0x2e, 0x99, 0x7a, 0x07, 0xa2, 0x15,
-	0x1c, 0x11, 0xc5, 0x4f, 0xcd, 0x5f, 0x84, 0xb2, 0x52, 0xb5, 0x1a, 0x37, 0x98, 0xaa, 0x9f, 0x77,
-	0xea, 0x94, 0xb7, 0xeb, 0x59, 0xe5, 0x60, 0x6b, 0x5e, 0xd8, 0x9a, 0xd6, 0x8d, 0x54, 0xb6, 0xcc,
-	0x6a, 0x35, 0xe4, 0xe8, 0x13, 0x42, 0x69, 0x99, 0x7b, 0x32, 0xa2, 0x9b, 0x6e, 0xc2, 0x68, 0xaf,
-	0x47, 0x4d, 0x18, 0x61, 0x19, 0x90, 0x0f, 0x09, 0xf2, 0xd3, 0xac, 0x5f, 0x91, 0x3b, 0xc0, 0xf1,
-	0x19, 0xa1, 0xcf, 0x05, 0xeb, 0xd9, 0x34, 0x2a, 0xbc, 0x82, 0x9a, 0x41, 0xaa, 0x80, 0xe9, 0xbc,
-	0x60, 0x1a, 0x61, 0xc3, 0x31, 0x26, 0xa3, 0x29, 0x3f, 0xec, 0xb3, 0x1f, 0xe5, 0x48, 0x70, 0x8b,
-	0xbf, 0xdf, 0x70, 0x5f, 0xaf, 0x57, 0x6d, 0xab, 0x56, 0xf7, 0xdc, 0xd4, 0x23, 0x41, 0x54, 0x86,
-	0x1d, 0x09, 0xe2, 0x6a, 0x80, 0x7e, 0x49, 0x40, 0x8f, 0xb3, 0xb1, 0x58, 0x09, 0xf8, 0xab, 0x0d,
-	0x1e, 0x30, 0xfe, 0x4a, 0xe8, 0xf3, 0xf1, 0x20, 0x6c, 0x21, 0xcb, 0xa5, 0x15, 0xf7, 0x62, 0x36,
-	0x31, 0x60, 0x4f, 0x09, 0xec, 0x02, 0x7b, 0xf5, 0x58, 0x6c, 0xa3, 0xa9, 0x3e, 0x8a, 0x69, 0xe6,
-	0x67, 0x42, 0x07, 0x60, 0xb8, 0x88, 0xf8, 0xb8, 0x8e, 0x98, 0x4a, 0x92, 0xac, 0xdc, 0xc8, 0xac,
-	0x07, 0x37, 0xaf, 0x08, 0x37, 0xba, 0x7e, 0x7c, 0x12, 0xfc, 0xbb, 0xee, 0x4f, 0x42, 0x07, 0xe0,
-	0x21, 0x89, 0xb7, 0x90, 0x20, 0x44, 0x59, 0x48, 0xd4, 0x83, 0x85, 0xab, 0xc2, 0xc2, 0x15, 0x1d,
-	0x93, 0x10, 0xdf, 0xd0, 0x1f, 0x84, 0x0e, 0xc0, 0x23, 0x04, 0x6f, 0x28, 0x41, 0x88, 0x32, 0x94,
-	0xa8, 0x8f, 0x56, 0x58, 0x1e, 0x55, 0x61, 0xd0, 0x14, 0x4b, 0x95, 0x8a, 0xd5, 0xa8, 0x7b, 0xa9,
-	0x9b, 0x22, 0xac, 0xc7, 0x36, 0xc5, 0x40, 0xd6, 0xad, 0x29, 0x9a, 0xc0, 0xe1, 0x8f, 0xc6, 0x32,
-	0x79, 0x8a, 0x6c, 0x36, 0x7d, 0xbe, 0x63, 0x70, 0x73, 0x19, 0x94, 0xd1, 0xd1, 0x58, 0x8f, 0xf3,
-	0xf9, 0x75, 0x70, 0x4f, 0x4e, 0xef, 0xfe, 0x91, 0xac, 0xec, 0x58, 0x0d, 0x3b, 0xfd, 0xf4, 0xde,
-	0x96, 0x60, 0xa7, 0xf7, 0xb0, 0x12, 0x10, 0x47, 0x05, 0xe2, 0x19, 0x36, 0x10, 0x3e, 0xb9, 0x16,
-	0x36, 0x25, 0x11, 0x8c, 0xef, 0x81, 0x2c, 0xf5, 0xf8, 0x1e, 0x28, 0xb0, 0xe3, 0x7b, 0x48, 0xd8,
-	0x6d, 0x7c, 0x0f, 0x01, 0x1a, 0x4d, 0xf1, 0x53, 0x54, 0xe2, 0xfd, 0xe0, 0xe4, 0xd6, 0xc6, 0x9d,
-	0xc7, 0xbd, 0x08, 0x89, 0x10, 0x2f, 0x64, 0xd2, 0x02, 0xb4, 0x26, 0xa0, 0x87, 0xf5, 0xa4, 0x5d,
-	0xf5, 0x93, 0xdf, 0x3e, 0x6b, 0x20, 0x61, 0x63, 0xa2, 0x0c, 0x67, 0x8d, 0x4e, 0xd8, 0x8e, 0xb3,
-	0x46, 0xf2, 0x0e, 0x47, 0x07, 0x6e, 0x24, 0x77, 0x4c, 0x94, 0x61, 0xe0, 0xee, 0x5a, 0x19, 0xf9,
-	0x5e, 0x95, 0xf1, 0x1f, 0xa1, 0xa3, 0xeb, 0xa1, 0xd2, 0x8a, 0xbf, 0x80, 0x59, 0x45, 0xbc, 0x3d,
-	0x49, 0x0a, 0x80, 0x3a, 0x20, 0x1d, 0x1b, 0x07, 0x8c, 0x95, 0x85, 0xb1, 0x92, 0xbe, 0x98, 0xe2,
-	0x55, 0x4c, 0xa7, 0xdf, 0xd0, 0x1b, 0x99, 0x9f, 0x08, 0x1d, 0x94, 0x25, 0x0a, 0x6f, 0x61, 0x55,
-	0x37, 0x44, 0x3c, 0xc0, 0xa3, 0x4a, 0xe5, 0xf5, 0x66, 0xf6, 0x00, 0x60, 0xf2, 0xa2, 0x30, 0x39,
-	0xa6, 0x07, 0xc3, 0x23, 0x08, 0x0b, 0xd0, 0x23, 0x85, 0x81, 0xdf, 0xe4, 0xfc, 0x18, 0xa3, 0x4f,
-	0x3b, 0x49, 0x25, 0xa3, 0x2f, 0x65, 0x54, 0x03, 0xf7, 0x8c, 0xe0, 0x36, 0x58, 0xa1, 0x1b, 0xb7,
-	0xd1, 0x84, 0x6f, 0x36, 0xe0, 0x1b, 0x51, 0x84, 0x0f, 0x08, 0x65, 0x1d, 0x41, 0x5d, 0x96, 0x0d,
-	0xc6, 0x45, 0x9d, 0x87, 0x92, 0xe4, 0xdd, 0x26, 0xf8, 0xb8, 0x19, 0xf6, 0x90, 0xd0, 0x41, 0xd9,
-	0x38, 0xb2, 0x94, 0x50, 0x92, 0x12, 0x55, 0x42, 0xc9, 0x01, 0x80, 0x7e, 0x56, 0xd0, 0x4f, 0xea,
-	0xb8, 0x54, 0xf8, 0x75, 0x75, 0x40, 0xe8, 0xa0, 0x6c, 0x2b, 0x59, 0x5c, 0x25, 0x29, 0x51, 0xae,
-	0x92, 0x03, 0x44, 0x0b, 0x2c, 0x8f, 0x2c, 0xb0, 0xcf, 0x61, 0x12, 0xb3, 0x6b, 0x6f, 0xf2, 0xbd,
-	0xf4, 0xc7, 0x53, 0x58, 0x8f, 0x9e, 0xc4, 0x94, 0x2c, 0xfa, 0xc0, 0x63, 0x67, 0xa3, 0xc3, 0xa3,
-	0x69, 0xd7, 0x0a, 0x5b, 0x3e, 0xce, 0x3d, 0x79, 0x4a, 0x95, 0xb2, 0xd4, 0xa7, 0x54, 0xb9, 0x1c,
-	0x7b, 0x4a, 0x55, 0x2a, 0x40, 0xbb, 0x24, 0xd0, 0x2e, 0xb0, 0xf1, 0x64, 0x34, 0xa3, 0xb9, 0xc5,
-	0xf7, 0xc4, 0x0e, 0x7e, 0x4d, 0x68, 0x9f, 0x6c, 0x59, 0x80, 0x79, 0x2d, 0x7d, 0x93, 0x8b, 0x92,
-	0xce, 0xe2, 0x85, 0x00, 0x7b, 0x41, 0xc0, 0x8e, 0xea, 0x5d, 0xf6, 0xd1, 0xaf, 0xdd, 0xef, 0x08,
-	0xed, 0x83, 0x71, 0x13, 0x81, 0x19, 0x56, 0xa0, 0x30, 0xa3, 0x42, 0xc0, 0xcc, 0x0b, 0xcc, 0x17,
-	0xf5, 0x5e, 0x7b, 0xea, 0xf3, 0xde, 0x27, 0xb4, 0x4f, 0x16, 0x3c, 0x86, 0x37, 0xac, 0x40, 0xf1,
-	0x46, 0x85, 0xd1, 0x1a, 0xc8, 0xf7, 0xe2, 0x5d, 0xde, 0x3a, 0x38, 0xd4, 0x72, 0x8f, 0x0e, 0xb5,
-	0xdc, 0xe3, 0x43, 0x8d, 0x7c, 0xd0, 0xd2, 0xc8, 0x37, 0x2d, 0x8d, 0xfc, 0xde, 0xd2, 0xc8, 0x41,
-	0x4b, 0x23, 0x7f, 0xb7, 0x34, 0xf2, 0x6f, 0x4b, 0xcb, 0x3d, 0x6e, 0x69, 0xe4, 0xe3, 0x23, 0x2d,
-	0x77, 0x70, 0xa4, 0xe5, 0x1e, 0x1d, 0x69, 0xb9, 0xb7, 0x67, 0x36, 0xad, 0x36, 0x5a, 0xcd, 0xea,
-	0xfe, 0xb7, 0xd4, 0x85, 0xf0, 0xff, 0xef, 0x3c, 0x2d, 0xfe, 0x54, 0x3a, 0xf5, 0x24, 0x00, 0x00,
-	0xff, 0xff, 0x80, 0x0c, 0x35, 0xd9, 0xdb, 0x1d, 0x00, 0x00,
+	// 2588 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x5b, 0x5b, 0x8c, 0x1c, 0x47,
+	0x15, 0xdd, 0xf2, 0x07, 0x8f, 0x62, 0xe3, 0x47, 0x79, 0xb3, 0xf6, 0xfa, 0x31, 0x71, 0x3a, 0xb6,
+	0x63, 0x4f, 0x3c, 0xd3, 0x5e, 0xbf, 0xd6, 0x3b, 0x6b, 0xc7, 0x9e, 0x5d, 0xdb, 0x4b, 0xc8, 0xcb,
+	0xda, 0xb5, 0xfd, 0xc1, 0xcf, 0xaa, 0x3d, 0x53, 0x99, 0x34, 0xbb, 0x3b, 0x3d, 0x74, 0xf7, 0xac,
+	0xb2, 0x1a, 0x59, 0x42, 0xfc, 0xf2, 0x83, 0x88, 0x11, 0x02, 0xc4, 0x4b, 0x3c, 0x94, 0x04, 0x21,
+	0x81, 0x14, 0x09, 0xf1, 0x92, 0x50, 0x04, 0x21, 0x42, 0x08, 0x2c, 0x82, 0x20, 0x20, 0xa4, 0xc4,
+	0x6b, 0x3e, 0x10, 0x08, 0x29, 0x1f, 0x08, 0x7e, 0x51, 0x57, 0xdd, 0xee, 0xe9, 0x57, 0xf5, 0xd6,
+	0xed, 0xe5, 0x27, 0x3b, 0x19, 0xd7, 0xb9, 0x7d, 0x4e, 0xdd, 0x5b, 0x75, 0xef, 0xad, 0xae, 0xa1,
+	0x27, 0x7d, 0xbe, 0xda, 0x73, 0x5c, 0x6b, 0xc5, 0xb4, 0x7a, 0xb6, 0xd9, 0x5a, 0x71, 0xfa, 0x6d,
+	0xf9, 0x5f, 0x8f, 0xbb, 0x6b, 0x76, 0x8b, 0x9b, 0x6b, 0x93, 0x26, 0x7c, 0xac, 0xf7, 0x5c, 0xc7,
+	0x77, 0x98, 0x11, 0x22, 0xea, 0x56, 0xcf, 0xae, 0x8b, 0xb1, 0xf5, 0x38, 0xa2, 0xbe, 0x36, 0xb9,
+	0x6f, 0x5a, 0xc3, 0xaa, 0xcb, 0x3f, 0xd9, 0xe7, 0x9e, 0xbf, 0xe4, 0x72, 0xaf, 0xe7, 0x74, 0x3d,
+	0x30, 0xbf, 0xef, 0x40, 0xc7, 0x71, 0x3a, 0x2b, 0x5c, 0x00, 0xad, 0x6e, 0xd7, 0xf1, 0x2d, 0xdf,
+	0x76, 0xba, 0x9e, 0xfc, 0xd7, 0x53, 0x6f, 0x78, 0x74, 0x74, 0x2e, 0x30, 0xb4, 0x28, 0x0d, 0xb1,
+	0xcf, 0x10, 0xfa, 0xa1, 0x79, 0xee, 0xdf, 0xf4, 0xb8, 0xeb, 0xb1, 0xd3, 0xf5, 0xcd, 0xb9, 0xd5,
+	0xc3, 0xd1, 0x0b, 0xf2, 0xf9, 0xfb, 0xce, 0xe0, 0x40, 0x92, 0xac, 0x31, 0xf6, 0xe9, 0xb7, 0xff,
+	0xf6, 0xf2, 0xb6, 0xed, 0x6c, 0x14, 0xd4, 0xf5, 0x05, 0x81, 0xcf, 0x11, 0xfa, 0x41, 0x18, 0xca,
+	0x4e, 0x21, 0xec, 0x86, 0x5c, 0x4e, 0xa3, 0x30, 0x40, 0xa5, 0x22, 0xa8, 0xec, 0x65, 0xe3, 0x71,
+	0x2a, 0xe6, 0x20, 0xf8, 0xb3, 0x64, 0xb7, 0xef, 0xb0, 0xbb, 0x84, 0xd2, 0x39, 0x97, 0x5b, 0x3e,
+	0x17, 0xbc, 0xce, 0xea, 0x3c, 0x63, 0x38, 0x3e, 0xa4, 0x76, 0x0e, 0x0b, 0x03, 0x76, 0x7b, 0x04,
+	0xbb, 0x5d, 0x46, 0x62, 0xa2, 0x1a, 0xa4, 0xca, 0xbe, 0x4a, 0x28, 0xbd, 0xd9, 0x6b, 0xa3, 0x68,
+	0x0d, 0xc7, 0xa3, 0x68, 0xc5, 0x61, 0x40, 0xeb, 0x51, 0x41, 0x6b, 0xbf, 0xa1, 0x98, 0xb4, 0x80,
+	0xe0, 0x97, 0x09, 0xa5, 0x57, 0xf8, 0x0a, 0xc7, 0x10, 0x1c, 0x8e, 0x47, 0x11, 0x8c, 0xc3, 0x92,
+	0x5e, 0xad, 0xaa, 0xbc, 0xfa, 0x1e, 0xa1, 0xe3, 0x8b, 0x32, 0x12, 0x9e, 0xb3, 0x56, 0xb9, 0xd7,
+	0xb3, 0x5a, 0xbc, 0xd9, 0x6a, 0x71, 0xcf, 0x63, 0x4d, 0x9d, 0x47, 0xe6, 0x63, 0x43, 0xd6, 0xb3,
+	0x5b, 0x31, 0x01, 0x0a, 0x2e, 0x09, 0x05, 0xd3, 0xc6, 0x19, 0x50, 0xd0, 0x0d, 0xc7, 0x79, 0xe6,
+	0x20, 0xfa, 0x7c, 0x27, 0x2d, 0xcc, 0xb4, 0x84, 0x95, 0xc0, 0x01, 0x3f, 0x27, 0x74, 0xd7, 0x3c,
+	0xf7, 0x9b, 0xde, 0x7a, 0xb7, 0xf5, 0x7c, 0x8f, 0xbb, 0x62, 0x27, 0x60, 0x17, 0x34, 0xd7, 0x48,
+	0x12, 0x16, 0x0a, 0xbb, 0x58, 0x12, 0x0d, 0x9a, 0xea, 0x42, 0xd3, 0x31, 0x76, 0x14, 0x34, 0x39,
+	0xe1, 0x08, 0xcf, 0x1c, 0x58, 0x01, 0x64, 0x29, 0xfa, 0x46, 0x78, 0xe9, 0x15, 0x42, 0x77, 0xc8,
+	0x45, 0x11, 0xcd, 0x12, 0x6b, 0xe8, 0xaf, 0xa4, 0x08, 0x14, 0xd2, 0x9f, 0x29, 0x85, 0x05, 0xf2,
+	0x07, 0x04, 0xf9, 0x71, 0x63, 0x57, 0xc6, 0x21, 0xc1, 0x6c, 0x7f, 0x8d, 0xd0, 0x87, 0xe6, 0xb9,
+	0x1f, 0xc1, 0x3c, 0x76, 0x5e, 0x73, 0xae, 0x86, 0x90, 0x90, 0xe6, 0x74, 0x09, 0x24, 0x90, 0x9c,
+	0x10, 0x24, 0x77, 0xb3, 0x2c, 0x49, 0xf6, 0x2a, 0xa1, 0x3b, 0xe2, 0xa0, 0xa7, 0xae, 0x78, 0x7a,
+	0x93, 0x99, 0x02, 0xa1, 0x26, 0x33, 0x83, 0x05, 0x9e, 0x07, 0x05, 0xcf, 0x3d, 0xec, 0xe1, 0xec,
+	0x64, 0xda, 0x6d, 0x2f, 0x70, 0xfc, 0x68, 0x1c, 0xca, 0xa6, 0xb0, 0x0f, 0x0b, 0x59, 0x9e, 0xc7,
+	0x03, 0x81, 0xe2, 0x11, 0x41, 0xf1, 0x11, 0x76, 0xb0, 0x70, 0x01, 0xb2, 0xd7, 0x09, 0xdd, 0x21,
+	0x77, 0x48, 0x64, 0x8c, 0xa6, 0x40, 0xa8, 0x69, 0xcd, 0x60, 0x81, 0xf3, 0x31, 0xc1, 0xd9, 0x30,
+	0x8a, 0x39, 0x07, 0xf1, 0xfa, 0x5f, 0x42, 0xf7, 0x2f, 0xf0, 0xe0, 0xbb, 0xb9, 0xbe, 0xe7, 0x3b,
+	0xab, 0x8b, 0xdc, 0x72, 0x5b, 0x2f, 0x36, 0x7d, 0xdf, 0xb5, 0x6f, 0xf7, 0x7d, 0xce, 0xae, 0xe9,
+	0xd0, 0x28, 0x30, 0x10, 0xca, 0x99, 0xdf, 0xb2, 0x1d, 0x90, 0x36, 0x2f, 0xa4, 0x35, 0x8d, 0x0b,
+	0xc5, 0xfb, 0xa1, 0x2b, 0x4c, 0xd5, 0x5a, 0xc2, 0x56, 0xcd, 0x13, 0xc6, 0x6a, 0x56, 0x68, 0x2d,
+	0x50, 0xfe, 0x03, 0x42, 0x77, 0xc8, 0x8c, 0x81, 0x74, 0x58, 0x0a, 0x84, 0x72, 0x58, 0x06, 0x9b,
+	0x0c, 0xb2, 0xea, 0x26, 0x41, 0xf6, 0x57, 0x42, 0xf7, 0x5c, 0xb3, 0xec, 0x15, 0x67, 0x2d, 0x96,
+	0x30, 0x16, 0x78, 0x27, 0xd8, 0xd1, 0xb5, 0x92, 0x8d, 0x02, 0x1c, 0x6a, 0x98, 0xdb, 0x92, 0x0d,
+	0xd0, 0x72, 0x5e, 0x68, 0x39, 0x65, 0xd4, 0x8a, 0x3d, 0xf4, 0x02, 0x98, 0xa9, 0xb9, 0x02, 0x1e,
+	0xb8, 0xe4, 0x2d, 0x42, 0x59, 0xb3, 0xdd, 0x4e, 0x2b, 0xd3, 0xca, 0x36, 0x59, 0x5c, 0x28, 0xea,
+	0xc9, 0xb2, 0x70, 0xd0, 0x73, 0x5a, 0xe8, 0xa9, 0x19, 0xc7, 0x8a, 0xf5, 0x58, 0xed, 0x76, 0x4c,
+	0xca, 0x1f, 0x08, 0x7d, 0x38, 0xe3, 0x6c, 0xa1, 0xe6, 0x72, 0xa9, 0x38, 0x89, 0x0b, 0x6a, 0x6e,
+	0xc1, 0x02, 0x68, 0x3a, 0x27, 0x34, 0x9d, 0xac, 0xd6, 0x37, 0x5b, 0x45, 0x1d, 0x99, 0x95, 0xe5,
+	0x87, 0x3b, 0xec, 0x65, 0x42, 0xe9, 0x3c, 0xf7, 0xa5, 0x35, 0x4f, 0xaf, 0x9a, 0x1b, 0x8e, 0x47,
+	0x55, 0x73, 0x71, 0x18, 0xb0, 0x1e, 0x17, 0xac, 0x77, 0xb2, 0xed, 0xc0, 0x1a, 0xe8, 0xb1, 0x2f,
+	0x12, 0xfa, 0xe1, 0x68, 0x38, 0x3b, 0x83, 0xb2, 0x1e, 0x72, 0x3a, 0x8b, 0x44, 0x01, 0xa5, 0x47,
+	0x04, 0xa5, 0x09, 0xb6, 0x27, 0x49, 0x69, 0x38, 0x63, 0xdf, 0x97, 0xe5, 0xd7, 0x73, 0xfc, 0xa5,
+	0xbe, 0x77, 0xb5, 0xdb, 0xee, 0x39, 0x76, 0xd7, 0xf7, 0xb4, 0xcb, 0xaf, 0x24, 0x0c, 0x5b, 0x7e,
+	0xa5, 0xd1, 0x8a, 0x56, 0xa7, 0x1b, 0x0c, 0x33, 0x79, 0x44, 0xee, 0x27, 0x84, 0xee, 0x4c, 0xa3,
+	0xd9, 0x4c, 0x99, 0x67, 0x86, 0x84, 0x2f, 0x94, 0x03, 0x03, 0xdf, 0x13, 0x82, 0xef, 0x51, 0x76,
+	0x38, 0x9f, 0xaf, 0x39, 0x08, 0x3f, 0x8a, 0x62, 0xf1, 0x47, 0x84, 0xee, 0x86, 0xda, 0x2d, 0x21,
+	0xe0, 0x49, 0x44, 0xd1, 0x97, 0xa7, 0xe1, 0x52, 0x69, 0xbc, 0xa2, 0x59, 0x4a, 0xc9, 0x08, 0x76,
+	0x8d, 0x5f, 0x11, 0xba, 0x1b, 0x72, 0x3a, 0x9e, 0x7b, 0x0e, 0x10, 0xc5, 0x3d, 0x17, 0x0f, 0xdc,
+	0x4d, 0xc1, 0xfd, 0xb8, 0xa1, 0xe5, 0x82, 0x40, 0xc9, 0x2f, 0x08, 0xdd, 0x0d, 0x5b, 0x10, 0x5e,
+	0x49, 0x0e, 0x10, 0xa5, 0x24, 0x17, 0x9f, 0x0c, 0xa6, 0xaa, 0x5e, 0x30, 0x7d, 0x5d, 0x96, 0xf3,
+	0x41, 0x83, 0x36, 0xef, 0x3a, 0xfd, 0x9e, 0x7e, 0x39, 0x3f, 0x84, 0x60, 0xcb, 0xf9, 0x38, 0x12,
+	0x48, 0xef, 0x13, 0xa4, 0xc7, 0x18, 0x8b, 0xb5, 0xb1, 0xb5, 0x8e, 0x24, 0x04, 0x35, 0x72, 0x84,
+	0xd2, 0xae, 0x91, 0x23, 0x04, 0xb6, 0x46, 0x8e, 0x01, 0x15, 0x35, 0x72, 0x8c, 0x9f, 0x39, 0x10,
+	0x7f, 0xc5, 0x6c, 0xbe, 0x1a, 0xf5, 0x71, 0x43, 0xb6, 0x0d, 0xdc, 0x89, 0x48, 0x82, 0xf0, 0x4c,
+	0x29, 0x6c, 0xb2, 0xf5, 0x30, 0x72, 0xe6, 0x34, 0x08, 0xe0, 0x61, 0x3d, 0x8f, 0xe4, 0x9a, 0x02,
+	0x95, 0xa8, 0xe7, 0xb3, 0x5c, 0xd3, 0xf5, 0x7c, 0xfe, 0xfc, 0x26, 0xab, 0x5a, 0x24, 0xed, 0x14,
+	0xa8, 0x44, 0x55, 0xab, 0x0c, 0x8b, 0xea, 0x26, 0x61, 0xf1, 0x1f, 0x42, 0xf7, 0x2f, 0xc6, 0xc2,
+	0x2a, 0x7d, 0x12, 0x73, 0x0d, 0x71, 0x8c, 0x92, 0x67, 0x00, 0xd5, 0x83, 0x14, 0xda, 0x01, 0x5d,
+	0xd7, 0x84, 0xae, 0xcb, 0xc6, 0xcc, 0xe6, 0x67, 0x32, 0x59, 0xb9, 0xb1, 0xa3, 0x99, 0x5f, 0xca,
+	0x7a, 0x37, 0x7a, 0xde, 0xb3, 0x7c, 0xf5, 0x36, 0x77, 0xb5, 0xeb, 0xdd, 0x14, 0x0e, 0x5b, 0xef,
+	0x66, 0xe0, 0xa0, 0xee, 0xa4, 0x50, 0x57, 0x35, 0x8e, 0x14, 0x7a, 0xcd, 0x5c, 0x15, 0x28, 0x2f,
+	0x2c, 0x76, 0x17, 0xf8, 0xaa, 0xb3, 0xc6, 0xd3, 0x52, 0x2e, 0xeb, 0xb5, 0x7d, 0x39, 0x50, 0x54,
+	0xb1, 0xab, 0xb0, 0x90, 0x2c, 0x76, 0x8d, 0x27, 0x8a, 0x05, 0xb9, 0xc2, 0x48, 0x4d, 0xea, 0x02,
+	0xf7, 0xec, 0x8e, 0x6f, 0x77, 0xd2, 0xac, 0xa7, 0x97, 0xc3, 0x72, 0x80, 0xa8, 0x1c, 0x96, 0x8b,
+	0x07, 0x41, 0x35, 0x21, 0xe8, 0x71, 0xa6, 0xe7, 0x21, 0xf6, 0x33, 0x42, 0xc7, 0xe4, 0x2e, 0x08,
+	0xe7, 0xfd, 0xcd, 0x56, 0xcb, 0xe9, 0x77, 0x7d, 0x86, 0x28, 0x69, 0x92, 0xc8, 0x50, 0xc9, 0xe5,
+	0xf2, 0x06, 0x40, 0x8a, 0x21, 0xa4, 0x1c, 0x30, 0xc2, 0xfa, 0x19, 0x70, 0x35, 0x4b, 0x8e, 0x13,
+	0xe1, 0xf5, 0xa6, 0x2c, 0xa1, 0x53, 0xe4, 0x75, 0x6b, 0xca, 0x7c, 0xe6, 0x17, 0x4b, 0xa2, 0x81,
+	0xf6, 0x19, 0x41, 0xbb, 0xce, 0x4e, 0x28, 0x68, 0x9b, 0x03, 0xf8, 0x66, 0x09, 0xbe, 0x11, 0x1b,
+	0xdd, 0xeb, 0x84, 0xb2, 0x8c, 0x4d, 0x8f, 0x95, 0xe3, 0xe2, 0xa1, 0xd6, 0x7b, 0x1e, 0x5c, 0xd1,
+	0xc2, 0xa4, 0xb5, 0xb0, 0xdf, 0x13, 0x3a, 0x26, 0x33, 0x53, 0x99, 0xf8, 0xc9, 0x43, 0xa2, 0xe2,
+	0x27, 0xdf, 0x00, 0x90, 0x9f, 0x12, 0xe4, 0x27, 0x0d, 0x94, 0x23, 0x82, 0xa0, 0xba, 0xbb, 0x8d,
+	0x1e, 0x5a, 0x4c, 0x4f, 0x4a, 0x3a, 0xf3, 0x3c, 0xad, 0x99, 0x31, 0x0a, 0xad, 0x84, 0x62, 0x9f,
+	0xf9, 0xff, 0x18, 0x03, 0xe1, 0x37, 0x85, 0xf0, 0xe7, 0x8d, 0x8f, 0x15, 0xe7, 0x20, 0xad, 0xf9,
+	0x88, 0xa5, 0xa4, 0xdf, 0x11, 0x3a, 0x26, 0xd3, 0x79, 0x19, 0x5f, 0xe7, 0x21, 0x51, 0xbe, 0xce,
+	0x37, 0x90, 0x5c, 0x74, 0x55, 0xdc, 0xa2, 0xbb, 0x2b, 0x8f, 0x2c, 0x9a, 0x3d, 0xfb, 0x69, 0xbe,
+	0xae, 0x7f, 0x64, 0x01, 0xe3, 0xb1, 0x47, 0x16, 0x11, 0x2c, 0xf9, 0xe2, 0x8e, 0xed, 0x00, 0xce,
+	0x56, 0xcf, 0xae, 0x2d, 0x07, 0x3c, 0xbe, 0x24, 0xcf, 0x2c, 0xe4, 0x78, 0xed, 0x33, 0x0b, 0x39,
+	0x1c, 0x7b, 0x66, 0x11, 0xa2, 0x80, 0xd3, 0x21, 0xc1, 0x69, 0x1f, 0xdb, 0x9b, 0xe2, 0x64, 0x0e,
+	0x96, 0xf9, 0xba, 0x98, 0xb3, 0xaf, 0x10, 0x3a, 0x2a, 0xb7, 0x6d, 0xe0, 0x37, 0xa5, 0xbf, 0xd1,
+	0x27, 0x29, 0x9e, 0xc7, 0x03, 0x93, 0x3d, 0x8f, 0x91, 0x9e, 0xb9, 0x20, 0x4a, 0xbf, 0x43, 0xe8,
+	0xa8, 0xdc, 0x16, 0x30, 0xfc, 0xe2, 0x08, 0x14, 0xbf, 0x24, 0x10, 0xf8, 0x3d, 0x26, 0xf8, 0x1d,
+	0x34, 0x94, 0xb3, 0x18, 0x10, 0xfd, 0x26, 0xa1, 0xa3, 0x32, 0xa6, 0x31, 0x44, 0xe3, 0x08, 0x14,
+	0xd1, 0x24, 0x30, 0xe9, 0xee, 0xaa, 0xda, 0xdd, 0xdf, 0x92, 0x2d, 0x64, 0xb3, 0xdf, 0xb6, 0xfd,
+	0x67, 0x9c, 0x8e, 0xa7, 0xdd, 0x42, 0x46, 0x08, 0x6c, 0x0b, 0x19, 0x03, 0x26, 0x4f, 0x47, 0xd8,
+	0x44, 0xc8, 0x52, 0x2e, 0x61, 0xd3, 0x0a, 0x46, 0xd6, 0x56, 0x02, 0x56, 0xf7, 0x09, 0xdd, 0x7f,
+	0xcb, 0x5a, 0xb1, 0x85, 0x33, 0xe4, 0x3f, 0x87, 0x76, 0x16, 0xed, 0xee, 0xb2, 0x5e, 0x9f, 0x50,
+	0x60, 0x00, 0xd5, 0x27, 0x14, 0xda, 0x01, 0x4d, 0x93, 0x42, 0xd3, 0x13, 0xc6, 0x51, 0x95, 0xa6,
+	0x9a, 0x67, 0x77, 0x97, 0x6b, 0x6b, 0x60, 0x2a, 0x08, 0x98, 0xb7, 0x09, 0x9d, 0x80, 0xe5, 0x90,
+	0xa3, 0xf0, 0x0a, 0x62, 0x35, 0xa9, 0xf5, 0x5d, 0xdd, 0xa2, 0x15, 0x50, 0x77, 0x5c, 0xa8, 0x7b,
+	0xcc, 0xa8, 0x14, 0xaa, 0x13, 0xeb, 0xf5, 0xb7, 0x84, 0x8e, 0x07, 0x5e, 0xcf, 0x91, 0xd4, 0xd4,
+	0x8d, 0x18, 0xb5, 0x9e, 0xd9, 0xad, 0x98, 0x50, 0x94, 0xd4, 0x0a, 0x31, 0x32, 0xb7, 0xde, 0x61,
+	0xbf, 0x26, 0x74, 0x4f, 0xbe, 0x45, 0x8f, 0x6d, 0x81, 0x8e, 0x87, 0x7a, 0x11, 0xa3, 0xb4, 0x01,
+	0x9a, 0x8e, 0x0a, 0x4d, 0x87, 0xd8, 0x26, 0x0e, 0x62, 0xef, 0x12, 0x3a, 0x01, 0x5b, 0x5c, 0xd9,
+	0x98, 0x53, 0xc2, 0x51, 0x31, 0x57, 0x60, 0x05, 0x24, 0x9d, 0x15, 0x92, 0x4c, 0xa3, 0xba, 0x99,
+	0x9b, 0xbc, 0x1e, 0x6f, 0xd5, 0x85, 0xaf, 0x82, 0xf8, 0xfb, 0x13, 0xa1, 0x13, 0xb0, 0x37, 0x96,
+	0x55, 0xa8, 0x84, 0xa3, 0x14, 0x16, 0x58, 0x49, 0x06, 0x62, 0x55, 0x33, 0x10, 0xa3, 0x9b, 0x5b,
+	0x56, 0x87, 0x23, 0x6e, 0x6e, 0x59, 0x1d, 0x8e, 0xbf, 0xb9, 0x25, 0x40, 0xca, 0x9b, 0x5b, 0x01,
+	0x01, 0x78, 0x3d, 0x14, 0xd6, 0x8c, 0x67, 0x71, 0x51, 0x8c, 0xae, 0xb5, 0x52, 0xf5, 0x61, 0xfa,
+	0xf5, 0x10, 0x4c, 0x9d, 0xb8, 0x93, 0x91, 0x08, 0x2d, 0x76, 0x1e, 0x1d, 0x8d, 0xa8, 0x43, 0xdc,
+	0x14, 0x32, 0x79, 0x27, 0xc3, 0x48, 0xd1, 0x0b, 0xe2, 0xf3, 0xdd, 0x68, 0xd7, 0x8f, 0xca, 0xfd,
+	0xab, 0x2f, 0xf5, 0x1c, 0xd7, 0xc7, 0xee, 0xfa, 0x39, 0xf0, 0x12, 0xbb, 0x7e, 0xae, 0x15, 0xc5,
+	0x0a, 0x54, 0xf4, 0x1d, 0x5c, 0x20, 0x87, 0x19, 0xe0, 0x2f, 0x32, 0x03, 0xe4, 0xc9, 0x6b, 0x62,
+	0xaf, 0x66, 0x64, 0xb5, 0xcd, 0x6e, 0xc5, 0x04, 0x08, 0x9b, 0x16, 0xc2, 0x4e, 0xb3, 0x49, 0x7d,
+	0x61, 0xe1, 0x22, 0xfc, 0xa3, 0xcc, 0x06, 0x39, 0xd6, 0xf5, 0xb3, 0x41, 0x1e, 0x18, 0x9b, 0x0d,
+	0xf2, 0x6d, 0x80, 0xbe, 0x53, 0x42, 0xdf, 0x09, 0x86, 0x70, 0x1c, 0xfb, 0x67, 0x94, 0x19, 0x4a,
+	0xc7, 0xa5, 0x12, 0x5e, 0x22, 0x33, 0x14, 0xb9, 0xaf, 0x29, 0xe4, 0xcd, 0x18, 0xe7, 0x30, 0xee,
+	0x4b, 0x66, 0x89, 0x07, 0x51, 0x96, 0x28, 0xad, 0x56, 0x09, 0x2f, 0x91, 0x25, 0x34, 0x82, 0xb5,
+	0x5a, 0x22, 0x58, 0xff, 0x15, 0xab, 0xa2, 0xf3, 0x74, 0xa2, 0xaa, 0xe8, 0x02, 0xa5, 0xf3, 0x5b,
+	0xb6, 0x03, 0x5a, 0x2f, 0x0a, 0xad, 0x53, 0xc6, 0x29, 0x6d, 0xad, 0x89, 0x8a, 0xfa, 0xdb, 0x84,
+	0x6e, 0x5f, 0xf4, 0x2d, 0xd7, 0x7f, 0xd6, 0xee, 0xc0, 0xe5, 0x47, 0xad, 0x4d, 0x3c, 0x89, 0x09,
+	0x55, 0x35, 0xca, 0x40, 0x15, 0x37, 0x07, 0x57, 0xc3, 0x11, 0xf1, 0x9b, 0x83, 0x11, 0x4c, 0xff,
+	0x55, 0xe3, 0x10, 0x82, 0x7d, 0xd5, 0x18, 0x47, 0x2a, 0x6e, 0x0e, 0x0e, 0x49, 0xb2, 0xef, 0xca,
+	0x36, 0x71, 0x38, 0x8f, 0x53, 0xd8, 0xc7, 0x60, 0xdb, 0xc4, 0xec, 0x1c, 0xc2, 0x9b, 0x30, 0x76,
+	0x28, 0x43, 0xcf, 0x1c, 0x44, 0x9f, 0x45, 0x53, 0xfb, 0x26, 0xa1, 0xbb, 0x3e, 0x6a, 0x75, 0xdb,
+	0x89, 0xab, 0x4a, 0x7a, 0xa7, 0xc6, 0x19, 0x18, 0xea, 0xd4, 0x38, 0x07, 0x9d, 0x3c, 0xc0, 0x32,
+	0x8e, 0x6f, 0x46, 0xde, 0x7c, 0x11, 0x6c, 0x04, 0x81, 0xf1, 0x63, 0x42, 0xb7, 0x37, 0x6f, 0x3b,
+	0xe8, 0x00, 0x4e, 0x62, 0x50, 0x01, 0x9c, 0x86, 0x2a, 0xfa, 0x59, 0x35, 0x7f, 0x2b, 0x30, 0x10,
+	0x90, 0x7f, 0x83, 0xd0, 0x9d, 0x73, 0x4e, 0xf7, 0x05, 0xdb, 0x5d, 0x1d, 0xd2, 0xd7, 0x7b, 0x6f,
+	0x9b, 0x42, 0xa1, 0xee, 0x92, 0x64, 0xc1, 0x8a, 0xcb, 0x5c, 0x6a, 0x09, 0x2d, 0x69, 0x02, 0x5e,
+	0x04, 0x8d, 0xcb, 0xca, 0x68, 0xce, 0xe9, 0x76, 0x79, 0xcb, 0xb7, 0xd7, 0x6c, 0x7f, 0x7d, 0xa1,
+	0xbf, 0xc2, 0xf5, 0x8a, 0x97, 0x7c, 0x2c, 0xaa, 0x78, 0x51, 0x99, 0x00, 0x59, 0x87, 0x85, 0xac,
+	0x8a, 0x11, 0x9e, 0x9e, 0xb4, 0x62, 0x03, 0x6b, 0x6e, 0x7f, 0x45, 0x5e, 0x4e, 0xbe, 0x27, 0x5f,
+	0x68, 0x65, 0x44, 0xe8, 0xbe, 0x41, 0x50, 0x29, 0xb8, 0x54, 0x1a, 0x9f, 0xbc, 0x32, 0xc8, 0x4e,
+	0x2a, 0xe9, 0x9b, 0x83, 0xf8, 0x77, 0x4b, 0xc1, 0x77, 0x62, 0x95, 0xff, 0x94, 0xd0, 0xb1, 0x1c,
+	0xcb, 0x1e, 0x2b, 0xcb, 0xc9, 0x43, 0x9d, 0x57, 0xe7, 0x1b, 0x50, 0x1c, 0x69, 0x65, 0x55, 0xb1,
+	0x3f, 0x13, 0x3a, 0x2e, 0xb3, 0x7d, 0xb9, 0xc8, 0xca, 0xc7, 0xa2, 0x22, 0x4b, 0x65, 0x22, 0xe9,
+	0x9a, 0x2a, 0xde, 0x35, 0x5f, 0x20, 0xf4, 0x23, 0xf3, 0xdc, 0xbf, 0xee, 0x3a, 0x9f, 0xe0, 0x2d,
+	0xdf, 0x63, 0xba, 0x6d, 0x5d, 0x08, 0x08, 0x55, 0x4c, 0xa1, 0x71, 0x8a, 0xb3, 0xf7, 0x5e, 0xc8,
+	0xe4, 0x1b, 0xb2, 0x4d, 0x05, 0x80, 0x76, 0x9b, 0x0a, 0xe3, 0xb1, 0x6d, 0x6a, 0x04, 0x4b, 0xae,
+	0x55, 0x76, 0x20, 0x45, 0xcb, 0x1c, 0xc0, 0xa7, 0xe8, 0xe6, 0x91, 0x5c, 0xf4, 0x21, 0x4d, 0xc4,
+	0x51, 0x7a, 0x8a, 0xe9, 0x74, 0x09, 0xa4, 0xe2, 0x14, 0x3e, 0x24, 0x1b, 0x6c, 0x27, 0xdf, 0x8b,
+	0xfa, 0x6a, 0x14, 0xc5, 0x04, 0xa4, 0x44, 0x5f, 0x9d, 0xa6, 0xf8, 0xb8, 0xa0, 0xf8, 0xa8, 0x51,
+	0x38, 0x9f, 0x01, 0xdf, 0xd7, 0x08, 0x7d, 0x48, 0x46, 0x3b, 0x8a, 0x6f, 0x02, 0x82, 0xe2, 0x9b,
+	0x42, 0x26, 0xfd, 0x5f, 0x2d, 0xf6, 0xff, 0x0f, 0x09, 0xdd, 0xb9, 0xc0, 0x3d, 0xde, 0x15, 0xf7,
+	0x34, 0x9e, 0xea, 0xae, 0xd9, 0x3e, 0xd7, 0x4b, 0x9c, 0x69, 0x14, 0x2a, 0x71, 0x66, 0xc1, 0x05,
+	0x57, 0x90, 0xe2, 0x3f, 0x38, 0x72, 0x05, 0x30, 0x98, 0xe6, 0xdf, 0x0c, 0x2f, 0x31, 0x86, 0x15,
+	0xd0, 0x0d, 0xab, 0xe3, 0xa1, 0x2e, 0x31, 0xc6, 0x81, 0x65, 0x2e, 0x31, 0x26, 0xf1, 0x8a, 0xf2,
+	0x4b, 0x75, 0x6d, 0x47, 0x98, 0xa8, 0xf9, 0x56, 0x47, 0x44, 0xf9, 0xe7, 0xe5, 0x66, 0x71, 0xc3,
+	0xea, 0xa0, 0xde, 0x1f, 0xc2, 0x78, 0xec, 0x66, 0x11, 0xc1, 0x80, 0xf3, 0x5e, 0xc1, 0x99, 0xb1,
+	0x9d, 0xc0, 0x39, 0x60, 0x65, 0x2e, 0xf3, 0x75, 0x6f, 0xf6, 0xdf, 0xe4, 0xde, 0xfd, 0xca, 0xc8,
+	0x3b, 0xf7, 0x2b, 0x23, 0xef, 0xdf, 0xaf, 0x90, 0x4f, 0x6d, 0x54, 0xc8, 0x2b, 0x1b, 0x15, 0xf2,
+	0xd6, 0x46, 0x85, 0xdc, 0xdb, 0xa8, 0x90, 0xf7, 0x36, 0x2a, 0xe4, 0xef, 0x1b, 0x95, 0x91, 0xf7,
+	0x37, 0x2a, 0xe4, 0xb3, 0x0f, 0x2a, 0x23, 0xf7, 0x1e, 0x54, 0x46, 0xde, 0x79, 0x50, 0x19, 0xa1,
+	0x47, 0x6c, 0x47, 0x83, 0xca, 0xec, 0x28, 0xbc, 0x83, 0xbd, 0xee, 0x3a, 0xbe, 0x73, 0x9d, 0x7c,
+	0xfc, 0x6c, 0x27, 0x06, 0xb3, 0x1d, 0xf5, 0x2f, 0x52, 0x67, 0xe2, 0xff, 0xff, 0xda, 0xb6, 0xc3,
+	0x37, 0x00, 0x64, 0x3b, 0xf5, 0x66, 0xcf, 0xae, 0x8b, 0x9f, 0x9d, 0xd6, 0xe3, 0x3f, 0x3e, 0xad,
+	0xdf, 0x9a, 0xfc, 0xc7, 0xb6, 0x63, 0xc3, 0x61, 0x8d, 0x46, 0xb3, 0x67, 0x37, 0x1a, 0x62, 0x08,
+	0xfc, 0x81, 0x91, 0x8d, 0xc6, 0xad, 0xc9, 0xdb, 0x1f, 0x10, 0x3f, 0x61, 0x3d, 0xfd, 0xbf, 0x00,
+	0x00, 0x00, 0xff, 0xff, 0x2e, 0xaf, 0x2a, 0xa3, 0x73, 0x3b, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -154,6 +225,9 @@ type CloudServiceClient interface {
 	CreateNamespace(ctx context.Context, in *CreateNamespaceRequest, opts ...grpc.CallOption) (*CreateNamespaceResponse, error)
 	// Get all namespaces
 	GetNamespaces(ctx context.Context, in *GetNamespacesRequest, opts ...grpc.CallOption) (*GetNamespacesResponse, error)
+	// Get all namespace ids
+	// temporal:ui
+	GetNamespaceIDs(ctx context.Context, in *GetNamespaceIDsRequest, opts ...grpc.CallOption) (*GetNamespaceIDsResponse, error)
 	// Get a namespace
 	GetNamespace(ctx context.Context, in *GetNamespaceRequest, opts ...grpc.CallOption) (*GetNamespaceResponse, error)
 	// Update a namespace
@@ -166,6 +240,8 @@ type CloudServiceClient interface {
 	FailoverNamespaceRegion(ctx context.Context, in *FailoverNamespaceRegionRequest, opts ...grpc.CallOption) (*FailoverNamespaceRegionResponse, error)
 	// Add a new region to a namespace
 	AddNamespaceRegion(ctx context.Context, in *AddNamespaceRegionRequest, opts ...grpc.CallOption) (*AddNamespaceRegionResponse, error)
+	// Delete a region from a namespace
+	DeleteNamespaceRegion(ctx context.Context, in *DeleteNamespaceRegionRequest, opts ...grpc.CallOption) (*DeleteNamespaceRegionResponse, error)
 	// Get all regions
 	GetRegions(ctx context.Context, in *GetRegionsRequest, opts ...grpc.CallOption) (*GetRegionsResponse, error)
 	// Get a region
@@ -180,10 +256,6 @@ type CloudServiceClient interface {
 	UpdateNexusEndpoint(ctx context.Context, in *UpdateNexusEndpointRequest, opts ...grpc.CallOption) (*UpdateNexusEndpointResponse, error)
 	// Delete a nexus endpoint
 	DeleteNexusEndpoint(ctx context.Context, in *DeleteNexusEndpointRequest, opts ...grpc.CallOption) (*DeleteNexusEndpointResponse, error)
-	// Get account information
-	GetAccount(ctx context.Context, in *GetAccountRequest, opts ...grpc.CallOption) (*GetAccountResponse, error)
-	// Update account information
-	UpdateAccount(ctx context.Context, in *UpdateAccountRequest, opts ...grpc.CallOption) (*UpdateAccountResponse, error)
 	// Get all user groups
 	GetUserGroups(ctx context.Context, in *GetUserGroupsRequest, opts ...grpc.CallOption) (*GetUserGroupsResponse, error)
 	// Get a user group
@@ -196,6 +268,11 @@ type CloudServiceClient interface {
 	DeleteUserGroup(ctx context.Context, in *DeleteUserGroupRequest, opts ...grpc.CallOption) (*DeleteUserGroupResponse, error)
 	// Set a user group's access to a namespace
 	SetUserGroupNamespaceAccess(ctx context.Context, in *SetUserGroupNamespaceAccessRequest, opts ...grpc.CallOption) (*SetUserGroupNamespaceAccessResponse, error)
+	// Add a member to the group, can only be used with Cloud group types.
+	AddUserGroupMember(ctx context.Context, in *AddUserGroupMemberRequest, opts ...grpc.CallOption) (*AddUserGroupMemberResponse, error)
+	// Remove a member from the group, can only be used with Cloud group types.
+	RemoveUserGroupMember(ctx context.Context, in *RemoveUserGroupMemberRequest, opts ...grpc.CallOption) (*RemoveUserGroupMemberResponse, error)
+	GetUserGroupMembers(ctx context.Context, in *GetUserGroupMembersRequest, opts ...grpc.CallOption) (*GetUserGroupMembersResponse, error)
 	// Create a service account.
 	CreateServiceAccount(ctx context.Context, in *CreateServiceAccountRequest, opts ...grpc.CallOption) (*CreateServiceAccountResponse, error)
 	// Get a service account.
@@ -204,6 +281,8 @@ type CloudServiceClient interface {
 	GetServiceAccounts(ctx context.Context, in *GetServiceAccountsRequest, opts ...grpc.CallOption) (*GetServiceAccountsResponse, error)
 	// Update a service account.
 	UpdateServiceAccount(ctx context.Context, in *UpdateServiceAccountRequest, opts ...grpc.CallOption) (*UpdateServiceAccountResponse, error)
+	// Set a service account's access to a namespace.
+	SetServiceAccountNamespaceAccess(ctx context.Context, in *SetServiceAccountNamespaceAccessRequest, opts ...grpc.CallOption) (*SetServiceAccountNamespaceAccessResponse, error)
 	// Delete a service account.
 	DeleteServiceAccount(ctx context.Context, in *DeleteServiceAccountRequest, opts ...grpc.CallOption) (*DeleteServiceAccountResponse, error)
 	// Get all known API keys
@@ -216,6 +295,95 @@ type CloudServiceClient interface {
 	UpdateApiKey(ctx context.Context, in *UpdateApiKeyRequest, opts ...grpc.CallOption) (*UpdateApiKeyResponse, error)
 	// Delete an API key
 	DeleteApiKey(ctx context.Context, in *DeleteApiKeyRequest, opts ...grpc.CallOption) (*DeleteApiKeyResponse, error)
+	// Get audit logs
+	// temporal:dev
+	GetAuditLogs(ctx context.Context, in *GetAuditLogsRequest, opts ...grpc.CallOption) (*GetAuditLogsResponse, error)
+	// Validate customer audit log sink is accessible from Temporal's workflow by delivering an empty file to the specified sink.
+	// The operation verifies that the sink is correctly configured, accessible and ready to receive audit logs.
+	ValidateAccountAuditLogSink(ctx context.Context, in *ValidateAccountAuditLogSinkRequest, opts ...grpc.CallOption) (*ValidateAccountAuditLogSinkResponse, error)
+	// Create an audit log sink
+	// temporal:dev
+	CreateAccountAuditLogSink(ctx context.Context, in *CreateAccountAuditLogSinkRequest, opts ...grpc.CallOption) (*CreateAccountAuditLogSinkResponse, error)
+	// Get an audit log sink
+	// temporal:dev
+	GetAccountAuditLogSink(ctx context.Context, in *GetAccountAuditLogSinkRequest, opts ...grpc.CallOption) (*GetAccountAuditLogSinkResponse, error)
+	// Get audit log sinks
+	// temporal:dev
+	GetAccountAuditLogSinks(ctx context.Context, in *GetAccountAuditLogSinksRequest, opts ...grpc.CallOption) (*GetAccountAuditLogSinksResponse, error)
+	// Update an audit log sink
+	// temporal:dev
+	UpdateAccountAuditLogSink(ctx context.Context, in *UpdateAccountAuditLogSinkRequest, opts ...grpc.CallOption) (*UpdateAccountAuditLogSinkResponse, error)
+	// Delete an audit log sink
+	// temporal:dev
+	DeleteAccountAuditLogSink(ctx context.Context, in *DeleteAccountAuditLogSinkRequest, opts ...grpc.CallOption) (*DeleteAccountAuditLogSinkResponse, error)
+	// Get usage
+	GetUsage(ctx context.Context, in *GetUsageRequest, opts ...grpc.CallOption) (*GetUsageResponse, error)
+	// Get account information
+	GetAccount(ctx context.Context, in *GetAccountRequest, opts ...grpc.CallOption) (*GetAccountResponse, error)
+	// Update account information
+	UpdateAccount(ctx context.Context, in *UpdateAccountRequest, opts ...grpc.CallOption) (*UpdateAccountResponse, error)
+	// Create an export sink
+	CreateNamespaceExportSink(ctx context.Context, in *CreateNamespaceExportSinkRequest, opts ...grpc.CallOption) (*CreateNamespaceExportSinkResponse, error)
+	// Get an export sink
+	GetNamespaceExportSink(ctx context.Context, in *GetNamespaceExportSinkRequest, opts ...grpc.CallOption) (*GetNamespaceExportSinkResponse, error)
+	// Get export sinks
+	GetNamespaceExportSinks(ctx context.Context, in *GetNamespaceExportSinksRequest, opts ...grpc.CallOption) (*GetNamespaceExportSinksResponse, error)
+	// Update an export sink
+	UpdateNamespaceExportSink(ctx context.Context, in *UpdateNamespaceExportSinkRequest, opts ...grpc.CallOption) (*UpdateNamespaceExportSinkResponse, error)
+	// Delete an export sink
+	DeleteNamespaceExportSink(ctx context.Context, in *DeleteNamespaceExportSinkRequest, opts ...grpc.CallOption) (*DeleteNamespaceExportSinkResponse, error)
+	// Validates an export sink configuration by delivering an empty test file to the specified sink.
+	// This operation verifies that the sink is correctly configured, accessible, and ready for data export.
+	ValidateNamespaceExportSink(ctx context.Context, in *ValidateNamespaceExportSinkRequest, opts ...grpc.CallOption) (*ValidateNamespaceExportSinkResponse, error)
+	// Starts a namespace migration
+	// temporal:dev
+	StartMigration(ctx context.Context, in *StartMigrationRequest, opts ...grpc.CallOption) (*StartMigrationResponse, error)
+	// Get namespace migrations for an account
+	// temporal:dev
+	GetMigrations(ctx context.Context, in *GetMigrationsRequest, opts ...grpc.CallOption) (*GetMigrationsResponse, error)
+	// Get a namespace migration
+	// temporal:dev
+	GetMigration(ctx context.Context, in *GetMigrationRequest, opts ...grpc.CallOption) (*GetMigrationResponse, error)
+	// Handover the namespace during a migration, which switches the active and passive replicas
+	// temporal:dev
+	HandoverNamespace(ctx context.Context, in *HandoverNamespaceRequest, opts ...grpc.CallOption) (*HandoverNamespaceResponse, error)
+	// Abort a namespace migration
+	// temporal:dev
+	AbortMigration(ctx context.Context, in *AbortMigrationRequest, opts ...grpc.CallOption) (*AbortMigrationResponse, error)
+	// Confirm a namespace migration, which completes the migration
+	// temporal:dev
+	ConfirmMigration(ctx context.Context, in *ConfirmMigrationRequest, opts ...grpc.CallOption) (*ConfirmMigrationResponse, error)
+	// Creates a connectivity rule
+	CreateConnectivityRule(ctx context.Context, in *CreateConnectivityRuleRequest, opts ...grpc.CallOption) (*CreateConnectivityRuleResponse, error)
+	// Gets a connectivity rule by id
+	GetConnectivityRule(ctx context.Context, in *GetConnectivityRuleRequest, opts ...grpc.CallOption) (*GetConnectivityRuleResponse, error)
+	// Lists connectivity rules by account
+	GetConnectivityRules(ctx context.Context, in *GetConnectivityRulesRequest, opts ...grpc.CallOption) (*GetConnectivityRulesResponse, error)
+	// Deletes a connectivity rule
+	DeleteConnectivityRule(ctx context.Context, in *DeleteConnectivityRuleRequest, opts ...grpc.CallOption) (*DeleteConnectivityRuleResponse, error)
+	// Get all projects
+	// temporal:dev
+	GetProjects(ctx context.Context, in *GetProjectsRequest, opts ...grpc.CallOption) (*GetProjectsResponse, error)
+	// Get a projects
+	// temporal:dev
+	GetProject(ctx context.Context, in *GetProjectRequest, opts ...grpc.CallOption) (*GetProjectResponse, error)
+	// Create new a projects
+	// temporal:dev
+	CreateProject(ctx context.Context, in *CreateProjectRequest, opts ...grpc.CallOption) (*CreateProjectResponse, error)
+	// Update a projects
+	// temporal:dev
+	UpdateProject(ctx context.Context, in *UpdateProjectRequest, opts ...grpc.CallOption) (*UpdateProjectResponse, error)
+	// Delete a projects
+	// temporal:dev
+	DeleteProject(ctx context.Context, in *DeleteProjectRequest, opts ...grpc.CallOption) (*DeleteProjectResponse, error)
+	// Resend a user invite
+	// temporal:ui
+	ResendUserInvite(ctx context.Context, in *ResendUserInviteRequest, opts ...grpc.CallOption) (*ResendUserInviteResponse, error)
+	// Updates tags for a namespace
+	UpdateNamespaceTags(ctx context.Context, in *UpdateNamespaceTagsRequest, opts ...grpc.CallOption) (*UpdateNamespaceTagsResponse, error)
+	// Get tag keys
+	// temporal:ui
+	GetTagKeys(ctx context.Context, in *GetTagKeysRequest, opts ...grpc.CallOption) (*GetTagKeysResponse, error)
 }
 
 type cloudServiceClient struct {
@@ -307,6 +475,15 @@ func (c *cloudServiceClient) GetNamespaces(ctx context.Context, in *GetNamespace
 	return out, nil
 }
 
+func (c *cloudServiceClient) GetNamespaceIDs(ctx context.Context, in *GetNamespaceIDsRequest, opts ...grpc.CallOption) (*GetNamespaceIDsResponse, error) {
+	out := new(GetNamespaceIDsResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/GetNamespaceIDs", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *cloudServiceClient) GetNamespace(ctx context.Context, in *GetNamespaceRequest, opts ...grpc.CallOption) (*GetNamespaceResponse, error) {
 	out := new(GetNamespaceResponse)
 	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/GetNamespace", in, out, opts...)
@@ -355,6 +532,15 @@ func (c *cloudServiceClient) FailoverNamespaceRegion(ctx context.Context, in *Fa
 func (c *cloudServiceClient) AddNamespaceRegion(ctx context.Context, in *AddNamespaceRegionRequest, opts ...grpc.CallOption) (*AddNamespaceRegionResponse, error) {
 	out := new(AddNamespaceRegionResponse)
 	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/AddNamespaceRegion", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) DeleteNamespaceRegion(ctx context.Context, in *DeleteNamespaceRegionRequest, opts ...grpc.CallOption) (*DeleteNamespaceRegionResponse, error) {
+	out := new(DeleteNamespaceRegionResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/DeleteNamespaceRegion", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -424,24 +610,6 @@ func (c *cloudServiceClient) DeleteNexusEndpoint(ctx context.Context, in *Delete
 	return out, nil
 }
 
-func (c *cloudServiceClient) GetAccount(ctx context.Context, in *GetAccountRequest, opts ...grpc.CallOption) (*GetAccountResponse, error) {
-	out := new(GetAccountResponse)
-	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/GetAccount", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cloudServiceClient) UpdateAccount(ctx context.Context, in *UpdateAccountRequest, opts ...grpc.CallOption) (*UpdateAccountResponse, error) {
-	out := new(UpdateAccountResponse)
-	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/UpdateAccount", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *cloudServiceClient) GetUserGroups(ctx context.Context, in *GetUserGroupsRequest, opts ...grpc.CallOption) (*GetUserGroupsResponse, error) {
 	out := new(GetUserGroupsResponse)
 	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/GetUserGroups", in, out, opts...)
@@ -496,6 +664,33 @@ func (c *cloudServiceClient) SetUserGroupNamespaceAccess(ctx context.Context, in
 	return out, nil
 }
 
+func (c *cloudServiceClient) AddUserGroupMember(ctx context.Context, in *AddUserGroupMemberRequest, opts ...grpc.CallOption) (*AddUserGroupMemberResponse, error) {
+	out := new(AddUserGroupMemberResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/AddUserGroupMember", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) RemoveUserGroupMember(ctx context.Context, in *RemoveUserGroupMemberRequest, opts ...grpc.CallOption) (*RemoveUserGroupMemberResponse, error) {
+	out := new(RemoveUserGroupMemberResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/RemoveUserGroupMember", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) GetUserGroupMembers(ctx context.Context, in *GetUserGroupMembersRequest, opts ...grpc.CallOption) (*GetUserGroupMembersResponse, error) {
+	out := new(GetUserGroupMembersResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/GetUserGroupMembers", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *cloudServiceClient) CreateServiceAccount(ctx context.Context, in *CreateServiceAccountRequest, opts ...grpc.CallOption) (*CreateServiceAccountResponse, error) {
 	out := new(CreateServiceAccountResponse)
 	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/CreateServiceAccount", in, out, opts...)
@@ -526,6 +721,15 @@ func (c *cloudServiceClient) GetServiceAccounts(ctx context.Context, in *GetServ
 func (c *cloudServiceClient) UpdateServiceAccount(ctx context.Context, in *UpdateServiceAccountRequest, opts ...grpc.CallOption) (*UpdateServiceAccountResponse, error) {
 	out := new(UpdateServiceAccountResponse)
 	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/UpdateServiceAccount", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) SetServiceAccountNamespaceAccess(ctx context.Context, in *SetServiceAccountNamespaceAccessRequest, opts ...grpc.CallOption) (*SetServiceAccountNamespaceAccessResponse, error) {
+	out := new(SetServiceAccountNamespaceAccessResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/SetServiceAccountNamespaceAccess", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -586,6 +790,312 @@ func (c *cloudServiceClient) DeleteApiKey(ctx context.Context, in *DeleteApiKeyR
 	return out, nil
 }
 
+func (c *cloudServiceClient) GetAuditLogs(ctx context.Context, in *GetAuditLogsRequest, opts ...grpc.CallOption) (*GetAuditLogsResponse, error) {
+	out := new(GetAuditLogsResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/GetAuditLogs", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) ValidateAccountAuditLogSink(ctx context.Context, in *ValidateAccountAuditLogSinkRequest, opts ...grpc.CallOption) (*ValidateAccountAuditLogSinkResponse, error) {
+	out := new(ValidateAccountAuditLogSinkResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/ValidateAccountAuditLogSink", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) CreateAccountAuditLogSink(ctx context.Context, in *CreateAccountAuditLogSinkRequest, opts ...grpc.CallOption) (*CreateAccountAuditLogSinkResponse, error) {
+	out := new(CreateAccountAuditLogSinkResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/CreateAccountAuditLogSink", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) GetAccountAuditLogSink(ctx context.Context, in *GetAccountAuditLogSinkRequest, opts ...grpc.CallOption) (*GetAccountAuditLogSinkResponse, error) {
+	out := new(GetAccountAuditLogSinkResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/GetAccountAuditLogSink", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) GetAccountAuditLogSinks(ctx context.Context, in *GetAccountAuditLogSinksRequest, opts ...grpc.CallOption) (*GetAccountAuditLogSinksResponse, error) {
+	out := new(GetAccountAuditLogSinksResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/GetAccountAuditLogSinks", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) UpdateAccountAuditLogSink(ctx context.Context, in *UpdateAccountAuditLogSinkRequest, opts ...grpc.CallOption) (*UpdateAccountAuditLogSinkResponse, error) {
+	out := new(UpdateAccountAuditLogSinkResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/UpdateAccountAuditLogSink", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) DeleteAccountAuditLogSink(ctx context.Context, in *DeleteAccountAuditLogSinkRequest, opts ...grpc.CallOption) (*DeleteAccountAuditLogSinkResponse, error) {
+	out := new(DeleteAccountAuditLogSinkResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/DeleteAccountAuditLogSink", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) GetUsage(ctx context.Context, in *GetUsageRequest, opts ...grpc.CallOption) (*GetUsageResponse, error) {
+	out := new(GetUsageResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/GetUsage", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) GetAccount(ctx context.Context, in *GetAccountRequest, opts ...grpc.CallOption) (*GetAccountResponse, error) {
+	out := new(GetAccountResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/GetAccount", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) UpdateAccount(ctx context.Context, in *UpdateAccountRequest, opts ...grpc.CallOption) (*UpdateAccountResponse, error) {
+	out := new(UpdateAccountResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/UpdateAccount", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) CreateNamespaceExportSink(ctx context.Context, in *CreateNamespaceExportSinkRequest, opts ...grpc.CallOption) (*CreateNamespaceExportSinkResponse, error) {
+	out := new(CreateNamespaceExportSinkResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/CreateNamespaceExportSink", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) GetNamespaceExportSink(ctx context.Context, in *GetNamespaceExportSinkRequest, opts ...grpc.CallOption) (*GetNamespaceExportSinkResponse, error) {
+	out := new(GetNamespaceExportSinkResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/GetNamespaceExportSink", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) GetNamespaceExportSinks(ctx context.Context, in *GetNamespaceExportSinksRequest, opts ...grpc.CallOption) (*GetNamespaceExportSinksResponse, error) {
+	out := new(GetNamespaceExportSinksResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/GetNamespaceExportSinks", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) UpdateNamespaceExportSink(ctx context.Context, in *UpdateNamespaceExportSinkRequest, opts ...grpc.CallOption) (*UpdateNamespaceExportSinkResponse, error) {
+	out := new(UpdateNamespaceExportSinkResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/UpdateNamespaceExportSink", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) DeleteNamespaceExportSink(ctx context.Context, in *DeleteNamespaceExportSinkRequest, opts ...grpc.CallOption) (*DeleteNamespaceExportSinkResponse, error) {
+	out := new(DeleteNamespaceExportSinkResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/DeleteNamespaceExportSink", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) ValidateNamespaceExportSink(ctx context.Context, in *ValidateNamespaceExportSinkRequest, opts ...grpc.CallOption) (*ValidateNamespaceExportSinkResponse, error) {
+	out := new(ValidateNamespaceExportSinkResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/ValidateNamespaceExportSink", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) StartMigration(ctx context.Context, in *StartMigrationRequest, opts ...grpc.CallOption) (*StartMigrationResponse, error) {
+	out := new(StartMigrationResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/StartMigration", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) GetMigrations(ctx context.Context, in *GetMigrationsRequest, opts ...grpc.CallOption) (*GetMigrationsResponse, error) {
+	out := new(GetMigrationsResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/GetMigrations", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) GetMigration(ctx context.Context, in *GetMigrationRequest, opts ...grpc.CallOption) (*GetMigrationResponse, error) {
+	out := new(GetMigrationResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/GetMigration", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) HandoverNamespace(ctx context.Context, in *HandoverNamespaceRequest, opts ...grpc.CallOption) (*HandoverNamespaceResponse, error) {
+	out := new(HandoverNamespaceResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/HandoverNamespace", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) AbortMigration(ctx context.Context, in *AbortMigrationRequest, opts ...grpc.CallOption) (*AbortMigrationResponse, error) {
+	out := new(AbortMigrationResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/AbortMigration", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) ConfirmMigration(ctx context.Context, in *ConfirmMigrationRequest, opts ...grpc.CallOption) (*ConfirmMigrationResponse, error) {
+	out := new(ConfirmMigrationResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/ConfirmMigration", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) CreateConnectivityRule(ctx context.Context, in *CreateConnectivityRuleRequest, opts ...grpc.CallOption) (*CreateConnectivityRuleResponse, error) {
+	out := new(CreateConnectivityRuleResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/CreateConnectivityRule", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) GetConnectivityRule(ctx context.Context, in *GetConnectivityRuleRequest, opts ...grpc.CallOption) (*GetConnectivityRuleResponse, error) {
+	out := new(GetConnectivityRuleResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/GetConnectivityRule", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) GetConnectivityRules(ctx context.Context, in *GetConnectivityRulesRequest, opts ...grpc.CallOption) (*GetConnectivityRulesResponse, error) {
+	out := new(GetConnectivityRulesResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/GetConnectivityRules", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) DeleteConnectivityRule(ctx context.Context, in *DeleteConnectivityRuleRequest, opts ...grpc.CallOption) (*DeleteConnectivityRuleResponse, error) {
+	out := new(DeleteConnectivityRuleResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/DeleteConnectivityRule", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) GetProjects(ctx context.Context, in *GetProjectsRequest, opts ...grpc.CallOption) (*GetProjectsResponse, error) {
+	out := new(GetProjectsResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/GetProjects", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) GetProject(ctx context.Context, in *GetProjectRequest, opts ...grpc.CallOption) (*GetProjectResponse, error) {
+	out := new(GetProjectResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/GetProject", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) CreateProject(ctx context.Context, in *CreateProjectRequest, opts ...grpc.CallOption) (*CreateProjectResponse, error) {
+	out := new(CreateProjectResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/CreateProject", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) UpdateProject(ctx context.Context, in *UpdateProjectRequest, opts ...grpc.CallOption) (*UpdateProjectResponse, error) {
+	out := new(UpdateProjectResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/UpdateProject", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) DeleteProject(ctx context.Context, in *DeleteProjectRequest, opts ...grpc.CallOption) (*DeleteProjectResponse, error) {
+	out := new(DeleteProjectResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/DeleteProject", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) ResendUserInvite(ctx context.Context, in *ResendUserInviteRequest, opts ...grpc.CallOption) (*ResendUserInviteResponse, error) {
+	out := new(ResendUserInviteResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/ResendUserInvite", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) UpdateNamespaceTags(ctx context.Context, in *UpdateNamespaceTagsRequest, opts ...grpc.CallOption) (*UpdateNamespaceTagsResponse, error) {
+	out := new(UpdateNamespaceTagsResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/UpdateNamespaceTags", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) GetTagKeys(ctx context.Context, in *GetTagKeysRequest, opts ...grpc.CallOption) (*GetTagKeysResponse, error) {
+	out := new(GetTagKeysResponse)
+	err := c.cc.Invoke(ctx, "/temporal.api.cloud.cloudservice.v1.CloudService/GetTagKeys", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CloudServiceServer is the server API for CloudService service.
 type CloudServiceServer interface {
 	// Gets all known users
@@ -606,6 +1116,9 @@ type CloudServiceServer interface {
 	CreateNamespace(context.Context, *CreateNamespaceRequest) (*CreateNamespaceResponse, error)
 	// Get all namespaces
 	GetNamespaces(context.Context, *GetNamespacesRequest) (*GetNamespacesResponse, error)
+	// Get all namespace ids
+	// temporal:ui
+	GetNamespaceIDs(context.Context, *GetNamespaceIDsRequest) (*GetNamespaceIDsResponse, error)
 	// Get a namespace
 	GetNamespace(context.Context, *GetNamespaceRequest) (*GetNamespaceResponse, error)
 	// Update a namespace
@@ -618,6 +1131,8 @@ type CloudServiceServer interface {
 	FailoverNamespaceRegion(context.Context, *FailoverNamespaceRegionRequest) (*FailoverNamespaceRegionResponse, error)
 	// Add a new region to a namespace
 	AddNamespaceRegion(context.Context, *AddNamespaceRegionRequest) (*AddNamespaceRegionResponse, error)
+	// Delete a region from a namespace
+	DeleteNamespaceRegion(context.Context, *DeleteNamespaceRegionRequest) (*DeleteNamespaceRegionResponse, error)
 	// Get all regions
 	GetRegions(context.Context, *GetRegionsRequest) (*GetRegionsResponse, error)
 	// Get a region
@@ -632,10 +1147,6 @@ type CloudServiceServer interface {
 	UpdateNexusEndpoint(context.Context, *UpdateNexusEndpointRequest) (*UpdateNexusEndpointResponse, error)
 	// Delete a nexus endpoint
 	DeleteNexusEndpoint(context.Context, *DeleteNexusEndpointRequest) (*DeleteNexusEndpointResponse, error)
-	// Get account information
-	GetAccount(context.Context, *GetAccountRequest) (*GetAccountResponse, error)
-	// Update account information
-	UpdateAccount(context.Context, *UpdateAccountRequest) (*UpdateAccountResponse, error)
 	// Get all user groups
 	GetUserGroups(context.Context, *GetUserGroupsRequest) (*GetUserGroupsResponse, error)
 	// Get a user group
@@ -648,6 +1159,11 @@ type CloudServiceServer interface {
 	DeleteUserGroup(context.Context, *DeleteUserGroupRequest) (*DeleteUserGroupResponse, error)
 	// Set a user group's access to a namespace
 	SetUserGroupNamespaceAccess(context.Context, *SetUserGroupNamespaceAccessRequest) (*SetUserGroupNamespaceAccessResponse, error)
+	// Add a member to the group, can only be used with Cloud group types.
+	AddUserGroupMember(context.Context, *AddUserGroupMemberRequest) (*AddUserGroupMemberResponse, error)
+	// Remove a member from the group, can only be used with Cloud group types.
+	RemoveUserGroupMember(context.Context, *RemoveUserGroupMemberRequest) (*RemoveUserGroupMemberResponse, error)
+	GetUserGroupMembers(context.Context, *GetUserGroupMembersRequest) (*GetUserGroupMembersResponse, error)
 	// Create a service account.
 	CreateServiceAccount(context.Context, *CreateServiceAccountRequest) (*CreateServiceAccountResponse, error)
 	// Get a service account.
@@ -656,6 +1172,8 @@ type CloudServiceServer interface {
 	GetServiceAccounts(context.Context, *GetServiceAccountsRequest) (*GetServiceAccountsResponse, error)
 	// Update a service account.
 	UpdateServiceAccount(context.Context, *UpdateServiceAccountRequest) (*UpdateServiceAccountResponse, error)
+	// Set a service account's access to a namespace.
+	SetServiceAccountNamespaceAccess(context.Context, *SetServiceAccountNamespaceAccessRequest) (*SetServiceAccountNamespaceAccessResponse, error)
 	// Delete a service account.
 	DeleteServiceAccount(context.Context, *DeleteServiceAccountRequest) (*DeleteServiceAccountResponse, error)
 	// Get all known API keys
@@ -668,6 +1186,95 @@ type CloudServiceServer interface {
 	UpdateApiKey(context.Context, *UpdateApiKeyRequest) (*UpdateApiKeyResponse, error)
 	// Delete an API key
 	DeleteApiKey(context.Context, *DeleteApiKeyRequest) (*DeleteApiKeyResponse, error)
+	// Get audit logs
+	// temporal:dev
+	GetAuditLogs(context.Context, *GetAuditLogsRequest) (*GetAuditLogsResponse, error)
+	// Validate customer audit log sink is accessible from Temporal's workflow by delivering an empty file to the specified sink.
+	// The operation verifies that the sink is correctly configured, accessible and ready to receive audit logs.
+	ValidateAccountAuditLogSink(context.Context, *ValidateAccountAuditLogSinkRequest) (*ValidateAccountAuditLogSinkResponse, error)
+	// Create an audit log sink
+	// temporal:dev
+	CreateAccountAuditLogSink(context.Context, *CreateAccountAuditLogSinkRequest) (*CreateAccountAuditLogSinkResponse, error)
+	// Get an audit log sink
+	// temporal:dev
+	GetAccountAuditLogSink(context.Context, *GetAccountAuditLogSinkRequest) (*GetAccountAuditLogSinkResponse, error)
+	// Get audit log sinks
+	// temporal:dev
+	GetAccountAuditLogSinks(context.Context, *GetAccountAuditLogSinksRequest) (*GetAccountAuditLogSinksResponse, error)
+	// Update an audit log sink
+	// temporal:dev
+	UpdateAccountAuditLogSink(context.Context, *UpdateAccountAuditLogSinkRequest) (*UpdateAccountAuditLogSinkResponse, error)
+	// Delete an audit log sink
+	// temporal:dev
+	DeleteAccountAuditLogSink(context.Context, *DeleteAccountAuditLogSinkRequest) (*DeleteAccountAuditLogSinkResponse, error)
+	// Get usage
+	GetUsage(context.Context, *GetUsageRequest) (*GetUsageResponse, error)
+	// Get account information
+	GetAccount(context.Context, *GetAccountRequest) (*GetAccountResponse, error)
+	// Update account information
+	UpdateAccount(context.Context, *UpdateAccountRequest) (*UpdateAccountResponse, error)
+	// Create an export sink
+	CreateNamespaceExportSink(context.Context, *CreateNamespaceExportSinkRequest) (*CreateNamespaceExportSinkResponse, error)
+	// Get an export sink
+	GetNamespaceExportSink(context.Context, *GetNamespaceExportSinkRequest) (*GetNamespaceExportSinkResponse, error)
+	// Get export sinks
+	GetNamespaceExportSinks(context.Context, *GetNamespaceExportSinksRequest) (*GetNamespaceExportSinksResponse, error)
+	// Update an export sink
+	UpdateNamespaceExportSink(context.Context, *UpdateNamespaceExportSinkRequest) (*UpdateNamespaceExportSinkResponse, error)
+	// Delete an export sink
+	DeleteNamespaceExportSink(context.Context, *DeleteNamespaceExportSinkRequest) (*DeleteNamespaceExportSinkResponse, error)
+	// Validates an export sink configuration by delivering an empty test file to the specified sink.
+	// This operation verifies that the sink is correctly configured, accessible, and ready for data export.
+	ValidateNamespaceExportSink(context.Context, *ValidateNamespaceExportSinkRequest) (*ValidateNamespaceExportSinkResponse, error)
+	// Starts a namespace migration
+	// temporal:dev
+	StartMigration(context.Context, *StartMigrationRequest) (*StartMigrationResponse, error)
+	// Get namespace migrations for an account
+	// temporal:dev
+	GetMigrations(context.Context, *GetMigrationsRequest) (*GetMigrationsResponse, error)
+	// Get a namespace migration
+	// temporal:dev
+	GetMigration(context.Context, *GetMigrationRequest) (*GetMigrationResponse, error)
+	// Handover the namespace during a migration, which switches the active and passive replicas
+	// temporal:dev
+	HandoverNamespace(context.Context, *HandoverNamespaceRequest) (*HandoverNamespaceResponse, error)
+	// Abort a namespace migration
+	// temporal:dev
+	AbortMigration(context.Context, *AbortMigrationRequest) (*AbortMigrationResponse, error)
+	// Confirm a namespace migration, which completes the migration
+	// temporal:dev
+	ConfirmMigration(context.Context, *ConfirmMigrationRequest) (*ConfirmMigrationResponse, error)
+	// Creates a connectivity rule
+	CreateConnectivityRule(context.Context, *CreateConnectivityRuleRequest) (*CreateConnectivityRuleResponse, error)
+	// Gets a connectivity rule by id
+	GetConnectivityRule(context.Context, *GetConnectivityRuleRequest) (*GetConnectivityRuleResponse, error)
+	// Lists connectivity rules by account
+	GetConnectivityRules(context.Context, *GetConnectivityRulesRequest) (*GetConnectivityRulesResponse, error)
+	// Deletes a connectivity rule
+	DeleteConnectivityRule(context.Context, *DeleteConnectivityRuleRequest) (*DeleteConnectivityRuleResponse, error)
+	// Get all projects
+	// temporal:dev
+	GetProjects(context.Context, *GetProjectsRequest) (*GetProjectsResponse, error)
+	// Get a projects
+	// temporal:dev
+	GetProject(context.Context, *GetProjectRequest) (*GetProjectResponse, error)
+	// Create new a projects
+	// temporal:dev
+	CreateProject(context.Context, *CreateProjectRequest) (*CreateProjectResponse, error)
+	// Update a projects
+	// temporal:dev
+	UpdateProject(context.Context, *UpdateProjectRequest) (*UpdateProjectResponse, error)
+	// Delete a projects
+	// temporal:dev
+	DeleteProject(context.Context, *DeleteProjectRequest) (*DeleteProjectResponse, error)
+	// Resend a user invite
+	// temporal:ui
+	ResendUserInvite(context.Context, *ResendUserInviteRequest) (*ResendUserInviteResponse, error)
+	// Updates tags for a namespace
+	UpdateNamespaceTags(context.Context, *UpdateNamespaceTagsRequest) (*UpdateNamespaceTagsResponse, error)
+	// Get tag keys
+	// temporal:ui
+	GetTagKeys(context.Context, *GetTagKeysRequest) (*GetTagKeysResponse, error)
 }
 
 // UnimplementedCloudServiceServer can be embedded to have forward compatible implementations.
@@ -701,6 +1308,9 @@ func (*UnimplementedCloudServiceServer) CreateNamespace(ctx context.Context, req
 func (*UnimplementedCloudServiceServer) GetNamespaces(ctx context.Context, req *GetNamespacesRequest) (*GetNamespacesResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetNamespaces not implemented")
 }
+func (*UnimplementedCloudServiceServer) GetNamespaceIDs(ctx context.Context, req *GetNamespaceIDsRequest) (*GetNamespaceIDsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetNamespaceIDs not implemented")
+}
 func (*UnimplementedCloudServiceServer) GetNamespace(ctx context.Context, req *GetNamespaceRequest) (*GetNamespaceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetNamespace not implemented")
 }
@@ -718,6 +1328,9 @@ func (*UnimplementedCloudServiceServer) FailoverNamespaceRegion(ctx context.Cont
 }
 func (*UnimplementedCloudServiceServer) AddNamespaceRegion(ctx context.Context, req *AddNamespaceRegionRequest) (*AddNamespaceRegionResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddNamespaceRegion not implemented")
+}
+func (*UnimplementedCloudServiceServer) DeleteNamespaceRegion(ctx context.Context, req *DeleteNamespaceRegionRequest) (*DeleteNamespaceRegionResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteNamespaceRegion not implemented")
 }
 func (*UnimplementedCloudServiceServer) GetRegions(ctx context.Context, req *GetRegionsRequest) (*GetRegionsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetRegions not implemented")
@@ -740,12 +1353,6 @@ func (*UnimplementedCloudServiceServer) UpdateNexusEndpoint(ctx context.Context,
 func (*UnimplementedCloudServiceServer) DeleteNexusEndpoint(ctx context.Context, req *DeleteNexusEndpointRequest) (*DeleteNexusEndpointResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteNexusEndpoint not implemented")
 }
-func (*UnimplementedCloudServiceServer) GetAccount(ctx context.Context, req *GetAccountRequest) (*GetAccountResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetAccount not implemented")
-}
-func (*UnimplementedCloudServiceServer) UpdateAccount(ctx context.Context, req *UpdateAccountRequest) (*UpdateAccountResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateAccount not implemented")
-}
 func (*UnimplementedCloudServiceServer) GetUserGroups(ctx context.Context, req *GetUserGroupsRequest) (*GetUserGroupsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserGroups not implemented")
 }
@@ -764,6 +1371,15 @@ func (*UnimplementedCloudServiceServer) DeleteUserGroup(ctx context.Context, req
 func (*UnimplementedCloudServiceServer) SetUserGroupNamespaceAccess(ctx context.Context, req *SetUserGroupNamespaceAccessRequest) (*SetUserGroupNamespaceAccessResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SetUserGroupNamespaceAccess not implemented")
 }
+func (*UnimplementedCloudServiceServer) AddUserGroupMember(ctx context.Context, req *AddUserGroupMemberRequest) (*AddUserGroupMemberResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddUserGroupMember not implemented")
+}
+func (*UnimplementedCloudServiceServer) RemoveUserGroupMember(ctx context.Context, req *RemoveUserGroupMemberRequest) (*RemoveUserGroupMemberResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveUserGroupMember not implemented")
+}
+func (*UnimplementedCloudServiceServer) GetUserGroupMembers(ctx context.Context, req *GetUserGroupMembersRequest) (*GetUserGroupMembersResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserGroupMembers not implemented")
+}
 func (*UnimplementedCloudServiceServer) CreateServiceAccount(ctx context.Context, req *CreateServiceAccountRequest) (*CreateServiceAccountResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateServiceAccount not implemented")
 }
@@ -775,6 +1391,9 @@ func (*UnimplementedCloudServiceServer) GetServiceAccounts(ctx context.Context, 
 }
 func (*UnimplementedCloudServiceServer) UpdateServiceAccount(ctx context.Context, req *UpdateServiceAccountRequest) (*UpdateServiceAccountResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateServiceAccount not implemented")
+}
+func (*UnimplementedCloudServiceServer) SetServiceAccountNamespaceAccess(ctx context.Context, req *SetServiceAccountNamespaceAccessRequest) (*SetServiceAccountNamespaceAccessResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SetServiceAccountNamespaceAccess not implemented")
 }
 func (*UnimplementedCloudServiceServer) DeleteServiceAccount(ctx context.Context, req *DeleteServiceAccountRequest) (*DeleteServiceAccountResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteServiceAccount not implemented")
@@ -793,6 +1412,108 @@ func (*UnimplementedCloudServiceServer) UpdateApiKey(ctx context.Context, req *U
 }
 func (*UnimplementedCloudServiceServer) DeleteApiKey(ctx context.Context, req *DeleteApiKeyRequest) (*DeleteApiKeyResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteApiKey not implemented")
+}
+func (*UnimplementedCloudServiceServer) GetAuditLogs(ctx context.Context, req *GetAuditLogsRequest) (*GetAuditLogsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAuditLogs not implemented")
+}
+func (*UnimplementedCloudServiceServer) ValidateAccountAuditLogSink(ctx context.Context, req *ValidateAccountAuditLogSinkRequest) (*ValidateAccountAuditLogSinkResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ValidateAccountAuditLogSink not implemented")
+}
+func (*UnimplementedCloudServiceServer) CreateAccountAuditLogSink(ctx context.Context, req *CreateAccountAuditLogSinkRequest) (*CreateAccountAuditLogSinkResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateAccountAuditLogSink not implemented")
+}
+func (*UnimplementedCloudServiceServer) GetAccountAuditLogSink(ctx context.Context, req *GetAccountAuditLogSinkRequest) (*GetAccountAuditLogSinkResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAccountAuditLogSink not implemented")
+}
+func (*UnimplementedCloudServiceServer) GetAccountAuditLogSinks(ctx context.Context, req *GetAccountAuditLogSinksRequest) (*GetAccountAuditLogSinksResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAccountAuditLogSinks not implemented")
+}
+func (*UnimplementedCloudServiceServer) UpdateAccountAuditLogSink(ctx context.Context, req *UpdateAccountAuditLogSinkRequest) (*UpdateAccountAuditLogSinkResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateAccountAuditLogSink not implemented")
+}
+func (*UnimplementedCloudServiceServer) DeleteAccountAuditLogSink(ctx context.Context, req *DeleteAccountAuditLogSinkRequest) (*DeleteAccountAuditLogSinkResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteAccountAuditLogSink not implemented")
+}
+func (*UnimplementedCloudServiceServer) GetUsage(ctx context.Context, req *GetUsageRequest) (*GetUsageResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUsage not implemented")
+}
+func (*UnimplementedCloudServiceServer) GetAccount(ctx context.Context, req *GetAccountRequest) (*GetAccountResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAccount not implemented")
+}
+func (*UnimplementedCloudServiceServer) UpdateAccount(ctx context.Context, req *UpdateAccountRequest) (*UpdateAccountResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateAccount not implemented")
+}
+func (*UnimplementedCloudServiceServer) CreateNamespaceExportSink(ctx context.Context, req *CreateNamespaceExportSinkRequest) (*CreateNamespaceExportSinkResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateNamespaceExportSink not implemented")
+}
+func (*UnimplementedCloudServiceServer) GetNamespaceExportSink(ctx context.Context, req *GetNamespaceExportSinkRequest) (*GetNamespaceExportSinkResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetNamespaceExportSink not implemented")
+}
+func (*UnimplementedCloudServiceServer) GetNamespaceExportSinks(ctx context.Context, req *GetNamespaceExportSinksRequest) (*GetNamespaceExportSinksResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetNamespaceExportSinks not implemented")
+}
+func (*UnimplementedCloudServiceServer) UpdateNamespaceExportSink(ctx context.Context, req *UpdateNamespaceExportSinkRequest) (*UpdateNamespaceExportSinkResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateNamespaceExportSink not implemented")
+}
+func (*UnimplementedCloudServiceServer) DeleteNamespaceExportSink(ctx context.Context, req *DeleteNamespaceExportSinkRequest) (*DeleteNamespaceExportSinkResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteNamespaceExportSink not implemented")
+}
+func (*UnimplementedCloudServiceServer) ValidateNamespaceExportSink(ctx context.Context, req *ValidateNamespaceExportSinkRequest) (*ValidateNamespaceExportSinkResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ValidateNamespaceExportSink not implemented")
+}
+func (*UnimplementedCloudServiceServer) StartMigration(ctx context.Context, req *StartMigrationRequest) (*StartMigrationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StartMigration not implemented")
+}
+func (*UnimplementedCloudServiceServer) GetMigrations(ctx context.Context, req *GetMigrationsRequest) (*GetMigrationsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMigrations not implemented")
+}
+func (*UnimplementedCloudServiceServer) GetMigration(ctx context.Context, req *GetMigrationRequest) (*GetMigrationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMigration not implemented")
+}
+func (*UnimplementedCloudServiceServer) HandoverNamespace(ctx context.Context, req *HandoverNamespaceRequest) (*HandoverNamespaceResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method HandoverNamespace not implemented")
+}
+func (*UnimplementedCloudServiceServer) AbortMigration(ctx context.Context, req *AbortMigrationRequest) (*AbortMigrationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AbortMigration not implemented")
+}
+func (*UnimplementedCloudServiceServer) ConfirmMigration(ctx context.Context, req *ConfirmMigrationRequest) (*ConfirmMigrationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ConfirmMigration not implemented")
+}
+func (*UnimplementedCloudServiceServer) CreateConnectivityRule(ctx context.Context, req *CreateConnectivityRuleRequest) (*CreateConnectivityRuleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateConnectivityRule not implemented")
+}
+func (*UnimplementedCloudServiceServer) GetConnectivityRule(ctx context.Context, req *GetConnectivityRuleRequest) (*GetConnectivityRuleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetConnectivityRule not implemented")
+}
+func (*UnimplementedCloudServiceServer) GetConnectivityRules(ctx context.Context, req *GetConnectivityRulesRequest) (*GetConnectivityRulesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetConnectivityRules not implemented")
+}
+func (*UnimplementedCloudServiceServer) DeleteConnectivityRule(ctx context.Context, req *DeleteConnectivityRuleRequest) (*DeleteConnectivityRuleResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteConnectivityRule not implemented")
+}
+func (*UnimplementedCloudServiceServer) GetProjects(ctx context.Context, req *GetProjectsRequest) (*GetProjectsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetProjects not implemented")
+}
+func (*UnimplementedCloudServiceServer) GetProject(ctx context.Context, req *GetProjectRequest) (*GetProjectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetProject not implemented")
+}
+func (*UnimplementedCloudServiceServer) CreateProject(ctx context.Context, req *CreateProjectRequest) (*CreateProjectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateProject not implemented")
+}
+func (*UnimplementedCloudServiceServer) UpdateProject(ctx context.Context, req *UpdateProjectRequest) (*UpdateProjectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateProject not implemented")
+}
+func (*UnimplementedCloudServiceServer) DeleteProject(ctx context.Context, req *DeleteProjectRequest) (*DeleteProjectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteProject not implemented")
+}
+func (*UnimplementedCloudServiceServer) ResendUserInvite(ctx context.Context, req *ResendUserInviteRequest) (*ResendUserInviteResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ResendUserInvite not implemented")
+}
+func (*UnimplementedCloudServiceServer) UpdateNamespaceTags(ctx context.Context, req *UpdateNamespaceTagsRequest) (*UpdateNamespaceTagsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateNamespaceTags not implemented")
+}
+func (*UnimplementedCloudServiceServer) GetTagKeys(ctx context.Context, req *GetTagKeysRequest) (*GetTagKeysResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTagKeys not implemented")
 }
 
 func RegisterCloudServiceServer(s *grpc.Server, srv CloudServiceServer) {
@@ -961,6 +1682,24 @@ func _CloudService_GetNamespaces_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CloudService_GetNamespaceIDs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNamespaceIDsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetNamespaceIDs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/GetNamespaceIDs",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetNamespaceIDs(ctx, req.(*GetNamespaceIDsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CloudService_GetNamespace_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetNamespaceRequest)
 	if err := dec(in); err != nil {
@@ -1065,6 +1804,24 @@ func _CloudService_AddNamespaceRegion_Handler(srv interface{}, ctx context.Conte
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).AddNamespaceRegion(ctx, req.(*AddNamespaceRegionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_DeleteNamespaceRegion_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteNamespaceRegionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).DeleteNamespaceRegion(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/DeleteNamespaceRegion",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).DeleteNamespaceRegion(ctx, req.(*DeleteNamespaceRegionRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1195,42 +1952,6 @@ func _CloudService_DeleteNexusEndpoint_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CloudService_GetAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetAccountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CloudServiceServer).GetAccount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/GetAccount",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudServiceServer).GetAccount(ctx, req.(*GetAccountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CloudService_UpdateAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateAccountRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CloudServiceServer).UpdateAccount(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/UpdateAccount",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudServiceServer).UpdateAccount(ctx, req.(*UpdateAccountRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _CloudService_GetUserGroups_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetUserGroupsRequest)
 	if err := dec(in); err != nil {
@@ -1339,6 +2060,60 @@ func _CloudService_SetUserGroupNamespaceAccess_Handler(srv interface{}, ctx cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CloudService_AddUserGroupMember_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddUserGroupMemberRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).AddUserGroupMember(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/AddUserGroupMember",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).AddUserGroupMember(ctx, req.(*AddUserGroupMemberRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_RemoveUserGroupMember_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveUserGroupMemberRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).RemoveUserGroupMember(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/RemoveUserGroupMember",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).RemoveUserGroupMember(ctx, req.(*RemoveUserGroupMemberRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_GetUserGroupMembers_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserGroupMembersRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetUserGroupMembers(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/GetUserGroupMembers",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetUserGroupMembers(ctx, req.(*GetUserGroupMembersRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CloudService_CreateServiceAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CreateServiceAccountRequest)
 	if err := dec(in); err != nil {
@@ -1407,6 +2182,24 @@ func _CloudService_UpdateServiceAccount_Handler(srv interface{}, ctx context.Con
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).UpdateServiceAccount(ctx, req.(*UpdateServiceAccountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_SetServiceAccountNamespaceAccess_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetServiceAccountNamespaceAccessRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).SetServiceAccountNamespaceAccess(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/SetServiceAccountNamespaceAccess",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).SetServiceAccountNamespaceAccess(ctx, req.(*SetServiceAccountNamespaceAccessRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -1519,6 +2312,618 @@ func _CloudService_DeleteApiKey_Handler(srv interface{}, ctx context.Context, de
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CloudService_GetAuditLogs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAuditLogsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetAuditLogs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/GetAuditLogs",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetAuditLogs(ctx, req.(*GetAuditLogsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_ValidateAccountAuditLogSink_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValidateAccountAuditLogSinkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).ValidateAccountAuditLogSink(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/ValidateAccountAuditLogSink",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).ValidateAccountAuditLogSink(ctx, req.(*ValidateAccountAuditLogSinkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_CreateAccountAuditLogSink_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateAccountAuditLogSinkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).CreateAccountAuditLogSink(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/CreateAccountAuditLogSink",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).CreateAccountAuditLogSink(ctx, req.(*CreateAccountAuditLogSinkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_GetAccountAuditLogSink_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAccountAuditLogSinkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetAccountAuditLogSink(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/GetAccountAuditLogSink",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetAccountAuditLogSink(ctx, req.(*GetAccountAuditLogSinkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_GetAccountAuditLogSinks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAccountAuditLogSinksRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetAccountAuditLogSinks(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/GetAccountAuditLogSinks",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetAccountAuditLogSinks(ctx, req.(*GetAccountAuditLogSinksRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_UpdateAccountAuditLogSink_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateAccountAuditLogSinkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).UpdateAccountAuditLogSink(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/UpdateAccountAuditLogSink",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).UpdateAccountAuditLogSink(ctx, req.(*UpdateAccountAuditLogSinkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_DeleteAccountAuditLogSink_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteAccountAuditLogSinkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).DeleteAccountAuditLogSink(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/DeleteAccountAuditLogSink",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).DeleteAccountAuditLogSink(ctx, req.(*DeleteAccountAuditLogSinkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_GetUsage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUsageRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetUsage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/GetUsage",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetUsage(ctx, req.(*GetUsageRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_GetAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetAccountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetAccount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/GetAccount",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetAccount(ctx, req.(*GetAccountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_UpdateAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateAccountRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).UpdateAccount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/UpdateAccount",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).UpdateAccount(ctx, req.(*UpdateAccountRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_CreateNamespaceExportSink_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateNamespaceExportSinkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).CreateNamespaceExportSink(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/CreateNamespaceExportSink",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).CreateNamespaceExportSink(ctx, req.(*CreateNamespaceExportSinkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_GetNamespaceExportSink_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNamespaceExportSinkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetNamespaceExportSink(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/GetNamespaceExportSink",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetNamespaceExportSink(ctx, req.(*GetNamespaceExportSinkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_GetNamespaceExportSinks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetNamespaceExportSinksRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetNamespaceExportSinks(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/GetNamespaceExportSinks",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetNamespaceExportSinks(ctx, req.(*GetNamespaceExportSinksRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_UpdateNamespaceExportSink_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateNamespaceExportSinkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).UpdateNamespaceExportSink(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/UpdateNamespaceExportSink",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).UpdateNamespaceExportSink(ctx, req.(*UpdateNamespaceExportSinkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_DeleteNamespaceExportSink_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteNamespaceExportSinkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).DeleteNamespaceExportSink(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/DeleteNamespaceExportSink",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).DeleteNamespaceExportSink(ctx, req.(*DeleteNamespaceExportSinkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_ValidateNamespaceExportSink_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ValidateNamespaceExportSinkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).ValidateNamespaceExportSink(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/ValidateNamespaceExportSink",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).ValidateNamespaceExportSink(ctx, req.(*ValidateNamespaceExportSinkRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_StartMigration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartMigrationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).StartMigration(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/StartMigration",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).StartMigration(ctx, req.(*StartMigrationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_GetMigrations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMigrationsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetMigrations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/GetMigrations",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetMigrations(ctx, req.(*GetMigrationsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_GetMigration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMigrationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetMigration(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/GetMigration",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetMigration(ctx, req.(*GetMigrationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_HandoverNamespace_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(HandoverNamespaceRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).HandoverNamespace(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/HandoverNamespace",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).HandoverNamespace(ctx, req.(*HandoverNamespaceRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_AbortMigration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AbortMigrationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).AbortMigration(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/AbortMigration",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).AbortMigration(ctx, req.(*AbortMigrationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_ConfirmMigration_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ConfirmMigrationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).ConfirmMigration(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/ConfirmMigration",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).ConfirmMigration(ctx, req.(*ConfirmMigrationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_CreateConnectivityRule_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateConnectivityRuleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).CreateConnectivityRule(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/CreateConnectivityRule",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).CreateConnectivityRule(ctx, req.(*CreateConnectivityRuleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_GetConnectivityRule_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetConnectivityRuleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetConnectivityRule(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/GetConnectivityRule",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetConnectivityRule(ctx, req.(*GetConnectivityRuleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_GetConnectivityRules_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetConnectivityRulesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetConnectivityRules(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/GetConnectivityRules",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetConnectivityRules(ctx, req.(*GetConnectivityRulesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_DeleteConnectivityRule_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteConnectivityRuleRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).DeleteConnectivityRule(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/DeleteConnectivityRule",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).DeleteConnectivityRule(ctx, req.(*DeleteConnectivityRuleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_GetProjects_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProjectsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetProjects(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/GetProjects",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetProjects(ctx, req.(*GetProjectsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_GetProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetProjectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetProject(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/GetProject",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetProject(ctx, req.(*GetProjectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_CreateProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CreateProjectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).CreateProject(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/CreateProject",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).CreateProject(ctx, req.(*CreateProjectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_UpdateProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateProjectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).UpdateProject(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/UpdateProject",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).UpdateProject(ctx, req.(*UpdateProjectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_DeleteProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteProjectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).DeleteProject(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/DeleteProject",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).DeleteProject(ctx, req.(*DeleteProjectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_ResendUserInvite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ResendUserInviteRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).ResendUserInvite(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/ResendUserInvite",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).ResendUserInvite(ctx, req.(*ResendUserInviteRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_UpdateNamespaceTags_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateNamespaceTagsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).UpdateNamespaceTags(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/UpdateNamespaceTags",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).UpdateNamespaceTags(ctx, req.(*UpdateNamespaceTagsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_GetTagKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTagKeysRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetTagKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/temporal.api.cloud.cloudservice.v1.CloudService/GetTagKeys",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetTagKeys(ctx, req.(*GetTagKeysRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _CloudService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "temporal.api.cloud.cloudservice.v1.CloudService",
 	HandlerType: (*CloudServiceServer)(nil),
@@ -1560,6 +2965,10 @@ var _CloudService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _CloudService_GetNamespaces_Handler,
 		},
 		{
+			MethodName: "GetNamespaceIDs",
+			Handler:    _CloudService_GetNamespaceIDs_Handler,
+		},
+		{
 			MethodName: "GetNamespace",
 			Handler:    _CloudService_GetNamespace_Handler,
 		},
@@ -1582,6 +2991,10 @@ var _CloudService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "AddNamespaceRegion",
 			Handler:    _CloudService_AddNamespaceRegion_Handler,
+		},
+		{
+			MethodName: "DeleteNamespaceRegion",
+			Handler:    _CloudService_DeleteNamespaceRegion_Handler,
 		},
 		{
 			MethodName: "GetRegions",
@@ -1612,14 +3025,6 @@ var _CloudService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _CloudService_DeleteNexusEndpoint_Handler,
 		},
 		{
-			MethodName: "GetAccount",
-			Handler:    _CloudService_GetAccount_Handler,
-		},
-		{
-			MethodName: "UpdateAccount",
-			Handler:    _CloudService_UpdateAccount_Handler,
-		},
-		{
 			MethodName: "GetUserGroups",
 			Handler:    _CloudService_GetUserGroups_Handler,
 		},
@@ -1644,6 +3049,18 @@ var _CloudService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _CloudService_SetUserGroupNamespaceAccess_Handler,
 		},
 		{
+			MethodName: "AddUserGroupMember",
+			Handler:    _CloudService_AddUserGroupMember_Handler,
+		},
+		{
+			MethodName: "RemoveUserGroupMember",
+			Handler:    _CloudService_RemoveUserGroupMember_Handler,
+		},
+		{
+			MethodName: "GetUserGroupMembers",
+			Handler:    _CloudService_GetUserGroupMembers_Handler,
+		},
+		{
 			MethodName: "CreateServiceAccount",
 			Handler:    _CloudService_CreateServiceAccount_Handler,
 		},
@@ -1658,6 +3075,10 @@ var _CloudService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateServiceAccount",
 			Handler:    _CloudService_UpdateServiceAccount_Handler,
+		},
+		{
+			MethodName: "SetServiceAccountNamespaceAccess",
+			Handler:    _CloudService_SetServiceAccountNamespaceAccess_Handler,
 		},
 		{
 			MethodName: "DeleteServiceAccount",
@@ -1682,6 +3103,142 @@ var _CloudService_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteApiKey",
 			Handler:    _CloudService_DeleteApiKey_Handler,
+		},
+		{
+			MethodName: "GetAuditLogs",
+			Handler:    _CloudService_GetAuditLogs_Handler,
+		},
+		{
+			MethodName: "ValidateAccountAuditLogSink",
+			Handler:    _CloudService_ValidateAccountAuditLogSink_Handler,
+		},
+		{
+			MethodName: "CreateAccountAuditLogSink",
+			Handler:    _CloudService_CreateAccountAuditLogSink_Handler,
+		},
+		{
+			MethodName: "GetAccountAuditLogSink",
+			Handler:    _CloudService_GetAccountAuditLogSink_Handler,
+		},
+		{
+			MethodName: "GetAccountAuditLogSinks",
+			Handler:    _CloudService_GetAccountAuditLogSinks_Handler,
+		},
+		{
+			MethodName: "UpdateAccountAuditLogSink",
+			Handler:    _CloudService_UpdateAccountAuditLogSink_Handler,
+		},
+		{
+			MethodName: "DeleteAccountAuditLogSink",
+			Handler:    _CloudService_DeleteAccountAuditLogSink_Handler,
+		},
+		{
+			MethodName: "GetUsage",
+			Handler:    _CloudService_GetUsage_Handler,
+		},
+		{
+			MethodName: "GetAccount",
+			Handler:    _CloudService_GetAccount_Handler,
+		},
+		{
+			MethodName: "UpdateAccount",
+			Handler:    _CloudService_UpdateAccount_Handler,
+		},
+		{
+			MethodName: "CreateNamespaceExportSink",
+			Handler:    _CloudService_CreateNamespaceExportSink_Handler,
+		},
+		{
+			MethodName: "GetNamespaceExportSink",
+			Handler:    _CloudService_GetNamespaceExportSink_Handler,
+		},
+		{
+			MethodName: "GetNamespaceExportSinks",
+			Handler:    _CloudService_GetNamespaceExportSinks_Handler,
+		},
+		{
+			MethodName: "UpdateNamespaceExportSink",
+			Handler:    _CloudService_UpdateNamespaceExportSink_Handler,
+		},
+		{
+			MethodName: "DeleteNamespaceExportSink",
+			Handler:    _CloudService_DeleteNamespaceExportSink_Handler,
+		},
+		{
+			MethodName: "ValidateNamespaceExportSink",
+			Handler:    _CloudService_ValidateNamespaceExportSink_Handler,
+		},
+		{
+			MethodName: "StartMigration",
+			Handler:    _CloudService_StartMigration_Handler,
+		},
+		{
+			MethodName: "GetMigrations",
+			Handler:    _CloudService_GetMigrations_Handler,
+		},
+		{
+			MethodName: "GetMigration",
+			Handler:    _CloudService_GetMigration_Handler,
+		},
+		{
+			MethodName: "HandoverNamespace",
+			Handler:    _CloudService_HandoverNamespace_Handler,
+		},
+		{
+			MethodName: "AbortMigration",
+			Handler:    _CloudService_AbortMigration_Handler,
+		},
+		{
+			MethodName: "ConfirmMigration",
+			Handler:    _CloudService_ConfirmMigration_Handler,
+		},
+		{
+			MethodName: "CreateConnectivityRule",
+			Handler:    _CloudService_CreateConnectivityRule_Handler,
+		},
+		{
+			MethodName: "GetConnectivityRule",
+			Handler:    _CloudService_GetConnectivityRule_Handler,
+		},
+		{
+			MethodName: "GetConnectivityRules",
+			Handler:    _CloudService_GetConnectivityRules_Handler,
+		},
+		{
+			MethodName: "DeleteConnectivityRule",
+			Handler:    _CloudService_DeleteConnectivityRule_Handler,
+		},
+		{
+			MethodName: "GetProjects",
+			Handler:    _CloudService_GetProjects_Handler,
+		},
+		{
+			MethodName: "GetProject",
+			Handler:    _CloudService_GetProject_Handler,
+		},
+		{
+			MethodName: "CreateProject",
+			Handler:    _CloudService_CreateProject_Handler,
+		},
+		{
+			MethodName: "UpdateProject",
+			Handler:    _CloudService_UpdateProject_Handler,
+		},
+		{
+			MethodName: "DeleteProject",
+			Handler:    _CloudService_DeleteProject_Handler,
+		},
+		{
+			MethodName: "ResendUserInvite",
+			Handler:    _CloudService_ResendUserInvite_Handler,
+		},
+		{
+			MethodName: "UpdateNamespaceTags",
+			Handler:    _CloudService_UpdateNamespaceTags_Handler,
+		},
+		{
+			MethodName: "GetTagKeys",
+			Handler:    _CloudService_GetTagKeys_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

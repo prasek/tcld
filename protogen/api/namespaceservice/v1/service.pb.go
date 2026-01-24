@@ -29,46 +29,38 @@ func init() {
 }
 
 var fileDescriptor_d746e5fd89aff5eb = []byte{
-	// 613 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x96, 0xb1, 0x6f, 0x13, 0x31,
-	0x14, 0xc6, 0xcf, 0x0b, 0x83, 0x05, 0xb4, 0x58, 0x95, 0x90, 0x8a, 0xe4, 0x01, 0x89, 0x8d, 0xde,
-	0x91, 0xb4, 0x2c, 0x04, 0x81, 0x68, 0x81, 0x30, 0x20, 0x86, 0x44, 0x30, 0xb0, 0x20, 0x27, 0xb5,
-	0x84, 0xe1, 0x92, 0x3b, 0x6c, 0xe7, 0x44, 0x10, 0x12, 0x48, 0x88, 0x9d, 0x0d, 0x89, 0x95, 0x85,
-	0x3f, 0x85, 0x31, 0x63, 0x47, 0x72, 0x59, 0x18, 0xfb, 0x27, 0xa0, 0x70, 0xb1, 0xe3, 0xdc, 0xc5,
-	0x67, 0x27, 0x5b, 0x55, 0x7f, 0xdf, 0xfb, 0x3d, 0x3f, 0x7f, 0x79, 0x3a, 0x78, 0x83, 0xa4, 0x2c,
-	0x1a, 0x92, 0x01, 0x15, 0x29, 0xe9, 0x53, 0x41, 0x79, 0xc6, 0xfa, 0x34, 0xca, 0x1a, 0xd1, 0xe2,
-	0xcf, 0x30, 0xe5, 0x89, 0x4c, 0xd0, 0x55, 0x92, 0xb2, 0xb0, 0x2c, 0x0b, 0xb3, 0xc6, 0x7e, 0x68,
-	0xf3, 0x73, 0xfa, 0x6e, 0x44, 0x85, 0x7c, 0xc5, 0xa9, 0x48, 0x93, 0xa1, 0x58, 0x14, 0x6a, 0x7e,
-	0xd9, 0x83, 0xbb, 0xcf, 0x94, 0xbc, 0x5b, 0xc8, 0x51, 0x06, 0x77, 0x4e, 0x38, 0x25, 0x92, 0xea,
-	0x13, 0x14, 0x85, 0x16, 0x62, 0x58, 0x52, 0x76, 0x0a, 0xce, 0xfe, 0x2d, 0x7f, 0x43, 0xd1, 0xd0,
-	0xf5, 0x00, 0x09, 0x78, 0xf9, 0x29, 0x13, 0x52, 0x1f, 0x09, 0x14, 0x5a, 0xab, 0xac, 0x0a, 0x15,
-	0x35, 0xf2, 0xd6, 0x6b, 0x68, 0x0a, 0x2f, 0xb5, 0xa9, 0xc9, 0x3c, 0xb0, 0xd6, 0x58, 0xd1, 0x29,
-	0x64, 0xe8, 0x2b, 0xd7, 0xc4, 0x01, 0xbc, 0x68, 0x1e, 0xa1, 0x9b, 0x5e, 0x15, 0x14, 0xef, 0xc0,
-	0x53, 0xad, 0x71, 0x19, 0xdc, 0x79, 0x9e, 0x9e, 0x7a, 0xbe, 0x66, 0x49, 0xe9, 0x7e, 0xcd, 0x8a,
-	0x41, 0x73, 0x7f, 0x00, 0x78, 0xad, 0x43, 0xe7, 0x9e, 0x93, 0x91, 0x90, 0xc9, 0xa0, 0x4b, 0x09,
-	0xef, 0xbf, 0x7e, 0x20, 0x25, 0x67, 0xbd, 0x91, 0xa4, 0xa8, 0x65, 0xad, 0x59, 0xe3, 0x52, 0x0d,
-	0xdd, 0xdd, 0xce, 0x6c, 0x0e, 0xe5, 0x21, 0x8d, 0xa9, 0xdf, 0x50, 0x4a, 0x4a, 0xf7, 0x50, 0x2a,
-	0x06, 0xcd, 0x1d, 0xc3, 0xdd, 0x22, 0xff, 0x8f, 0xde, 0xa7, 0x09, 0x97, 0x5d, 0x36, 0x7c, 0x8b,
-	0x5c, 0x3f, 0x95, 0xa5, 0x54, 0x91, 0x1b, 0x1b, 0x38, 0x4a, 0x41, 0x37, 0xb8, 0xb5, 0x49, 0xaa,
-	0x42, 0x43, 0x5f, 0xb9, 0x79, 0xd9, 0x62, 0x12, 0x5e, 0x97, 0x2d, 0x4b, 0xdd, 0x97, 0xad, 0x3a,
-	0x4c, 0x74, 0x91, 0x4c, 0x2f, 0x74, 0x59, 0xea, 0x46, 0x57, 0x1d, 0x66, 0xb4, 0xe6, 0xcb, 0x66,
-	0x79, 0x26, 0x50, 0xfd, 0x5a, 0x32, 0x94, 0xee, 0x68, 0x55, 0x0c, 0x9a, 0xfb, 0x09, 0xa2, 0x17,
-	0x24, 0x66, 0xa5, 0x4b, 0x37, 0xad, 0x95, 0xaa, 0x62, 0x45, 0x3f, 0xdc, 0xc8, 0x63, 0xae, 0xef,
-	0x95, 0x24, 0xd4, 0xad, 0xef, 0x55, 0xa1, 0x7b, 0x7d, 0x97, 0xf5, 0x1a, 0xfa, 0x11, 0x5e, 0x79,
-	0x4c, 0x58, 0x9c, 0x64, 0x94, 0x2f, 0x7f, 0xca, 0xf6, 0x77, 0xab, 0x68, 0x15, 0xba, 0xb9, 0x89,
-	0x45, 0xd3, 0xbf, 0x02, 0xb8, 0xd7, 0xa6, 0xb2, 0x43, 0xd3, 0x98, 0xf5, 0x89, 0x64, 0xc9, 0xb0,
-	0x2b, 0x89, 0x1c, 0x09, 0x74, 0x54, 0x77, 0x93, 0x8a, 0x5c, 0x35, 0x71, 0x7b, 0x43, 0x97, 0xee,
-	0xe3, 0x27, 0x80, 0x78, 0x9e, 0x0c, 0xd5, 0xeb, 0x13, 0x26, 0x64, 0xc2, 0xc7, 0xc7, 0xe3, 0xe5,
-	0x4c, 0xee, 0xd5, 0x46, 0xca, 0x6e, 0x54, 0xbd, 0xdd, 0xdf, 0xda, 0x6f, 0x26, 0xb4, 0x1d, 0x27,
-	0x3d, 0x12, 0xb3, 0x0f, 0xc6, 0xde, 0xb5, 0x4f, 0xbe, 0x2a, 0x76, 0x27, 0x74, 0x9d, 0x47, 0x37,
-	0xf0, 0x1d, 0xc0, 0x7d, 0x15, 0xe1, 0x35, 0x9d, 0xdc, 0x71, 0xe6, 0xde, 0xde, 0x51, 0x6b, 0x2b,
-	0xaf, 0x19, 0xe3, 0xf9, 0x18, 0x17, 0x6f, 0xbc, 0x08, 0x51, 0xa3, 0x76, 0xe4, 0x2b, 0x5a, 0x77,
-	0x8c, 0xd7, 0x58, 0x14, 0xfd, 0xf8, 0xcd, 0x64, 0x8a, 0x83, 0xb3, 0x29, 0x0e, 0xce, 0xa7, 0x18,
-	0x7c, 0xce, 0x31, 0xf8, 0x95, 0x63, 0xf0, 0x3b, 0xc7, 0x60, 0x92, 0x63, 0xf0, 0x27, 0xc7, 0xe0,
-	0x6f, 0x8e, 0x83, 0xf3, 0x1c, 0x83, 0x6f, 0x33, 0x1c, 0x4c, 0x66, 0x38, 0x38, 0x9b, 0xe1, 0xe0,
-	0xe5, 0x91, 0x1c, 0xa4, 0x3c, 0x0e, 0xfb, 0x71, 0x32, 0x3a, 0x8d, 0x2c, 0xdf, 0x9d, 0xad, 0xf2,
-	0xff, 0x7a, 0x17, 0xfe, 0x7f, 0x78, 0x1e, 0xfe, 0x0b, 0x00, 0x00, 0xff, 0xff, 0xc1, 0xde, 0x2e,
-	0x6a, 0xea, 0x0a, 0x00, 0x00,
+	// 481 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x95, 0x31, 0x6f, 0x13, 0x31,
+	0x18, 0x86, 0xcf, 0x0b, 0x83, 0x55, 0x28, 0x78, 0x41, 0x0a, 0x92, 0x07, 0x24, 0x36, 0xea, 0x23,
+	0x2d, 0x13, 0x41, 0x20, 0x5a, 0x44, 0x19, 0x10, 0x43, 0x22, 0x18, 0x58, 0x90, 0x73, 0xfd, 0x24,
+	0x8c, 0x9c, 0xda, 0xd8, 0xbe, 0x93, 0x8a, 0x90, 0xe0, 0x27, 0xb0, 0x21, 0xb1, 0xb2, 0x20, 0x7e,
+	0x09, 0x63, 0xc6, 0x8e, 0xe4, 0xb2, 0x30, 0xf6, 0x27, 0xa0, 0x23, 0xb5, 0x7b, 0xbd, 0xab, 0x93,
+	0x6b, 0xb6, 0x28, 0x7e, 0xde, 0xef, 0x79, 0xcf, 0xf6, 0xe9, 0xf0, 0x1d, 0xae, 0x45, 0x7a, 0xc8,
+	0x27, 0x60, 0x35, 0xcf, 0xc0, 0x82, 0x29, 0x44, 0x06, 0x69, 0xd1, 0x4f, 0x4f, 0x7f, 0x32, 0x6d,
+	0x94, 0x53, 0xe4, 0x26, 0xd7, 0x82, 0x35, 0x31, 0x56, 0xf4, 0x7b, 0x2c, 0x96, 0x37, 0xf0, 0x21,
+	0x07, 0xeb, 0xde, 0x1a, 0xb0, 0x5a, 0x1d, 0xda, 0xd3, 0x41, 0xdb, 0xbf, 0x36, 0xf0, 0xf5, 0x97,
+	0x1e, 0x1f, 0x2d, 0x70, 0x52, 0xe0, 0xcd, 0x3d, 0x03, 0xdc, 0x41, 0x58, 0x21, 0x29, 0x8b, 0x18,
+	0x59, 0x83, 0x1c, 0x2e, 0x3c, 0xbd, 0x7b, 0xdd, 0x03, 0x8b, 0x42, 0xb7, 0x13, 0x62, 0xf1, 0xb5,
+	0x17, 0xc2, 0xba, 0xb0, 0x64, 0x09, 0x8b, 0x4e, 0x39, 0x0f, 0x7a, 0x6b, 0xda, 0x99, 0x0f, 0x52,
+	0x8d, 0xaf, 0xee, 0x43, 0xdd, 0xb9, 0x15, 0x9d, 0x71, 0x8e, 0xf3, 0x4a, 0xd6, 0x15, 0x0f, 0xc6,
+	0x09, 0xde, 0xa8, 0x2f, 0x91, 0xbb, 0x9d, 0x26, 0x78, 0xdf, 0x56, 0x47, 0x3a, 0xe8, 0x0a, 0xbc,
+	0xf9, 0x4a, 0x1f, 0x74, 0x3c, 0xcd, 0x06, 0xb9, 0xfa, 0x34, 0x5b, 0x81, 0xe0, 0xfd, 0x8e, 0xf0,
+	0xad, 0x21, 0x54, 0x99, 0xbd, 0xdc, 0x3a, 0x35, 0x19, 0x01, 0x37, 0xd9, 0xbb, 0x27, 0xce, 0x19,
+	0x31, 0xce, 0x1d, 0x90, 0x41, 0x74, 0xe6, 0x92, 0x94, 0x2f, 0xf4, 0x70, 0xbd, 0x70, 0x7d, 0x53,
+	0x9e, 0x82, 0x84, 0x6e, 0x9b, 0xd2, 0x20, 0x57, 0x6f, 0x4a, 0x2b, 0x10, 0xbc, 0x9f, 0xf0, 0x8d,
+	0x67, 0x5c, 0x48, 0x55, 0x80, 0x39, 0x33, 0xf7, 0xa3, 0x83, 0x5a, 0xac, 0x77, 0x6f, 0x5f, 0x26,
+	0x12, 0xec, 0x3f, 0x10, 0xa6, 0xd5, 0x8b, 0xe0, 0x99, 0xe7, 0xc2, 0x3a, 0x65, 0x8e, 0x76, 0x8f,
+	0xce, 0xba, 0x3c, 0x5a, 0xfa, 0x06, 0xc5, 0x83, 0xbe, 0xd8, 0xe3, 0xb5, 0xf3, 0xa1, 0xe5, 0x67,
+	0x4c, 0xf6, 0xa5, 0x1a, 0x73, 0x29, 0x3e, 0xd6, 0x8e, 0x27, 0xfe, 0xc4, 0x6d, 0xd8, 0x97, 0xd9,
+	0xb9, 0x54, 0x26, 0x14, 0xf8, 0x86, 0x70, 0xef, 0x35, 0x97, 0xa2, 0xba, 0xd9, 0x17, 0x34, 0x79,
+	0x10, 0x9d, 0x1a, 0x0f, 0xf9, 0x46, 0x83, 0xb5, 0xb2, 0xf5, 0xeb, 0x53, 0x6d, 0xe3, 0x10, 0xb4,
+	0x14, 0x19, 0x1f, 0x39, 0xee, 0x72, 0xbb, 0xe4, 0xfa, 0xb4, 0xd8, 0xd5, 0xd7, 0xe7, 0x82, 0x88,
+	0xb7, 0xef, 0xbe, 0x9f, 0xce, 0x68, 0x72, 0x3c, 0xa3, 0xc9, 0xc9, 0x8c, 0xa2, 0x2f, 0x25, 0x45,
+	0x3f, 0x4b, 0x8a, 0x7e, 0x97, 0x14, 0x4d, 0x4b, 0x8a, 0xfe, 0x94, 0x14, 0xfd, 0x2d, 0x69, 0x72,
+	0x52, 0x52, 0xf4, 0x75, 0x4e, 0x93, 0xe9, 0x9c, 0x26, 0xc7, 0x73, 0x9a, 0xbc, 0xb9, 0xef, 0x26,
+	0xda, 0x48, 0x96, 0x49, 0x95, 0x1f, 0xa4, 0x91, 0xcf, 0xd3, 0xa0, 0xf9, 0xdf, 0xf8, 0xca, 0xff,
+	0xef, 0xd3, 0xce, 0xbf, 0x00, 0x00, 0x00, 0xff, 0xff, 0x92, 0xfc, 0x4c, 0xf7, 0x11, 0x07, 0x00,
+	0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -97,24 +89,8 @@ type NamespaceServiceClient interface {
 	RenameCustomSearchAttribute(ctx context.Context, in *RenameCustomSearchAttributeRequest, opts ...grpc.CallOption) (*RenameCustomSearchAttributeResponse, error)
 	// DeleteNamespace deletes an existing namespace on Temporal cloud.
 	DeleteNamespace(ctx context.Context, in *DeleteNamespaceRequest, opts ...grpc.CallOption) (*DeleteNamespaceResponse, error)
-	// CreateExportSink creates a new sink under the specified namespace on Temporal cloud
-	CreateExportSink(ctx context.Context, in *CreateExportSinkRequest, opts ...grpc.CallOption) (*CreateExportSinkResponse, error)
-	// GetExportSink gets the specified sink under the specified namespace on Temporal cloud
-	GetExportSink(ctx context.Context, in *GetExportSinkRequest, opts ...grpc.CallOption) (*GetExportSinkResponse, error)
-	// DeleteExportSink deletes the specified sink under the specified namespace on Temporal cloud
-	DeleteExportSink(ctx context.Context, in *DeleteExportSinkRequest, opts ...grpc.CallOption) (*DeleteExportSinkResponse, error)
-	// UpdateExportSink updates the specified sink under the specified namespace on Temporal Cloud
-	UpdateExportSink(ctx context.Context, in *UpdateExportSinkRequest, opts ...grpc.CallOption) (*UpdateExportSinkResponse, error)
-	// ListExportSinks lists the export sinks under the specified namespace on Temporal Cloud
-	ListExportSinks(ctx context.Context, in *ListExportSinksRequest, opts ...grpc.CallOption) (*ListExportSinksResponse, error)
-	// ValidateExportSink that could write test file to sink on Temporal Cloud
-	ValidateExportSink(ctx context.Context, in *ValidateExportSinkRequest, opts ...grpc.CallOption) (*ValidateExportSinkResponse, error)
-	// GetExportSinks retrieves the export sinks under the specified namespace on Temporal Cloud
-	GetExportSinks(ctx context.Context, in *GetExportSinksRequest, opts ...grpc.CallOption) (*GetExportSinksResponse, error)
 	// FailoverNamespace failovers the namespace from the source_region to the target_region on Temporal Cloud
 	FailoverNamespace(ctx context.Context, in *FailoverNamespaceRequest, opts ...grpc.CallOption) (*FailoverNamespaceResponse, error)
-	// GetReplicationStatus returns Global Namespace replication status
-	GetReplicationStatus(ctx context.Context, in *GetReplicationStatusRequest, opts ...grpc.CallOption) (*GetReplicationStatusResponse, error)
 	// ListFailoverHistoryByNamespace returns a list of failover record
 	ListFailoverHistoryByNamespace(ctx context.Context, in *ListFailoverHistoryByNamespaceRequest, opts ...grpc.CallOption) (*ListFailoverHistoryByNamespaceResponse, error)
 	// GlobalizeNamespace converts a regular namespace to global namespace on Temporal Cloud
@@ -196,81 +172,9 @@ func (c *namespaceServiceClient) DeleteNamespace(ctx context.Context, in *Delete
 	return out, nil
 }
 
-func (c *namespaceServiceClient) CreateExportSink(ctx context.Context, in *CreateExportSinkRequest, opts ...grpc.CallOption) (*CreateExportSinkResponse, error) {
-	out := new(CreateExportSinkResponse)
-	err := c.cc.Invoke(ctx, "/api.namespaceservice.v1.NamespaceService/CreateExportSink", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *namespaceServiceClient) GetExportSink(ctx context.Context, in *GetExportSinkRequest, opts ...grpc.CallOption) (*GetExportSinkResponse, error) {
-	out := new(GetExportSinkResponse)
-	err := c.cc.Invoke(ctx, "/api.namespaceservice.v1.NamespaceService/GetExportSink", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *namespaceServiceClient) DeleteExportSink(ctx context.Context, in *DeleteExportSinkRequest, opts ...grpc.CallOption) (*DeleteExportSinkResponse, error) {
-	out := new(DeleteExportSinkResponse)
-	err := c.cc.Invoke(ctx, "/api.namespaceservice.v1.NamespaceService/DeleteExportSink", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *namespaceServiceClient) UpdateExportSink(ctx context.Context, in *UpdateExportSinkRequest, opts ...grpc.CallOption) (*UpdateExportSinkResponse, error) {
-	out := new(UpdateExportSinkResponse)
-	err := c.cc.Invoke(ctx, "/api.namespaceservice.v1.NamespaceService/UpdateExportSink", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *namespaceServiceClient) ListExportSinks(ctx context.Context, in *ListExportSinksRequest, opts ...grpc.CallOption) (*ListExportSinksResponse, error) {
-	out := new(ListExportSinksResponse)
-	err := c.cc.Invoke(ctx, "/api.namespaceservice.v1.NamespaceService/ListExportSinks", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *namespaceServiceClient) ValidateExportSink(ctx context.Context, in *ValidateExportSinkRequest, opts ...grpc.CallOption) (*ValidateExportSinkResponse, error) {
-	out := new(ValidateExportSinkResponse)
-	err := c.cc.Invoke(ctx, "/api.namespaceservice.v1.NamespaceService/ValidateExportSink", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *namespaceServiceClient) GetExportSinks(ctx context.Context, in *GetExportSinksRequest, opts ...grpc.CallOption) (*GetExportSinksResponse, error) {
-	out := new(GetExportSinksResponse)
-	err := c.cc.Invoke(ctx, "/api.namespaceservice.v1.NamespaceService/GetExportSinks", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *namespaceServiceClient) FailoverNamespace(ctx context.Context, in *FailoverNamespaceRequest, opts ...grpc.CallOption) (*FailoverNamespaceResponse, error) {
 	out := new(FailoverNamespaceResponse)
 	err := c.cc.Invoke(ctx, "/api.namespaceservice.v1.NamespaceService/FailoverNamespace", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *namespaceServiceClient) GetReplicationStatus(ctx context.Context, in *GetReplicationStatusRequest, opts ...grpc.CallOption) (*GetReplicationStatusResponse, error) {
-	out := new(GetReplicationStatusResponse)
-	err := c.cc.Invoke(ctx, "/api.namespaceservice.v1.NamespaceService/GetReplicationStatus", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -329,24 +233,8 @@ type NamespaceServiceServer interface {
 	RenameCustomSearchAttribute(context.Context, *RenameCustomSearchAttributeRequest) (*RenameCustomSearchAttributeResponse, error)
 	// DeleteNamespace deletes an existing namespace on Temporal cloud.
 	DeleteNamespace(context.Context, *DeleteNamespaceRequest) (*DeleteNamespaceResponse, error)
-	// CreateExportSink creates a new sink under the specified namespace on Temporal cloud
-	CreateExportSink(context.Context, *CreateExportSinkRequest) (*CreateExportSinkResponse, error)
-	// GetExportSink gets the specified sink under the specified namespace on Temporal cloud
-	GetExportSink(context.Context, *GetExportSinkRequest) (*GetExportSinkResponse, error)
-	// DeleteExportSink deletes the specified sink under the specified namespace on Temporal cloud
-	DeleteExportSink(context.Context, *DeleteExportSinkRequest) (*DeleteExportSinkResponse, error)
-	// UpdateExportSink updates the specified sink under the specified namespace on Temporal Cloud
-	UpdateExportSink(context.Context, *UpdateExportSinkRequest) (*UpdateExportSinkResponse, error)
-	// ListExportSinks lists the export sinks under the specified namespace on Temporal Cloud
-	ListExportSinks(context.Context, *ListExportSinksRequest) (*ListExportSinksResponse, error)
-	// ValidateExportSink that could write test file to sink on Temporal Cloud
-	ValidateExportSink(context.Context, *ValidateExportSinkRequest) (*ValidateExportSinkResponse, error)
-	// GetExportSinks retrieves the export sinks under the specified namespace on Temporal Cloud
-	GetExportSinks(context.Context, *GetExportSinksRequest) (*GetExportSinksResponse, error)
 	// FailoverNamespace failovers the namespace from the source_region to the target_region on Temporal Cloud
 	FailoverNamespace(context.Context, *FailoverNamespaceRequest) (*FailoverNamespaceResponse, error)
-	// GetReplicationStatus returns Global Namespace replication status
-	GetReplicationStatus(context.Context, *GetReplicationStatusRequest) (*GetReplicationStatusResponse, error)
 	// ListFailoverHistoryByNamespace returns a list of failover record
 	ListFailoverHistoryByNamespace(context.Context, *ListFailoverHistoryByNamespaceRequest) (*ListFailoverHistoryByNamespaceResponse, error)
 	// GlobalizeNamespace converts a regular namespace to global namespace on Temporal Cloud
@@ -382,32 +270,8 @@ func (*UnimplementedNamespaceServiceServer) RenameCustomSearchAttribute(ctx cont
 func (*UnimplementedNamespaceServiceServer) DeleteNamespace(ctx context.Context, req *DeleteNamespaceRequest) (*DeleteNamespaceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteNamespace not implemented")
 }
-func (*UnimplementedNamespaceServiceServer) CreateExportSink(ctx context.Context, req *CreateExportSinkRequest) (*CreateExportSinkResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateExportSink not implemented")
-}
-func (*UnimplementedNamespaceServiceServer) GetExportSink(ctx context.Context, req *GetExportSinkRequest) (*GetExportSinkResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetExportSink not implemented")
-}
-func (*UnimplementedNamespaceServiceServer) DeleteExportSink(ctx context.Context, req *DeleteExportSinkRequest) (*DeleteExportSinkResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeleteExportSink not implemented")
-}
-func (*UnimplementedNamespaceServiceServer) UpdateExportSink(ctx context.Context, req *UpdateExportSinkRequest) (*UpdateExportSinkResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateExportSink not implemented")
-}
-func (*UnimplementedNamespaceServiceServer) ListExportSinks(ctx context.Context, req *ListExportSinksRequest) (*ListExportSinksResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListExportSinks not implemented")
-}
-func (*UnimplementedNamespaceServiceServer) ValidateExportSink(ctx context.Context, req *ValidateExportSinkRequest) (*ValidateExportSinkResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ValidateExportSink not implemented")
-}
-func (*UnimplementedNamespaceServiceServer) GetExportSinks(ctx context.Context, req *GetExportSinksRequest) (*GetExportSinksResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetExportSinks not implemented")
-}
 func (*UnimplementedNamespaceServiceServer) FailoverNamespace(ctx context.Context, req *FailoverNamespaceRequest) (*FailoverNamespaceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FailoverNamespace not implemented")
-}
-func (*UnimplementedNamespaceServiceServer) GetReplicationStatus(ctx context.Context, req *GetReplicationStatusRequest) (*GetReplicationStatusResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetReplicationStatus not implemented")
 }
 func (*UnimplementedNamespaceServiceServer) ListFailoverHistoryByNamespace(ctx context.Context, req *ListFailoverHistoryByNamespaceRequest) (*ListFailoverHistoryByNamespaceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListFailoverHistoryByNamespace not implemented")
@@ -552,132 +416,6 @@ func _NamespaceService_DeleteNamespace_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
-func _NamespaceService_CreateExportSink_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateExportSinkRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NamespaceServiceServer).CreateExportSink(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/api.namespaceservice.v1.NamespaceService/CreateExportSink",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NamespaceServiceServer).CreateExportSink(ctx, req.(*CreateExportSinkRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NamespaceService_GetExportSink_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetExportSinkRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NamespaceServiceServer).GetExportSink(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/api.namespaceservice.v1.NamespaceService/GetExportSink",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NamespaceServiceServer).GetExportSink(ctx, req.(*GetExportSinkRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NamespaceService_DeleteExportSink_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteExportSinkRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NamespaceServiceServer).DeleteExportSink(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/api.namespaceservice.v1.NamespaceService/DeleteExportSink",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NamespaceServiceServer).DeleteExportSink(ctx, req.(*DeleteExportSinkRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NamespaceService_UpdateExportSink_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateExportSinkRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NamespaceServiceServer).UpdateExportSink(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/api.namespaceservice.v1.NamespaceService/UpdateExportSink",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NamespaceServiceServer).UpdateExportSink(ctx, req.(*UpdateExportSinkRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NamespaceService_ListExportSinks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListExportSinksRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NamespaceServiceServer).ListExportSinks(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/api.namespaceservice.v1.NamespaceService/ListExportSinks",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NamespaceServiceServer).ListExportSinks(ctx, req.(*ListExportSinksRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NamespaceService_ValidateExportSink_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ValidateExportSinkRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NamespaceServiceServer).ValidateExportSink(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/api.namespaceservice.v1.NamespaceService/ValidateExportSink",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NamespaceServiceServer).ValidateExportSink(ctx, req.(*ValidateExportSinkRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NamespaceService_GetExportSinks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetExportSinksRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NamespaceServiceServer).GetExportSinks(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/api.namespaceservice.v1.NamespaceService/GetExportSinks",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NamespaceServiceServer).GetExportSinks(ctx, req.(*GetExportSinksRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _NamespaceService_FailoverNamespace_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(FailoverNamespaceRequest)
 	if err := dec(in); err != nil {
@@ -692,24 +430,6 @@ func _NamespaceService_FailoverNamespace_Handler(srv interface{}, ctx context.Co
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(NamespaceServiceServer).FailoverNamespace(ctx, req.(*FailoverNamespaceRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _NamespaceService_GetReplicationStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetReplicationStatusRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NamespaceServiceServer).GetReplicationStatus(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/api.namespaceservice.v1.NamespaceService/GetReplicationStatus",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NamespaceServiceServer).GetReplicationStatus(ctx, req.(*GetReplicationStatusRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -819,40 +539,8 @@ var _NamespaceService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _NamespaceService_DeleteNamespace_Handler,
 		},
 		{
-			MethodName: "CreateExportSink",
-			Handler:    _NamespaceService_CreateExportSink_Handler,
-		},
-		{
-			MethodName: "GetExportSink",
-			Handler:    _NamespaceService_GetExportSink_Handler,
-		},
-		{
-			MethodName: "DeleteExportSink",
-			Handler:    _NamespaceService_DeleteExportSink_Handler,
-		},
-		{
-			MethodName: "UpdateExportSink",
-			Handler:    _NamespaceService_UpdateExportSink_Handler,
-		},
-		{
-			MethodName: "ListExportSinks",
-			Handler:    _NamespaceService_ListExportSinks_Handler,
-		},
-		{
-			MethodName: "ValidateExportSink",
-			Handler:    _NamespaceService_ValidateExportSink_Handler,
-		},
-		{
-			MethodName: "GetExportSinks",
-			Handler:    _NamespaceService_GetExportSinks_Handler,
-		},
-		{
 			MethodName: "FailoverNamespace",
 			Handler:    _NamespaceService_FailoverNamespace_Handler,
-		},
-		{
-			MethodName: "GetReplicationStatus",
-			Handler:    _NamespaceService_GetReplicationStatus_Handler,
 		},
 		{
 			MethodName: "ListFailoverHistoryByNamespace",

@@ -5,16 +5,18 @@ package namespace
 
 import (
 	fmt "fmt"
-	proto "github.com/gogo/protobuf/proto"
-	github_com_gogo_protobuf_sortkeys "github.com/gogo/protobuf/sortkeys"
-	types "github.com/gogo/protobuf/types"
-	descriptor "github.com/golang/protobuf/protoc-gen-go/descriptor"
 	io "io"
 	math "math"
 	math_bits "math/bits"
 	reflect "reflect"
 	strconv "strconv"
 	strings "strings"
+
+	proto "github.com/gogo/protobuf/proto"
+	github_com_gogo_protobuf_sortkeys "github.com/gogo/protobuf/sortkeys"
+	types "github.com/gogo/protobuf/types"
+	descriptor "github.com/golang/protobuf/protoc-gen-go/descriptor"
+	v11 "github.com/temporalio/tcld/protogen/api/cloud/connectivityrule/v1"
 	v1 "github.com/temporalio/tcld/protogen/api/common/v1"
 )
 
@@ -177,8 +179,6 @@ func (AuthMethod) EnumDescriptor() ([]byte, []int) {
 }
 
 type NamespaceSpec struct {
-	// the region where the namespace is (or will be) active.
-	Region string `protobuf:"bytes,1,opt,name=region,proto3" json:"region,omitempty"` // Deprecated: Do not use.
 	// the base64 encoded ca cert(s) that the clients can use for authentication and authorization
 	AcceptedClientCa string `protobuf:"bytes,2,opt,name=accepted_client_ca,json=acceptedClientCa,proto3" json:"accepted_client_ca,omitempty"`
 	// the num of days the workflows' data will be retained for
@@ -194,13 +194,22 @@ type NamespaceSpec struct {
 	// codec server property spec needed for user to set and retrieve
 	CodecSpec *CodecServerPropertySpec `protobuf:"bytes,8,opt,name=codec_spec,json=codecSpec,proto3" json:"codec_spec,omitempty"`
 	// the regions where the namespace is (or will be) located
-	PassiveRegions []string `protobuf:"bytes,9,rep,name=passive_regions,json=passiveRegions,proto3" json:"passive_regions,omitempty"`
-	// the cloud provider for the namespace, e.g. currently we can allow aws, gcp
-	CloudProvider string `protobuf:"bytes,10,opt,name=cloud_provider,json=cloudProvider,proto3" json:"cloud_provider,omitempty"` // Deprecated: Do not use.
+	PassiveRegions []string `protobuf:"bytes,9,rep,name=passive_regions,json=passiveRegions,proto3" json:"passive_regions,omitempty"` // Deprecated: Do not use.
 	// the authentication method(s) configured for the namespace.
 	AuthMethod AuthMethod `protobuf:"varint,13,opt,name=auth_method,json=authMethod,proto3,enum=api.namespace.v1.AuthMethod" json:"auth_method,omitempty"`
 	// use the new region id for region and cloud provider
 	RegionId *v1.RegionID `protobuf:"bytes,14,opt,name=region_id,json=regionId,proto3" json:"region_id,omitempty"`
+	// The lifecycle configuration for the namespace.
+	Lifecycle *LifecycleSpec `protobuf:"bytes,15,opt,name=lifecycle,proto3" json:"lifecycle,omitempty"`
+	// The high availability configuration for the namespace.
+	// temporal:versioning:min_version=2025-01-01-00
+	HighAvailability *HighAvailabilitySpec `protobuf:"bytes,16,opt,name=high_availability,json=highAvailability,proto3" json:"high_availability,omitempty"`
+	// The passive regions with cloud providers where the namespace is located.
+	// temporal:versioning:min_version=2025-04-12-00
+	PassiveRegionIds []*v1.RegionID `protobuf:"bytes,17,rep,name=passive_region_ids,json=passiveRegionIds,proto3" json:"passive_region_ids,omitempty"`
+	// The private connectivity configuration for the namespace.
+	// temporal:versioning:min_version=2025-02-11-00
+	ConnectivityRuleIds []string `protobuf:"bytes,18,rep,name=connectivity_rule_ids,json=connectivityRuleIds,proto3" json:"connectivity_rule_ids,omitempty"`
 }
 
 func (m *NamespaceSpec) Reset()      { *m = NamespaceSpec{} }
@@ -234,14 +243,6 @@ func (m *NamespaceSpec) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_NamespaceSpec proto.InternalMessageInfo
-
-// Deprecated: Do not use.
-func (m *NamespaceSpec) GetRegion() string {
-	if m != nil {
-		return m.Region
-	}
-	return ""
-}
 
 func (m *NamespaceSpec) GetAcceptedClientCa() string {
 	if m != nil {
@@ -285,19 +286,12 @@ func (m *NamespaceSpec) GetCodecSpec() *CodecServerPropertySpec {
 	return nil
 }
 
+// Deprecated: Do not use.
 func (m *NamespaceSpec) GetPassiveRegions() []string {
 	if m != nil {
 		return m.PassiveRegions
 	}
 	return nil
-}
-
-// Deprecated: Do not use.
-func (m *NamespaceSpec) GetCloudProvider() string {
-	if m != nil {
-		return m.CloudProvider
-	}
-	return ""
 }
 
 func (m *NamespaceSpec) GetAuthMethod() AuthMethod {
@@ -314,6 +308,122 @@ func (m *NamespaceSpec) GetRegionId() *v1.RegionID {
 	return nil
 }
 
+func (m *NamespaceSpec) GetLifecycle() *LifecycleSpec {
+	if m != nil {
+		return m.Lifecycle
+	}
+	return nil
+}
+
+func (m *NamespaceSpec) GetHighAvailability() *HighAvailabilitySpec {
+	if m != nil {
+		return m.HighAvailability
+	}
+	return nil
+}
+
+func (m *NamespaceSpec) GetPassiveRegionIds() []*v1.RegionID {
+	if m != nil {
+		return m.PassiveRegionIds
+	}
+	return nil
+}
+
+func (m *NamespaceSpec) GetConnectivityRuleIds() []string {
+	if m != nil {
+		return m.ConnectivityRuleIds
+	}
+	return nil
+}
+
+type HighAvailabilitySpec struct {
+	// Flag to disable managed failover for the namespace.
+	DisableManagedFailover bool `protobuf:"varint,1,opt,name=disable_managed_failover,json=disableManagedFailover,proto3" json:"disable_managed_failover,omitempty"`
+}
+
+func (m *HighAvailabilitySpec) Reset()      { *m = HighAvailabilitySpec{} }
+func (*HighAvailabilitySpec) ProtoMessage() {}
+func (*HighAvailabilitySpec) Descriptor() ([]byte, []int) {
+	return fileDescriptor_56458b48206aa18d, []int{1}
+}
+func (m *HighAvailabilitySpec) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *HighAvailabilitySpec) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_HighAvailabilitySpec.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *HighAvailabilitySpec) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_HighAvailabilitySpec.Merge(m, src)
+}
+func (m *HighAvailabilitySpec) XXX_Size() int {
+	return m.Size()
+}
+func (m *HighAvailabilitySpec) XXX_DiscardUnknown() {
+	xxx_messageInfo_HighAvailabilitySpec.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_HighAvailabilitySpec proto.InternalMessageInfo
+
+func (m *HighAvailabilitySpec) GetDisableManagedFailover() bool {
+	if m != nil {
+		return m.DisableManagedFailover
+	}
+	return false
+}
+
+type LifecycleSpec struct {
+	// Flag to enable delete protection for the namespace.
+	EnableDeleteProtection bool `protobuf:"varint,1,opt,name=enable_delete_protection,json=enableDeleteProtection,proto3" json:"enable_delete_protection,omitempty"`
+}
+
+func (m *LifecycleSpec) Reset()      { *m = LifecycleSpec{} }
+func (*LifecycleSpec) ProtoMessage() {}
+func (*LifecycleSpec) Descriptor() ([]byte, []int) {
+	return fileDescriptor_56458b48206aa18d, []int{2}
+}
+func (m *LifecycleSpec) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *LifecycleSpec) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_LifecycleSpec.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *LifecycleSpec) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_LifecycleSpec.Merge(m, src)
+}
+func (m *LifecycleSpec) XXX_Size() int {
+	return m.Size()
+}
+func (m *LifecycleSpec) XXX_DiscardUnknown() {
+	xxx_messageInfo_LifecycleSpec.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_LifecycleSpec proto.InternalMessageInfo
+
+func (m *LifecycleSpec) GetEnableDeleteProtection() bool {
+	if m != nil {
+		return m.EnableDeleteProtection
+	}
+	return false
+}
+
 type CodecServerPropertySpec struct {
 	// server endpoints
 	Endpoint string `protobuf:"bytes,1,opt,name=endpoint,proto3" json:"endpoint,omitempty"`
@@ -321,12 +431,14 @@ type CodecServerPropertySpec struct {
 	PassAccessToken bool `protobuf:"varint,2,opt,name=pass_access_token,json=passAccessToken,proto3" json:"pass_access_token,omitempty"`
 	// whether to include credentials
 	IncludeCredentials bool `protobuf:"varint,3,opt,name=include_credentials,json=includeCredentials,proto3" json:"include_credentials,omitempty"`
+	// A custom error message to display for remote codec server errors.
+	CustomErrorMessage *CodecServerPropertySpec_CustomErrorMessage `protobuf:"bytes,4,opt,name=custom_error_message,json=customErrorMessage,proto3" json:"custom_error_message,omitempty"`
 }
 
 func (m *CodecServerPropertySpec) Reset()      { *m = CodecServerPropertySpec{} }
 func (*CodecServerPropertySpec) ProtoMessage() {}
 func (*CodecServerPropertySpec) Descriptor() ([]byte, []int) {
-	return fileDescriptor_56458b48206aa18d, []int{1}
+	return fileDescriptor_56458b48206aa18d, []int{3}
 }
 func (m *CodecServerPropertySpec) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -376,6 +488,114 @@ func (m *CodecServerPropertySpec) GetIncludeCredentials() bool {
 	return false
 }
 
+func (m *CodecServerPropertySpec) GetCustomErrorMessage() *CodecServerPropertySpec_CustomErrorMessage {
+	if m != nil {
+		return m.CustomErrorMessage
+	}
+	return nil
+}
+
+type CodecServerPropertySpec_CustomErrorMessage struct {
+	// The error message to display by default for any remote codec server errors.
+	Default *CodecServerPropertySpec_CustomErrorMessage_ErrorMessage `protobuf:"bytes,1,opt,name=default,proto3" json:"default,omitempty"`
+}
+
+func (m *CodecServerPropertySpec_CustomErrorMessage) Reset() {
+	*m = CodecServerPropertySpec_CustomErrorMessage{}
+}
+func (*CodecServerPropertySpec_CustomErrorMessage) ProtoMessage() {}
+func (*CodecServerPropertySpec_CustomErrorMessage) Descriptor() ([]byte, []int) {
+	return fileDescriptor_56458b48206aa18d, []int{3, 0}
+}
+func (m *CodecServerPropertySpec_CustomErrorMessage) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *CodecServerPropertySpec_CustomErrorMessage) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_CodecServerPropertySpec_CustomErrorMessage.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *CodecServerPropertySpec_CustomErrorMessage) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CodecServerPropertySpec_CustomErrorMessage.Merge(m, src)
+}
+func (m *CodecServerPropertySpec_CustomErrorMessage) XXX_Size() int {
+	return m.Size()
+}
+func (m *CodecServerPropertySpec_CustomErrorMessage) XXX_DiscardUnknown() {
+	xxx_messageInfo_CodecServerPropertySpec_CustomErrorMessage.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CodecServerPropertySpec_CustomErrorMessage proto.InternalMessageInfo
+
+func (m *CodecServerPropertySpec_CustomErrorMessage) GetDefault() *CodecServerPropertySpec_CustomErrorMessage_ErrorMessage {
+	if m != nil {
+		return m.Default
+	}
+	return nil
+}
+
+type CodecServerPropertySpec_CustomErrorMessage_ErrorMessage struct {
+	// A message to display.
+	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	// A link that is displayed along side the configured message.
+	Link string `protobuf:"bytes,2,opt,name=link,proto3" json:"link,omitempty"`
+}
+
+func (m *CodecServerPropertySpec_CustomErrorMessage_ErrorMessage) Reset() {
+	*m = CodecServerPropertySpec_CustomErrorMessage_ErrorMessage{}
+}
+func (*CodecServerPropertySpec_CustomErrorMessage_ErrorMessage) ProtoMessage() {}
+func (*CodecServerPropertySpec_CustomErrorMessage_ErrorMessage) Descriptor() ([]byte, []int) {
+	return fileDescriptor_56458b48206aa18d, []int{3, 0, 0}
+}
+func (m *CodecServerPropertySpec_CustomErrorMessage_ErrorMessage) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *CodecServerPropertySpec_CustomErrorMessage_ErrorMessage) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_CodecServerPropertySpec_CustomErrorMessage_ErrorMessage.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *CodecServerPropertySpec_CustomErrorMessage_ErrorMessage) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CodecServerPropertySpec_CustomErrorMessage_ErrorMessage.Merge(m, src)
+}
+func (m *CodecServerPropertySpec_CustomErrorMessage_ErrorMessage) XXX_Size() int {
+	return m.Size()
+}
+func (m *CodecServerPropertySpec_CustomErrorMessage_ErrorMessage) XXX_DiscardUnknown() {
+	xxx_messageInfo_CodecServerPropertySpec_CustomErrorMessage_ErrorMessage.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_CodecServerPropertySpec_CustomErrorMessage_ErrorMessage proto.InternalMessageInfo
+
+func (m *CodecServerPropertySpec_CustomErrorMessage_ErrorMessage) GetMessage() string {
+	if m != nil {
+		return m.Message
+	}
+	return ""
+}
+
+func (m *CodecServerPropertySpec_CustomErrorMessage_ErrorMessage) GetLink() string {
+	if m != nil {
+		return m.Link
+	}
+	return ""
+}
+
 // a filter matches a certificate if the specified fields on the filter match the corresponding
 // fields on the certificate. A filter with zero specified fields is invalid and will be rejected
 // by the server. A field is either an exact string match, a prefix match (field starts with '*') or a
@@ -392,7 +612,7 @@ type CertificateFilterSpec struct {
 func (m *CertificateFilterSpec) Reset()      { *m = CertificateFilterSpec{} }
 func (*CertificateFilterSpec) ProtoMessage() {}
 func (*CertificateFilterSpec) Descriptor() ([]byte, []int) {
-	return fileDescriptor_56458b48206aa18d, []int{2}
+	return fileDescriptor_56458b48206aa18d, []int{4}
 }
 func (m *CertificateFilterSpec) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -452,18 +672,20 @@ func (m *CertificateFilterSpec) GetSubjectAlternativeName() string {
 type NamespaceURI struct {
 	// the web ui address
 	Web string `protobuf:"bytes,1,opt,name=web,proto3" json:"web,omitempty"`
-	// the grpc address used with mTLS
+	// the per namespace grpc address
 	Grpc string `protobuf:"bytes,2,opt,name=grpc,proto3" json:"grpc,omitempty"`
 	// the list of private links
 	VpcEndpointServiceNames []string `protobuf:"bytes,3,rep,name=vpc_endpoint_service_names,json=vpcEndpointServiceNames,proto3" json:"vpc_endpoint_service_names,omitempty"`
-	// the grpc address used with API keys
+	// the active regional grpc address
 	RegionalGrpc string `protobuf:"bytes,4,opt,name=regional_grpc,json=regionalGrpc,proto3" json:"regional_grpc,omitempty"`
+	// the passive regional grpc addresses
+	PassiveRegionalGrpcAddresses []string `protobuf:"bytes,5,rep,name=passive_regional_grpc_addresses,json=passiveRegionalGrpcAddresses,proto3" json:"passive_regional_grpc_addresses,omitempty"`
 }
 
 func (m *NamespaceURI) Reset()      { *m = NamespaceURI{} }
 func (*NamespaceURI) ProtoMessage() {}
 func (*NamespaceURI) Descriptor() ([]byte, []int) {
-	return fileDescriptor_56458b48206aa18d, []int{3}
+	return fileDescriptor_56458b48206aa18d, []int{5}
 }
 func (m *NamespaceURI) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -520,6 +742,13 @@ func (m *NamespaceURI) GetRegionalGrpc() string {
 	return ""
 }
 
+func (m *NamespaceURI) GetPassiveRegionalGrpcAddresses() []string {
+	if m != nil {
+		return m.PassiveRegionalGrpcAddresses
+	}
+	return nil
+}
+
 type NamespaceEnvelope struct {
 	// the namespace may be throttled if its APS exceeds the limit
 	ActionsPerSecondLimit *types.Int32Value `protobuf:"bytes,4,opt,name=actions_per_second_limit,json=actionsPerSecondLimit,proto3" json:"actions_per_second_limit,omitempty"`
@@ -536,7 +765,7 @@ type NamespaceEnvelope struct {
 func (m *NamespaceEnvelope) Reset()      { *m = NamespaceEnvelope{} }
 func (*NamespaceEnvelope) ProtoMessage() {}
 func (*NamespaceEnvelope) Descriptor() ([]byte, []int) {
-	return fileDescriptor_56458b48206aa18d, []int{4}
+	return fileDescriptor_56458b48206aa18d, []int{6}
 }
 func (m *NamespaceEnvelope) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -619,7 +848,7 @@ type NamespaceRegion struct {
 func (m *NamespaceRegion) Reset()      { *m = NamespaceRegion{} }
 func (*NamespaceRegion) ProtoMessage() {}
 func (*NamespaceRegion) Descriptor() ([]byte, []int) {
-	return fileDescriptor_56458b48206aa18d, []int{5}
+	return fileDescriptor_56458b48206aa18d, []int{7}
 }
 func (m *NamespaceRegion) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -691,12 +920,16 @@ type Namespace struct {
 	AllowedPrincipals []string `protobuf:"bytes,11,rep,name=allowed_principals,json=allowedPrincipals,proto3" json:"allowed_principals,omitempty"`
 	// the regions where the namespace is with including active and passive regions
 	Regions []*NamespaceRegion `protobuf:"bytes,12,rep,name=regions,proto3" json:"regions,omitempty"`
+	// connectivity_rules that set on this namespace
+	ConnectivityRules []*v11.ConnectivityRule `protobuf:"bytes,14,rep,name=connectivity_rules,json=connectivityRules,proto3" json:"connectivity_rules,omitempty"`
+	// the tags for the namespace
+	Tags map[string]string `protobuf:"bytes,15,rep,name=tags,proto3" json:"tags,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
 }
 
 func (m *Namespace) Reset()      { *m = Namespace{} }
 func (*Namespace) ProtoMessage() {}
 func (*Namespace) Descriptor() ([]byte, []int) {
-	return fileDescriptor_56458b48206aa18d, []int{6}
+	return fileDescriptor_56458b48206aa18d, []int{8}
 }
 func (m *Namespace) XXX_Unmarshal(b []byte) error {
 	return m.Unmarshal(b)
@@ -795,6 +1028,20 @@ func (m *Namespace) GetRegions() []*NamespaceRegion {
 	return nil
 }
 
+func (m *Namespace) GetConnectivityRules() []*v11.ConnectivityRule {
+	if m != nil {
+		return m.ConnectivityRules
+	}
+	return nil
+}
+
+func (m *Namespace) GetTags() map[string]string {
+	if m != nil {
+		return m.Tags
+	}
+	return nil
+}
+
 var E_ApiVersion = &proto.ExtensionDesc{
 	ExtendedType:  (*descriptor.FileOptions)(nil),
 	ExtensionType: (*string)(nil),
@@ -811,128 +1058,154 @@ func init() {
 	proto.RegisterEnum("api.namespace.v1.AuthMethod", AuthMethod_name, AuthMethod_value)
 	proto.RegisterType((*NamespaceSpec)(nil), "api.namespace.v1.NamespaceSpec")
 	proto.RegisterMapType((map[string]SearchAttributeType)(nil), "api.namespace.v1.NamespaceSpec.SearchAttributesEntry")
+	proto.RegisterType((*HighAvailabilitySpec)(nil), "api.namespace.v1.HighAvailabilitySpec")
+	proto.RegisterType((*LifecycleSpec)(nil), "api.namespace.v1.LifecycleSpec")
 	proto.RegisterType((*CodecServerPropertySpec)(nil), "api.namespace.v1.CodecServerPropertySpec")
+	proto.RegisterType((*CodecServerPropertySpec_CustomErrorMessage)(nil), "api.namespace.v1.CodecServerPropertySpec.CustomErrorMessage")
+	proto.RegisterType((*CodecServerPropertySpec_CustomErrorMessage_ErrorMessage)(nil), "api.namespace.v1.CodecServerPropertySpec.CustomErrorMessage.ErrorMessage")
 	proto.RegisterType((*CertificateFilterSpec)(nil), "api.namespace.v1.CertificateFilterSpec")
 	proto.RegisterType((*NamespaceURI)(nil), "api.namespace.v1.NamespaceURI")
 	proto.RegisterType((*NamespaceEnvelope)(nil), "api.namespace.v1.NamespaceEnvelope")
 	proto.RegisterType((*NamespaceRegion)(nil), "api.namespace.v1.NamespaceRegion")
 	proto.RegisterType((*Namespace)(nil), "api.namespace.v1.Namespace")
+	proto.RegisterMapType((map[string]string)(nil), "api.namespace.v1.Namespace.TagsEntry")
 	proto.RegisterExtension(E_ApiVersion)
 }
 
 func init() { proto.RegisterFile("api/namespace/v1/message.proto", fileDescriptor_56458b48206aa18d) }
 
 var fileDescriptor_56458b48206aa18d = []byte{
-	// 1730 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x8c, 0x57, 0xcd, 0x73, 0xdb, 0xd6,
-	0x11, 0x17, 0x48, 0x50, 0x22, 0x97, 0xfa, 0x80, 0x9e, 0x6c, 0x8b, 0xa6, 0x64, 0x58, 0xa6, 0xc7,
-	0x89, 0xac, 0xa9, 0x28, 0x9b, 0xee, 0x47, 0x26, 0x9e, 0x8c, 0x4b, 0x89, 0x50, 0x04, 0x55, 0x22,
-	0x59, 0x10, 0x54, 0x93, 0x4e, 0x67, 0x30, 0x4f, 0xc0, 0x93, 0x84, 0x18, 0x04, 0x90, 0x87, 0x47,
-	0x7a, 0xd4, 0xe9, 0xa1, 0xd3, 0x73, 0x0f, 0x99, 0xce, 0x24, 0xe7, 0x1e, 0x7b, 0xe8, 0xa9, 0xff,
-	0x44, 0x73, 0xf4, 0x31, 0xc7, 0x5a, 0xbe, 0xe4, 0x98, 0x3f, 0xa1, 0xf3, 0x1e, 0xc0, 0x0f, 0x91,
-	0xb4, 0x94, 0x1b, 0xb1, 0xbb, 0xbf, 0xdd, 0xdf, 0xee, 0xdb, 0xdd, 0xf7, 0x08, 0x2a, 0x0e, 0xdd,
-	0x1d, 0x1f, 0x77, 0x48, 0x14, 0x62, 0x9b, 0xec, 0xf4, 0x9e, 0xef, 0x74, 0x48, 0x14, 0xe1, 0x73,
-	0x52, 0x0e, 0x69, 0xc0, 0x02, 0xa4, 0xe0, 0xd0, 0x2d, 0x0f, 0xf4, 0xe5, 0xde, 0xf3, 0xe2, 0xc3,
-	0xf3, 0x20, 0x38, 0xf7, 0xc8, 0x8e, 0xd0, 0x9f, 0x76, 0xcf, 0x76, 0x98, 0xdb, 0x21, 0x11, 0xc3,
-	0x9d, 0x30, 0x86, 0x14, 0x37, 0xc6, 0x0d, 0x1c, 0x12, 0xd9, 0xd4, 0x0d, 0x59, 0x40, 0x13, 0x0b,
-	0x75, 0xdc, 0xe2, 0x0d, 0xc5, 0x61, 0x48, 0x68, 0x94, 0xe8, 0xd7, 0x38, 0x29, 0x3b, 0xe8, 0x74,
-	0x02, 0x7f, 0x82, 0x51, 0xe9, 0x9b, 0x59, 0x58, 0xa8, 0xf7, 0x09, 0xb5, 0x42, 0x62, 0xa3, 0x22,
-	0xcc, 0x52, 0x72, 0xee, 0x06, 0x7e, 0x41, 0xda, 0x90, 0x36, 0x73, 0xbb, 0xa9, 0x82, 0x64, 0x24,
-	0x12, 0xf4, 0x0b, 0x40, 0xd8, 0xb6, 0x49, 0xc8, 0x88, 0x63, 0xd9, 0x9e, 0x4b, 0x7c, 0x66, 0xd9,
-	0xb8, 0x90, 0xe2, 0x76, 0x86, 0xd2, 0xd7, 0xec, 0x09, 0xc5, 0x1e, 0x46, 0x4f, 0x60, 0x91, 0x12,
-	0x46, 0x7c, 0xe6, 0x06, 0xbe, 0xe5, 0xe0, 0xcb, 0xa8, 0x90, 0xde, 0x90, 0x36, 0x33, 0xc6, 0xc2,
-	0x40, 0x5a, 0xc3, 0x97, 0x11, 0x3a, 0x85, 0xe5, 0x88, 0x60, 0x6a, 0x5f, 0x58, 0x98, 0x31, 0xea,
-	0x9e, 0x76, 0x19, 0x89, 0x0a, 0xf2, 0x46, 0x7a, 0x33, 0x5f, 0xf9, 0x55, 0x79, 0xbc, 0x60, 0xe5,
-	0x6b, 0x64, 0xcb, 0x2d, 0x01, 0xac, 0x0e, 0x70, 0x9a, 0xcf, 0xe8, 0xa5, 0xa1, 0x44, 0x63, 0x62,
-	0xf4, 0x05, 0xac, 0xd8, 0x84, 0x32, 0xf7, 0xcc, 0xb5, 0x31, 0x23, 0xd6, 0x99, 0xeb, 0x31, 0x42,
-	0xa3, 0x42, 0x46, 0x44, 0xf9, 0x78, 0x32, 0xca, 0xde, 0xd0, 0x78, 0x5f, 0xd8, 0xf2, 0x68, 0x06,
-	0xb2, 0xc7, 0xc5, 0x11, 0x7a, 0x05, 0x79, 0xe2, 0xf7, 0x5c, 0x1a, 0xf8, 0x1d, 0xe2, 0xb3, 0xc2,
-	0xec, 0x86, 0xb4, 0xb9, 0x58, 0x79, 0x30, 0xe9, 0x51, 0x1b, 0x1a, 0x19, 0xa3, 0x08, 0x74, 0x00,
-	0x60, 0x07, 0x0e, 0xb1, 0xad, 0x28, 0x24, 0x76, 0x21, 0xbb, 0x21, 0x6d, 0xe6, 0x2b, 0x4f, 0xa7,
-	0x30, 0xe2, 0x36, 0x2d, 0x42, 0x7b, 0x84, 0x36, 0x69, 0x10, 0x12, 0xca, 0x2e, 0x05, 0xa7, 0x9c,
-	0x00, 0x8b, 0x93, 0xfb, 0x18, 0x96, 0x42, 0x1c, 0x45, 0x6e, 0x8f, 0x58, 0xf1, 0x79, 0x45, 0x85,
-	0xdc, 0x46, 0x7a, 0x33, 0x67, 0x2c, 0x26, 0x62, 0x23, 0x96, 0xa2, 0xa7, 0xb0, 0x68, 0x7b, 0x41,
-	0xd7, 0xb1, 0x42, 0x1a, 0xf4, 0x5c, 0x87, 0xd0, 0x02, 0x0c, 0x8e, 0x7a, 0x41, 0x68, 0x9a, 0x89,
-	0x02, 0x7d, 0x06, 0x79, 0xdc, 0x65, 0x17, 0x56, 0x87, 0xb0, 0x8b, 0xc0, 0x29, 0x2c, 0x88, 0xf4,
-	0xd6, 0x27, 0xe9, 0x55, 0xbb, 0xec, 0xe2, 0x58, 0xd8, 0x18, 0x80, 0x07, 0xbf, 0xd1, 0x2f, 0x21,
-	0x17, 0x53, 0xb1, 0x5c, 0xa7, 0xb0, 0x28, 0x72, 0x5b, 0x15, 0xe0, 0xb8, 0x1f, 0x39, 0x32, 0x26,
-	0xa5, 0xd7, 0x8c, 0x6c, 0x6c, 0xa9, 0x3b, 0xc5, 0xaf, 0xe0, 0xee, 0xd4, 0x83, 0x45, 0x0a, 0xa4,
-	0x5f, 0x93, 0xcb, 0xb8, 0x31, 0x0d, 0xfe, 0x13, 0xbd, 0x84, 0x4c, 0x0f, 0x7b, 0x5d, 0x22, 0x9a,
-	0x70, 0xb1, 0xf2, 0x64, 0x92, 0xd9, 0x98, 0x27, 0xf3, 0x32, 0x24, 0x46, 0x8c, 0xf9, 0x34, 0xf5,
-	0x89, 0x74, 0x28, 0x67, 0xe7, 0x94, 0xec, 0xa1, 0x9c, 0xcd, 0x2b, 0xf3, 0x87, 0x72, 0x76, 0x5e,
-	0x59, 0x28, 0xfd, 0x43, 0x82, 0xd5, 0x0f, 0x54, 0x1b, 0x15, 0x21, 0x4b, 0x7c, 0x27, 0x0c, 0x5c,
-	0x9f, 0x25, 0x2c, 0x06, 0xdf, 0x68, 0x0b, 0x96, 0x79, 0x9d, 0x2d, 0x3e, 0x07, 0x51, 0x64, 0xb1,
-	0xe0, 0x35, 0xf1, 0x05, 0xad, 0xac, 0x21, 0xce, 0xa5, 0x2a, 0xe4, 0x26, 0x17, 0xa3, 0x1d, 0x58,
-	0x71, 0x7d, 0xdb, 0xeb, 0x3a, 0xc4, 0xb2, 0x29, 0x71, 0xf8, 0x34, 0x60, 0x2f, 0x9e, 0x8f, 0xac,
-	0x81, 0x12, 0xd5, 0xde, 0x50, 0x53, 0xfa, 0xaf, 0x04, 0x77, 0xa7, 0x36, 0x25, 0x7a, 0x08, 0xf9,
-	0xb8, 0x98, 0x16, 0x4f, 0x3b, 0x61, 0x05, 0xb1, 0x88, 0x0f, 0x0b, 0x2a, 0xc1, 0x7c, 0x40, 0xcf,
-	0xb1, 0xef, 0xfe, 0x19, 0xf3, 0x99, 0x4b, 0xc6, 0xf5, 0x9a, 0x8c, 0xf3, 0x19, 0xfd, 0xc6, 0x9e,
-	0xd5, 0xf5, 0x5d, 0x26, 0xf8, 0xe4, 0x0c, 0x74, 0x5d, 0xd5, 0xf6, 0x5d, 0x86, 0x3e, 0x81, 0x42,
-	0xd4, 0x3d, 0xfd, 0x8a, 0xd8, 0xcc, 0xc2, 0x9c, 0x8a, 0x8f, 0x19, 0xef, 0x3b, 0x41, 0x41, 0x16,
-	0xa8, 0x7b, 0x89, 0xbe, 0x3a, 0x54, 0x73, 0x3a, 0xa5, 0xef, 0x24, 0x98, 0x1f, 0x0c, 0x71, 0xdb,
-	0xd0, 0xf9, 0xa1, 0xbe, 0x21, 0xa7, 0xfd, 0x43, 0x7d, 0x43, 0x4e, 0x11, 0x02, 0xf9, 0x9c, 0x86,
-	0x76, 0xc2, 0x54, 0xfc, 0x46, 0x2f, 0xa1, 0xd8, 0x0b, 0x6d, 0xab, 0x5f, 0x6d, 0x2b, 0x22, 0xb4,
-	0xe7, 0xda, 0x71, 0x44, 0x5e, 0x38, 0xde, 0xe7, 0xab, 0xbd, 0xd0, 0xd6, 0x12, 0x83, 0x56, 0xac,
-	0x17, 0x91, 0xd0, 0x63, 0x58, 0x88, 0x9b, 0x0b, 0x7b, 0x96, 0xf0, 0x1c, 0x53, 0x9c, 0xef, 0x0b,
-	0x3f, 0xa7, 0xa1, 0x5d, 0xfa, 0x51, 0x86, 0xe5, 0x01, 0x31, 0xcd, 0xef, 0x11, 0x2f, 0x08, 0x09,
-	0x32, 0xa1, 0x80, 0x6d, 0x9e, 0x78, 0x64, 0x85, 0x84, 0x5a, 0x11, 0xb1, 0x03, 0xdf, 0xb1, 0x3c,
-	0xb7, 0xe3, 0x32, 0xe1, 0x25, 0x5f, 0x59, 0x2b, 0xc7, 0x0b, 0xb8, 0xdc, 0x5f, 0xc0, 0x65, 0xdd,
-	0x67, 0x2f, 0x2a, 0x27, 0xbc, 0xc5, 0x8c, 0xbb, 0x09, 0xb8, 0x49, 0x68, 0x4b, 0x40, 0x8f, 0x38,
-	0x12, 0xfd, 0x09, 0xd6, 0xd9, 0x05, 0x0d, 0x18, 0xf3, 0x88, 0x63, 0x4d, 0xfa, 0x2f, 0x64, 0x6e,
-	0xf7, 0x7c, 0x7f, 0xe0, 0xa0, 0x3a, 0x16, 0x02, 0xfd, 0x05, 0xca, 0x37, 0x79, 0xb7, 0x3c, 0x1c,
-	0x31, 0xab, 0x1b, 0x3a, 0x98, 0xef, 0x71, 0x7e, 0xe1, 0x88, 0xb5, 0x95, 0xaf, 0x14, 0x27, 0xe2,
-	0x99, 0xfd, 0xdb, 0xc8, 0xd8, 0xfc, 0x60, 0xb8, 0x23, 0x1c, 0xb1, 0x76, 0xec, 0x8c, 0x9b, 0x23,
-	0x1d, 0xd0, 0x19, 0x0d, 0x7c, 0x46, 0x7c, 0xc7, 0xa2, 0x61, 0x94, 0xd4, 0x6a, 0xee, 0xf6, 0x8c,
-	0x94, 0x3e, 0xcc, 0x08, 0xa3, 0xb8, 0x4c, 0xbf, 0x87, 0x7b, 0xc3, 0x44, 0x46, 0x9d, 0x26, 0x7b,
-	0xf2, 0x46, 0x77, 0x77, 0x06, 0xd0, 0xfd, 0xa1, 0x5f, 0xf4, 0x35, 0x6c, 0x4e, 0x77, 0x39, 0xa5,
-	0x2a, 0xb9, 0x5b, 0xab, 0xf2, 0x78, 0x5a, 0x8c, 0xb1, 0x82, 0x1c, 0xca, 0x59, 0x49, 0x49, 0x1d,
-	0xca, 0xd9, 0x94, 0x92, 0x3e, 0x94, 0xb3, 0x69, 0x45, 0x2e, 0x7d, 0x2f, 0xc1, 0xd2, 0xa0, 0xd5,
-	0xe2, 0x05, 0x78, 0x7d, 0x55, 0x4a, 0x3f, 0x73, 0x55, 0xa2, 0xcf, 0x60, 0x9e, 0x92, 0xd0, 0x73,
-	0x6d, 0x6c, 0x75, 0x02, 0xa7, 0xbf, 0x06, 0x8b, 0x13, 0x40, 0x61, 0x72, 0x1c, 0x38, 0xc4, 0xc8,
-	0xd3, 0xe1, 0x07, 0xfa, 0x2d, 0x1f, 0x8c, 0x18, 0x1e, 0x31, 0xcc, 0x88, 0x98, 0xf8, 0xc5, 0xca,
-	0xda, 0x74, 0x7c, 0x8b, 0x9b, 0x18, 0xfd, 0x80, 0xe2, 0xab, 0xf4, 0x77, 0x19, 0x72, 0x83, 0x54,
-	0xd0, 0x3a, 0xe4, 0x06, 0xcb, 0x37, 0x99, 0xe8, 0xa1, 0x00, 0x3d, 0x05, 0x85, 0x92, 0x28, 0xe8,
-	0x52, 0x9b, 0x58, 0x3d, 0x42, 0xa3, 0xe1, 0x36, 0x5a, 0xea, 0xcb, 0x4f, 0x62, 0x31, 0x7a, 0x01,
-	0xb2, 0xb8, 0x0f, 0xd3, 0xa2, 0x10, 0x0f, 0x6f, 0x79, 0x07, 0x18, 0xc2, 0x18, 0x6d, 0x43, 0x26,
-	0xce, 0x42, 0x16, 0x59, 0xac, 0x4e, 0xb9, 0x0c, 0x44, 0x06, 0xb1, 0x15, 0x7a, 0x00, 0x40, 0xc9,
-	0xd7, 0x5d, 0x12, 0x31, 0x5e, 0xf2, 0x4c, 0xcc, 0x36, 0x91, 0xe8, 0x0e, 0x3a, 0x00, 0x24, 0x5a,
-	0xa2, 0x13, 0x38, 0xee, 0x99, 0xfb, 0xf3, 0x27, 0x45, 0xe1, 0xa8, 0xe3, 0x04, 0x24, 0x26, 0xe2,
-	0x19, 0xa4, 0xbb, 0xd4, 0x4d, 0x46, 0x40, 0xbd, 0x21, 0x97, 0xb6, 0xa1, 0x1b, 0xdc, 0x14, 0xbd,
-	0xe2, 0xf7, 0x4c, 0xbc, 0x81, 0x92, 0x2e, 0x7c, 0x7c, 0x03, 0xac, 0xbf, 0xac, 0x8c, 0x01, 0x08,
-	0x6d, 0x03, 0xc2, 0x9e, 0x17, 0xbc, 0x21, 0xfc, 0x92, 0x77, 0x7d, 0xdb, 0x0d, 0xf9, 0xfd, 0x92,
-	0x17, 0x6b, 0x72, 0x39, 0xd1, 0x34, 0x07, 0x0a, 0xf4, 0x12, 0xe6, 0xfa, 0x4f, 0x86, 0x79, 0xf1,
-	0x26, 0x7a, 0x74, 0x43, 0xb8, 0xb8, 0x0d, 0x8d, 0x3e, 0xe2, 0x50, 0xce, 0x66, 0x95, 0xdc, 0xa1,
-	0x9c, 0x05, 0x25, 0xbf, 0xf5, 0xef, 0x14, 0xac, 0x4c, 0xb9, 0x71, 0xd1, 0x13, 0x78, 0xd4, 0xd2,
-	0xaa, 0xc6, 0xde, 0x81, 0x55, 0x35, 0x4d, 0x43, 0xdf, 0x6d, 0x9b, 0x9a, 0x65, 0x7e, 0xd9, 0xd4,
-	0xac, 0x76, 0xbd, 0xd5, 0xd4, 0xf6, 0xf4, 0x7d, 0x5d, 0xab, 0x29, 0x33, 0xe8, 0x11, 0x3c, 0x98,
-	0x6e, 0xf6, 0x3b, 0xed, 0xcb, 0x3f, 0x34, 0x8c, 0x9a, 0x22, 0x21, 0x15, 0x8a, 0xd3, 0x4d, 0x4c,
-	0xed, 0x0b, 0x53, 0x49, 0xa1, 0x07, 0x70, 0x7f, 0xba, 0x5e, 0xaf, 0x9b, 0x4a, 0x1a, 0x6d, 0xc0,
-	0xfa, 0x74, 0x75, 0xad, 0xd1, 0xde, 0x3d, 0xd2, 0x14, 0x19, 0x95, 0x40, 0xfd, 0x80, 0x45, 0xd5,
-	0xd4, 0x4c, 0xfd, 0x58, 0x53, 0x32, 0x1f, 0x26, 0xb1, 0xdb, 0x68, 0x1c, 0x29, 0xb3, 0xe8, 0x23,
-	0x28, 0xdd, 0x98, 0x87, 0x75, 0xa4, 0xb7, 0x4c, 0x65, 0x6e, 0xeb, 0xdb, 0x14, 0x64, 0x44, 0x4f,
-	0xa2, 0xbb, 0xb0, 0xdc, 0x32, 0xab, 0xe6, 0x78, 0x41, 0xee, 0x80, 0x12, 0x8b, 0xab, 0x7b, 0xa6,
-	0x7e, 0x52, 0x35, 0xf5, 0xfa, 0xe7, 0x8a, 0x84, 0xd6, 0x60, 0xf5, 0xba, 0xb4, 0x51, 0xb7, 0xf6,
-	0xab, 0xfa, 0x91, 0x56, 0x53, 0x52, 0x48, 0x81, 0xf9, 0x11, 0xa5, 0xa6, 0xa4, 0x11, 0x82, 0xc5,
-	0xc4, 0x77, 0xb3, 0x16, 0xbb, 0x90, 0xd1, 0x2a, 0xac, 0x8c, 0xc8, 0xb4, 0x3e, 0x3c, 0x33, 0x34,
-	0xae, 0x69, 0x47, 0x9a, 0x30, 0x9e, 0x1d, 0x1a, 0x0b, 0xd9, 0xc0, 0x78, 0x0e, 0x2d, 0xc3, 0xc2,
-	0xa8, 0xa2, 0xa6, 0x64, 0x87, 0x8c, 0x5b, 0xed, 0x56, 0x53, 0xab, 0xd7, 0xb8, 0x87, 0x1c, 0x2a,
-	0xc0, 0x9d, 0x6b, 0xd2, 0xbe, 0x0b, 0x40, 0x2b, 0xb0, 0x74, 0x4d, 0xa3, 0xd5, 0x94, 0xfc, 0xd6,
-	0x6b, 0xc8, 0x8f, 0x3c, 0x98, 0x79, 0xbe, 0x5a, 0xfd, 0x44, 0x37, 0x1a, 0xf5, 0x63, 0xad, 0x6e,
-	0x8e, 0x95, 0x68, 0x05, 0x96, 0x46, 0x95, 0x35, 0xed, 0x44, 0x91, 0x38, 0x8b, 0x51, 0xa1, 0xa9,
-	0xb5, 0x78, 0x6f, 0x8c, 0x49, 0x9b, 0x46, 0xa3, 0xa6, 0xa4, 0xb7, 0xbe, 0x95, 0x00, 0x86, 0xef,
-	0x57, 0x1e, 0xac, 0xda, 0x36, 0x0f, 0xac, 0x63, 0xcd, 0x3c, 0x68, 0xd4, 0xc6, 0x82, 0x15, 0xe1,
-	0xde, 0xa8, 0xd2, 0xd0, 0x5a, 0xa6, 0xa1, 0xef, 0xf1, 0xcc, 0x45, 0xcc, 0x51, 0xdd, 0xb1, 0x79,
-	0xd4, 0x52, 0x52, 0xbc, 0x76, 0xa3, 0xd2, 0x6a, 0x53, 0xe7, 0x4d, 0xa0, 0xa4, 0xd1, 0x43, 0x58,
-	0x9b, 0xa2, 0xb0, 0x1a, 0x46, 0x8c, 0x94, 0x3f, 0x7d, 0x05, 0x79, 0x1c, 0xba, 0xfd, 0x4d, 0x89,
-	0xd6, 0x27, 0x76, 0xce, 0xbe, 0xeb, 0x91, 0x46, 0x28, 0x6e, 0xe3, 0xc2, 0x3f, 0xbf, 0x8b, 0x1f,
-	0x6b, 0x80, 0x43, 0x37, 0x59, 0xa2, 0xbb, 0x9d, 0xbf, 0xfd, 0xe7, 0xfe, 0x42, 0xe5, 0x59, 0xe5,
-	0xc5, 0xf6, 0xb3, 0xdf, 0x6c, 0x57, 0x7e, 0xbd, 0xfd, 0xec, 0xf9, 0xdb, 0x77, 0xea, 0xcc, 0x0f,
-	0xef, 0xd4, 0x99, 0x9f, 0xde, 0xa9, 0xd2, 0x5f, 0xaf, 0x54, 0xe9, 0x5f, 0x57, 0xaa, 0xf4, 0xfd,
-	0x95, 0x2a, 0xbd, 0xbd, 0x52, 0xa5, 0xff, 0x5d, 0xa9, 0xd2, 0x8f, 0x57, 0xea, 0xcc, 0x4f, 0x57,
-	0xaa, 0xf4, 0xcd, 0x7b, 0x75, 0xe6, 0xed, 0x7b, 0x75, 0xe6, 0x87, 0xf7, 0xea, 0xcc, 0x1f, 0x3f,
-	0x62, 0x9d, 0x90, 0x7a, 0x65, 0xf1, 0xc7, 0x60, 0x67, 0xfc, 0x1f, 0xee, 0xcb, 0xc1, 0xc7, 0xe9,
-	0xac, 0x20, 0xf6, 0xe2, 0xff, 0x01, 0x00, 0x00, 0xff, 0xff, 0xd4, 0x4a, 0x77, 0x24, 0x06, 0x0f,
-	0x00, 0x00,
+	// 2074 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x58, 0x4b, 0x73, 0xdb, 0xc8,
+	0x11, 0x16, 0x44, 0xca, 0x22, 0x9b, 0x7a, 0x40, 0x23, 0xd9, 0x82, 0x69, 0x99, 0x96, 0xe9, 0xb2,
+	0xa3, 0x75, 0x62, 0xca, 0xa6, 0x37, 0x59, 0x67, 0xbd, 0x5b, 0x0e, 0x2d, 0x42, 0x2b, 0x28, 0x7a,
+	0x30, 0x20, 0xe4, 0xec, 0xa6, 0x52, 0x35, 0x35, 0x02, 0x46, 0xd4, 0xac, 0x41, 0x00, 0x0b, 0x0c,
+	0xe9, 0x52, 0x2a, 0x87, 0x54, 0x7e, 0x41, 0x2e, 0x9b, 0x73, 0x8e, 0x39, 0xe4, 0x94, 0x4b, 0x2e,
+	0xb9, 0x67, 0x8f, 0x3e, 0xee, 0x25, 0x55, 0xb1, 0x7c, 0x71, 0x6e, 0xfb, 0x13, 0x52, 0x33, 0x00,
+	0xf8, 0x96, 0xec, 0xaa, 0xdc, 0x88, 0xfe, 0xba, 0xbf, 0x7e, 0xa0, 0xa7, 0xa7, 0x41, 0x28, 0x91,
+	0x80, 0x6d, 0x7a, 0xa4, 0x4d, 0xa3, 0x80, 0xd8, 0x74, 0xb3, 0xfb, 0x68, 0xb3, 0x4d, 0xa3, 0x88,
+	0xb4, 0x68, 0x25, 0x08, 0x7d, 0xee, 0x23, 0x95, 0x04, 0xac, 0xd2, 0xc3, 0x2b, 0xdd, 0x47, 0xc5,
+	0x5b, 0x2d, 0xdf, 0x6f, 0xb9, 0x74, 0x53, 0xe2, 0xc7, 0x9d, 0x93, 0x4d, 0xce, 0xda, 0x34, 0xe2,
+	0xa4, 0x1d, 0xc4, 0x26, 0xc5, 0xf5, 0x51, 0x05, 0x87, 0x46, 0x76, 0xc8, 0x02, 0xee, 0x87, 0x89,
+	0x46, 0x69, 0x54, 0xe3, 0x55, 0x48, 0x82, 0x80, 0x86, 0x51, 0x82, 0xdf, 0x10, 0x41, 0xd9, 0x7e,
+	0xbb, 0xed, 0x7b, 0x63, 0x11, 0x15, 0x3f, 0xe6, 0xb4, 0x1d, 0xf8, 0x21, 0x71, 0x37, 0xa5, 0x96,
+	0xeb, 0x77, 0x9c, 0x4d, 0xdb, 0xf7, 0x3c, 0x6a, 0x73, 0xd6, 0x65, 0xfc, 0x2c, 0xec, 0xb8, 0xe3,
+	0x79, 0x94, 0xdf, 0xcd, 0xc2, 0xfc, 0x41, 0x9a, 0x46, 0x33, 0xa0, 0x36, 0xfa, 0x09, 0x20, 0x62,
+	0xdb, 0x34, 0xe0, 0xd4, 0xc1, 0xb6, 0xcb, 0xa8, 0xc7, 0xb1, 0x4d, 0xb4, 0xe9, 0x75, 0x65, 0x23,
+	0x6f, 0xaa, 0x29, 0xb2, 0x25, 0x81, 0x2d, 0x82, 0xee, 0xc2, 0x42, 0x48, 0x39, 0xf5, 0x38, 0xf3,
+	0x3d, 0xec, 0x90, 0xb3, 0x48, 0xcb, 0xac, 0x2b, 0x1b, 0x33, 0xe6, 0x7c, 0x4f, 0x5a, 0x27, 0x67,
+	0x11, 0x3a, 0x86, 0xa5, 0x88, 0x92, 0xd0, 0x3e, 0xc5, 0x84, 0xf3, 0x90, 0x1d, 0x77, 0x38, 0x8d,
+	0xb4, 0xec, 0x7a, 0x66, 0xa3, 0x50, 0xfd, 0x69, 0x65, 0xb4, 0x94, 0x95, 0xa1, 0x80, 0x2a, 0x4d,
+	0x69, 0x58, 0xeb, 0xd9, 0xe9, 0x1e, 0x0f, 0xcf, 0x4c, 0x35, 0x1a, 0x11, 0xa3, 0x2f, 0x61, 0xd9,
+	0xa6, 0x21, 0x67, 0x27, 0xcc, 0x26, 0x9c, 0xe2, 0x13, 0xe6, 0x72, 0x1a, 0x46, 0xda, 0x8c, 0xf4,
+	0xf2, 0xa3, 0x71, 0x2f, 0x5b, 0x7d, 0xe5, 0x6d, 0xa9, 0x2b, 0xbc, 0x99, 0xc8, 0x1e, 0x15, 0x47,
+	0xe8, 0x19, 0x14, 0xa8, 0xd7, 0x65, 0xa1, 0xef, 0xb5, 0xa9, 0xc7, 0xb5, 0x2b, 0xeb, 0xca, 0xc6,
+	0x42, 0xf5, 0xe6, 0x38, 0xa3, 0xde, 0x57, 0x32, 0x07, 0x2d, 0xd0, 0x0e, 0x80, 0xed, 0x3b, 0xd4,
+	0xc6, 0x51, 0x40, 0x6d, 0x2d, 0xb7, 0xae, 0x6c, 0x14, 0xaa, 0x1f, 0x4d, 0x88, 0x48, 0xe8, 0x34,
+	0x69, 0xd8, 0xa5, 0x61, 0x23, 0xf4, 0x03, 0x1a, 0xf2, 0x33, 0x19, 0x53, 0x5e, 0x1a, 0xcb, 0xb7,
+	0xf3, 0x63, 0x58, 0x0c, 0x48, 0x14, 0xb1, 0x2e, 0xc5, 0x21, 0x6d, 0x31, 0xdf, 0x8b, 0xb4, 0xfc,
+	0x7a, 0x66, 0x23, 0xff, 0x7c, 0x5a, 0x53, 0xcc, 0x85, 0x04, 0x32, 0x63, 0x04, 0x7d, 0x0e, 0x05,
+	0xd2, 0xe1, 0xa7, 0xb8, 0x4d, 0xf9, 0xa9, 0xef, 0x68, 0xf3, 0x32, 0xee, 0xb5, 0x71, 0xbf, 0xb5,
+	0x0e, 0x3f, 0xdd, 0x97, 0x3a, 0x26, 0x90, 0xde, 0x6f, 0xf4, 0x31, 0xe4, 0x63, 0x1f, 0x98, 0x39,
+	0xda, 0x82, 0x0c, 0x7a, 0x55, 0x1a, 0xc7, 0x2d, 0x28, 0x2c, 0x63, 0x4f, 0x46, 0xdd, 0xcc, 0xc5,
+	0x9a, 0x86, 0x83, 0x3e, 0x87, 0xbc, 0xcb, 0x4e, 0xa8, 0x7d, 0x66, 0xbb, 0x54, 0x5b, 0x94, 0x56,
+	0xb7, 0xc6, 0x5d, 0xee, 0xa5, 0x2a, 0x71, 0x82, 0x3d, 0x0b, 0xd4, 0x84, 0xa5, 0x53, 0xd6, 0x3a,
+	0xc5, 0xa4, 0x4b, 0x98, 0x4b, 0x8e, 0x99, 0xcb, 0xf8, 0x99, 0xa6, 0x4a, 0x9a, 0x7b, 0xe3, 0x34,
+	0x3b, 0xac, 0x75, 0x5a, 0x1b, 0xd0, 0x94, 0x6c, 0xea, 0xe9, 0x88, 0x14, 0xe9, 0x80, 0x86, 0xab,
+	0x86, 0x99, 0x13, 0x69, 0x4b, 0xb2, 0x33, 0x2e, 0x4c, 0x49, 0x1d, 0xaa, 0xa6, 0xe1, 0x44, 0xa8,
+	0x0a, 0x57, 0x07, 0x4f, 0x14, 0x16, 0x47, 0x4a, 0x32, 0x21, 0xf1, 0x0a, 0xcc, 0xe5, 0x41, 0xd0,
+	0xec, 0xb8, 0xd4, 0x70, 0xa2, 0xe2, 0xd7, 0x70, 0x75, 0x62, 0x03, 0x23, 0x15, 0x32, 0x2f, 0xe9,
+	0x99, 0xa6, 0xc8, 0x83, 0x25, 0x7e, 0xa2, 0xa7, 0x30, 0xd3, 0x25, 0x6e, 0x87, 0xca, 0xc3, 0xb6,
+	0x50, 0xbd, 0x3b, 0x9e, 0xee, 0x08, 0x93, 0x75, 0x16, 0x50, 0x33, 0xb6, 0xf9, 0x74, 0xfa, 0x89,
+	0xb2, 0x9b, 0xcd, 0x29, 0xea, 0xf4, 0x6e, 0x36, 0x37, 0xab, 0xe6, 0x76, 0xb3, 0x39, 0x50, 0x0b,
+	0xbb, 0xd9, 0x5c, 0x41, 0x9d, 0xdb, 0xcd, 0xe6, 0xe6, 0xd4, 0xf9, 0x72, 0x03, 0x56, 0x26, 0x95,
+	0x0b, 0x3d, 0x01, 0xcd, 0x61, 0x11, 0x39, 0x76, 0x29, 0x6e, 0x13, 0x8f, 0xb4, 0xa8, 0x83, 0x4f,
+	0x08, 0x73, 0xfd, 0x2e, 0x0d, 0x65, 0x74, 0x39, 0xf3, 0x5a, 0x82, 0xef, 0xc7, 0xf0, 0x76, 0x82,
+	0x96, 0x0d, 0x98, 0x1f, 0x7a, 0x8f, 0x82, 0x8a, 0x7a, 0x92, 0xc9, 0xa1, 0x2e, 0xe5, 0x14, 0x8b,
+	0x21, 0x23, 0x2a, 0xe2, 0x7b, 0x29, 0x55, 0x8c, 0xd7, 0x25, 0xdc, 0xe8, 0xa1, 0xe5, 0x7f, 0x66,
+	0x60, 0xf5, 0x82, 0xf6, 0x47, 0x45, 0xc8, 0x51, 0xcf, 0x09, 0x7c, 0xe6, 0xf1, 0xa4, 0x5c, 0xbd,
+	0x67, 0x74, 0x1f, 0x96, 0xc4, 0x6b, 0xc2, 0x62, 0x30, 0x45, 0x11, 0xe6, 0xfe, 0x4b, 0xea, 0xc9,
+	0xfa, 0xe5, 0x4c, 0x79, 0x50, 0x6a, 0x52, 0x6e, 0x09, 0x31, 0xda, 0x84, 0x65, 0xe6, 0xd9, 0x6e,
+	0xc7, 0xa1, 0xd8, 0x0e, 0xa9, 0x23, 0xc6, 0x13, 0x71, 0xe3, 0x81, 0x95, 0x33, 0x51, 0x02, 0x6d,
+	0xf5, 0x11, 0xe4, 0xc1, 0x8a, 0xdd, 0x89, 0xb8, 0xdf, 0xc6, 0x34, 0x0c, 0xfd, 0x10, 0x27, 0xa3,
+	0x53, 0xcb, 0xca, 0x76, 0xfc, 0xec, 0x83, 0x0f, 0x70, 0x65, 0x4b, 0xb2, 0xe8, 0x82, 0x64, 0x3f,
+	0xe6, 0x30, 0x91, 0x3d, 0x26, 0x2b, 0xfe, 0x43, 0x01, 0x34, 0xae, 0x8a, 0x6c, 0x98, 0x75, 0xe8,
+	0x09, 0xe9, 0xb8, 0x71, 0xfa, 0x85, 0xaa, 0xf1, 0xff, 0x78, 0xae, 0x0c, 0x85, 0x91, 0x32, 0x17,
+	0x3f, 0x83, 0xb9, 0x21, 0xa7, 0x1a, 0xcc, 0xa6, 0xe9, 0xc6, 0x35, 0x4f, 0x1f, 0x11, 0x82, 0xac,
+	0xcb, 0xbc, 0x97, 0xc9, 0x95, 0x20, 0x7f, 0x97, 0xff, 0xa5, 0xc0, 0xd5, 0x89, 0xf3, 0x14, 0xdd,
+	0x82, 0x42, 0x7c, 0xb6, 0xb0, 0x88, 0x37, 0xe1, 0x82, 0x58, 0x24, 0xe6, 0x3c, 0x2a, 0xc3, 0x9c,
+	0x1f, 0xb6, 0x88, 0xc7, 0x7e, 0x47, 0x64, 0x9f, 0xc4, 0xb4, 0x43, 0x32, 0xf1, 0xe6, 0x06, 0x9f,
+	0x89, 0x8b, 0x3b, 0x1e, 0xe3, 0xf2, 0xcd, 0xe5, 0x4d, 0x34, 0x0c, 0x1d, 0x79, 0x8c, 0x8b, 0x46,
+	0x8c, 0x3a, 0xc7, 0x5f, 0x53, 0x9b, 0x63, 0x22, 0x42, 0xf1, 0x08, 0x17, 0x87, 0x5f, 0x86, 0x90,
+	0x95, 0x56, 0xd7, 0x12, 0xbc, 0xd6, 0x87, 0x45, 0x38, 0xe5, 0x7f, 0x2b, 0x30, 0xd7, 0xbb, 0x7f,
+	0x8e, 0x4c, 0x43, 0x9c, 0xd3, 0x57, 0xf4, 0x38, 0x3d, 0xa7, 0xaf, 0xe8, 0xb1, 0x28, 0x40, 0x2b,
+	0x0c, 0xec, 0xb4, 0x00, 0xe2, 0x37, 0x7a, 0x0a, 0xc5, 0x6e, 0x60, 0xe3, 0xb4, 0x2f, 0x71, 0x44,
+	0xc3, 0x2e, 0xb3, 0x63, 0x8f, 0xa2, 0xc5, 0xc4, 0x7c, 0x58, 0xed, 0x06, 0xb6, 0x9e, 0x28, 0x34,
+	0x63, 0x5c, 0x7a, 0x42, 0x77, 0x60, 0x3e, 0x1e, 0x4b, 0xc4, 0xc5, 0x92, 0x39, 0x0e, 0x71, 0x2e,
+	0x15, 0x7e, 0x21, 0x3c, 0xe8, 0x70, 0x6b, 0x78, 0x86, 0x25, 0xca, 0x98, 0x38, 0x4e, 0x48, 0xa3,
+	0x88, 0xc6, 0x57, 0x5d, 0xde, 0x5c, 0x1b, 0x9a, 0x5b, 0xb1, 0x75, 0x2d, 0xd5, 0x29, 0xbf, 0xcb,
+	0xc2, 0x52, 0x2f, 0x3f, 0xdd, 0xeb, 0x52, 0xd7, 0x0f, 0x28, 0xb2, 0x40, 0x23, 0xf2, 0x20, 0x46,
+	0x38, 0xa0, 0x21, 0x8e, 0xa8, 0xed, 0x7b, 0x0e, 0x76, 0x59, 0x9b, 0xf1, 0xa4, 0xdb, 0x6f, 0x54,
+	0xe2, 0xe5, 0xa4, 0x92, 0x2e, 0x27, 0x15, 0xc3, 0xe3, 0x8f, 0xab, 0x2f, 0xc4, 0xf0, 0x31, 0xaf,
+	0x26, 0xc6, 0x0d, 0x1a, 0x36, 0xa5, 0xe9, 0x9e, 0xb0, 0x44, 0xbf, 0x85, 0x35, 0x7e, 0x1a, 0xfa,
+	0x9c, 0xbb, 0xd4, 0xc1, 0xe3, 0xfc, 0xda, 0xcc, 0xfb, 0x99, 0xaf, 0xf7, 0x08, 0x6a, 0x23, 0x2e,
+	0xd0, 0xef, 0xa1, 0x72, 0x19, 0x3b, 0x76, 0x49, 0xc4, 0x71, 0x27, 0x70, 0x88, 0xd8, 0x64, 0xc4,
+	0x32, 0x26, 0x2f, 0xee, 0x42, 0xb5, 0x38, 0xe6, 0xcf, 0x4a, 0x37, 0x35, 0x73, 0xe3, 0x42, 0x77,
+	0x7b, 0x24, 0xe2, 0x47, 0x31, 0x99, 0x50, 0x47, 0x06, 0xa0, 0x93, 0xd0, 0xf7, 0x38, 0xf5, 0x1c,
+	0x1c, 0x06, 0x51, 0x52, 0xab, 0xd9, 0xf7, 0x67, 0xa4, 0xa6, 0x66, 0x66, 0x10, 0xc5, 0x65, 0xfa,
+	0x15, 0x5c, 0xeb, 0x27, 0x32, 0x48, 0x9a, 0x6c, 0x0a, 0x97, 0xd2, 0xad, 0xf4, 0x4c, 0xb7, 0xfb,
+	0xbc, 0xe8, 0x1b, 0xd8, 0x98, 0x4c, 0x39, 0xa1, 0x2a, 0xf9, 0xf7, 0x56, 0xe5, 0xce, 0x24, 0x1f,
+	0x23, 0x05, 0xe9, 0x5d, 0x3e, 0xd3, 0x6a, 0x66, 0x37, 0x9b, 0xcb, 0xa8, 0xd9, 0xf2, 0x77, 0x0a,
+	0x2c, 0xf6, 0x5a, 0x2d, 0xee, 0xc6, 0xe1, 0x9d, 0x42, 0xf9, 0xf0, 0x9d, 0x62, 0x2e, 0xa4, 0x81,
+	0xcb, 0x6c, 0x82, 0xdb, 0xbe, 0x93, 0x5e, 0x90, 0xc5, 0x31, 0x43, 0xa9, 0xb2, 0xef, 0x3b, 0xd4,
+	0x2c, 0x84, 0xfd, 0x07, 0xf4, 0x0b, 0x71, 0xbe, 0x62, 0xf3, 0x88, 0x13, 0x4e, 0xe5, 0xe0, 0x58,
+	0xa8, 0xde, 0x98, 0x6c, 0xdf, 0x14, 0x2a, 0x66, 0xea, 0x50, 0x3e, 0x95, 0xff, 0x3b, 0x03, 0xf9,
+	0x5e, 0x2a, 0x68, 0x0d, 0xf2, 0xbd, 0xe1, 0x9b, 0x0c, 0x86, 0xbe, 0x00, 0x7d, 0x04, 0x6a, 0x48,
+	0x23, 0xbf, 0x13, 0xda, 0x14, 0x77, 0x69, 0x18, 0xf5, 0x87, 0xda, 0x62, 0x2a, 0x7f, 0x11, 0x8b,
+	0xd1, 0x63, 0xc8, 0xca, 0x8d, 0x30, 0x73, 0xd1, 0x9a, 0x34, 0xb4, 0x09, 0x9b, 0x52, 0x19, 0x3d,
+	0x80, 0x99, 0x38, 0x8b, 0xac, 0xcc, 0x62, 0x75, 0xc2, 0x9a, 0x20, 0x33, 0x88, 0xb5, 0xd0, 0x4d,
+	0x80, 0x90, 0x7e, 0xd3, 0xa1, 0x11, 0x17, 0x25, 0x9f, 0x89, 0xa3, 0x4d, 0x24, 0x86, 0x83, 0x76,
+	0x00, 0xc9, 0x96, 0x68, 0xfb, 0x0e, 0x3b, 0x61, 0x1f, 0x7e, 0x52, 0x54, 0x61, 0xb5, 0x9f, 0x18,
+	0xc9, 0x13, 0xf1, 0x10, 0x32, 0x9d, 0x90, 0x25, 0x47, 0xa0, 0x74, 0x49, 0x2e, 0x47, 0xa6, 0x61,
+	0x0a, 0x55, 0xf4, 0x4c, 0x5c, 0xec, 0xf1, 0x04, 0x4a, 0xba, 0xf0, 0xce, 0x25, 0x66, 0xe9, 0xb0,
+	0x32, 0x7b, 0x46, 0xe8, 0x01, 0x20, 0xe2, 0xba, 0xfe, 0x2b, 0xea, 0xe0, 0x20, 0x64, 0x9e, 0xcd,
+	0x02, 0x71, 0xa1, 0x17, 0xe4, 0x18, 0x5c, 0x4a, 0x90, 0x46, 0x0f, 0x40, 0x4f, 0x61, 0x36, 0x5d,
+	0x9a, 0xe7, 0xe4, 0xee, 0x77, 0xfb, 0x12, 0x77, 0x71, 0x1b, 0x9a, 0xa9, 0x05, 0x6a, 0x01, 0x1a,
+	0x5b, 0xfe, 0x22, 0x6d, 0x41, 0xf2, 0x3c, 0xa9, 0xa4, 0x1f, 0x5f, 0x71, 0x4b, 0x89, 0x8f, 0xaf,
+	0xca, 0xe8, 0xc7, 0x57, 0x7c, 0x4d, 0x0f, 0x6f, 0x88, 0xe6, 0xd2, 0xe8, 0xce, 0x18, 0xa1, 0x9f,
+	0x43, 0x96, 0x93, 0x56, 0xa4, 0x2d, 0x4a, 0xea, 0xbb, 0x97, 0x84, 0x58, 0xb1, 0x48, 0x2b, 0xf9,
+	0x1c, 0x92, 0x26, 0xc5, 0x4f, 0x20, 0xdf, 0x13, 0x4d, 0x58, 0x30, 0x57, 0x06, 0x17, 0xcc, 0xfc,
+	0xf0, 0xe6, 0x98, 0x53, 0xf3, 0xf1, 0xce, 0x78, 0xff, 0x6f, 0xd3, 0xb0, 0x3c, 0x61, 0xd1, 0x44,
+	0x77, 0xe1, 0x76, 0x53, 0xaf, 0x99, 0x5b, 0x3b, 0xb8, 0x66, 0x59, 0xa6, 0xf1, 0xfc, 0xc8, 0xd2,
+	0xb1, 0xf5, 0x55, 0x43, 0xc7, 0x47, 0x07, 0xcd, 0x86, 0xbe, 0x65, 0x6c, 0x1b, 0x7a, 0x5d, 0x9d,
+	0x42, 0xb7, 0xe1, 0xe6, 0x64, 0xb5, 0x5f, 0xea, 0x5f, 0xfd, 0xfa, 0xd0, 0xac, 0xab, 0x0a, 0x2a,
+	0x41, 0x71, 0xb2, 0x8a, 0xa5, 0x7f, 0x69, 0xa9, 0xd3, 0xe8, 0x26, 0x5c, 0x9f, 0x8c, 0x1b, 0x07,
+	0x96, 0x9a, 0x41, 0xeb, 0xb0, 0x36, 0x19, 0xae, 0x1f, 0x1e, 0x3d, 0xdf, 0xd3, 0xd5, 0x2c, 0x2a,
+	0x43, 0xe9, 0x02, 0x8d, 0x9a, 0xa5, 0x5b, 0xc6, 0xbe, 0xae, 0xce, 0x5c, 0x1c, 0xc4, 0xf3, 0xc3,
+	0xc3, 0x3d, 0xf5, 0x0a, 0xba, 0x07, 0xe5, 0x4b, 0xf3, 0xc0, 0x7b, 0x46, 0xd3, 0x52, 0x67, 0xef,
+	0x7f, 0x3b, 0x0d, 0x33, 0xf2, 0xc0, 0xa1, 0xab, 0xb0, 0xd4, 0xb4, 0x6a, 0xd6, 0x68, 0x41, 0x56,
+	0x40, 0x8d, 0xc5, 0xb5, 0x2d, 0xcb, 0x78, 0x51, 0xb3, 0x8c, 0x83, 0x2f, 0x54, 0x05, 0xdd, 0x80,
+	0xd5, 0x61, 0xe9, 0xe1, 0x01, 0xde, 0xae, 0x19, 0x7b, 0x7a, 0x5d, 0x9d, 0x46, 0x2a, 0xcc, 0x0d,
+	0x80, 0xba, 0x9a, 0x41, 0x08, 0x16, 0x12, 0xee, 0x46, 0x3d, 0xa6, 0xc8, 0xa2, 0x55, 0x58, 0x1e,
+	0x90, 0xe9, 0xa9, 0xf9, 0x4c, 0x5f, 0xb9, 0xae, 0xef, 0xe9, 0x52, 0xf9, 0x4a, 0x5f, 0x59, 0xca,
+	0x7a, 0xca, 0xb3, 0x68, 0x09, 0xe6, 0x07, 0x81, 0xba, 0x9a, 0xeb, 0x47, 0xdc, 0x3c, 0x6a, 0x36,
+	0xf4, 0x83, 0xba, 0x60, 0xc8, 0x23, 0x0d, 0x56, 0x86, 0xa4, 0x29, 0x05, 0xa0, 0x65, 0x58, 0x1c,
+	0x42, 0xf4, 0xba, 0x5a, 0xb8, 0xff, 0x12, 0x0a, 0x03, 0xdf, 0xc3, 0x22, 0x5f, 0xfd, 0xe0, 0x85,
+	0x61, 0x1e, 0x1e, 0xec, 0xeb, 0x07, 0xd6, 0x48, 0x89, 0x96, 0x61, 0x71, 0x10, 0xac, 0xeb, 0x2f,
+	0x54, 0x45, 0x44, 0x31, 0x28, 0xb4, 0xf4, 0xa6, 0xe8, 0x8d, 0x11, 0x69, 0xc3, 0x3c, 0xac, 0xab,
+	0x99, 0xfb, 0xdf, 0x2a, 0x00, 0xfd, 0xaf, 0x58, 0xe1, 0xac, 0x76, 0x64, 0xed, 0xe0, 0x7d, 0xdd,
+	0xda, 0x39, 0xac, 0x8f, 0x38, 0x2b, 0xc2, 0xb5, 0x41, 0xd0, 0xd4, 0x9b, 0x96, 0x69, 0x6c, 0x89,
+	0xcc, 0xa5, 0xcf, 0x41, 0x6c, 0xdf, 0xda, 0x6b, 0xaa, 0xd3, 0xa2, 0x76, 0x83, 0xd2, 0x5a, 0xc3,
+	0x10, 0x4d, 0xa0, 0x66, 0xd0, 0x2d, 0xb8, 0x31, 0x01, 0xc0, 0x87, 0x66, 0x6c, 0x99, 0xfd, 0xf4,
+	0x19, 0x14, 0x48, 0xc0, 0xd2, 0x6b, 0x00, 0xad, 0x8d, 0x0d, 0xd4, 0x6d, 0xe6, 0xd2, 0xc3, 0x40,
+	0xae, 0x1a, 0xda, 0x5f, 0xfe, 0x1c, 0x2f, 0xb4, 0x40, 0x02, 0x96, 0xdc, 0x10, 0xcf, 0xdb, 0x7f,
+	0xfc, 0xfb, 0xf5, 0xf9, 0xea, 0xc3, 0xea, 0xe3, 0x07, 0x0f, 0x3f, 0x79, 0x50, 0xfd, 0xd9, 0x83,
+	0x87, 0x8f, 0x5e, 0xbf, 0x29, 0x4d, 0x7d, 0xff, 0xa6, 0x34, 0xf5, 0xc3, 0x9b, 0x92, 0xf2, 0x87,
+	0xf3, 0x92, 0xf2, 0xd7, 0xf3, 0x92, 0xf2, 0xdd, 0x79, 0x49, 0x79, 0x7d, 0x5e, 0x52, 0xfe, 0x73,
+	0x5e, 0x52, 0xde, 0x9d, 0x97, 0xa6, 0x7e, 0x38, 0x2f, 0x29, 0x7f, 0x7a, 0x5b, 0x9a, 0x7a, 0xfd,
+	0xb6, 0x34, 0xf5, 0xfd, 0xdb, 0xd2, 0xd4, 0x6f, 0xee, 0xf1, 0x76, 0x10, 0xba, 0xf1, 0x60, 0xda,
+	0x1c, 0xfd, 0x6b, 0xeb, 0x69, 0xef, 0xe1, 0xf8, 0x8a, 0x0c, 0xec, 0xf1, 0xff, 0x02, 0x00, 0x00,
+	0xff, 0xff, 0xd0, 0x2b, 0x67, 0x64, 0xff, 0x12, 0x00, 0x00,
 }
 
 func (x SearchAttributeType) String() string {
@@ -982,9 +1255,6 @@ func (this *NamespaceSpec) Equal(that interface{}) bool {
 	} else if this == nil {
 		return false
 	}
-	if this.Region != that1.Region {
-		return false
-	}
 	if this.AcceptedClientCa != that1.AcceptedClientCa {
 		return false
 	}
@@ -1021,13 +1291,80 @@ func (this *NamespaceSpec) Equal(that interface{}) bool {
 			return false
 		}
 	}
-	if this.CloudProvider != that1.CloudProvider {
-		return false
-	}
 	if this.AuthMethod != that1.AuthMethod {
 		return false
 	}
 	if !this.RegionId.Equal(that1.RegionId) {
+		return false
+	}
+	if !this.Lifecycle.Equal(that1.Lifecycle) {
+		return false
+	}
+	if !this.HighAvailability.Equal(that1.HighAvailability) {
+		return false
+	}
+	if len(this.PassiveRegionIds) != len(that1.PassiveRegionIds) {
+		return false
+	}
+	for i := range this.PassiveRegionIds {
+		if !this.PassiveRegionIds[i].Equal(that1.PassiveRegionIds[i]) {
+			return false
+		}
+	}
+	if len(this.ConnectivityRuleIds) != len(that1.ConnectivityRuleIds) {
+		return false
+	}
+	for i := range this.ConnectivityRuleIds {
+		if this.ConnectivityRuleIds[i] != that1.ConnectivityRuleIds[i] {
+			return false
+		}
+	}
+	return true
+}
+func (this *HighAvailabilitySpec) Equal(that interface{}) bool {
+	if that == nil {
+		return this == nil
+	}
+
+	that1, ok := that.(*HighAvailabilitySpec)
+	if !ok {
+		that2, ok := that.(HighAvailabilitySpec)
+		if ok {
+			that1 = &that2
+		} else {
+			return false
+		}
+	}
+	if that1 == nil {
+		return this == nil
+	} else if this == nil {
+		return false
+	}
+	if this.DisableManagedFailover != that1.DisableManagedFailover {
+		return false
+	}
+	return true
+}
+func (this *LifecycleSpec) Equal(that interface{}) bool {
+	if that == nil {
+		return this == nil
+	}
+
+	that1, ok := that.(*LifecycleSpec)
+	if !ok {
+		that2, ok := that.(LifecycleSpec)
+		if ok {
+			that1 = &that2
+		} else {
+			return false
+		}
+	}
+	if that1 == nil {
+		return this == nil
+	} else if this == nil {
+		return false
+	}
+	if this.EnableDeleteProtection != that1.EnableDeleteProtection {
 		return false
 	}
 	return true
@@ -1058,6 +1395,60 @@ func (this *CodecServerPropertySpec) Equal(that interface{}) bool {
 		return false
 	}
 	if this.IncludeCredentials != that1.IncludeCredentials {
+		return false
+	}
+	if !this.CustomErrorMessage.Equal(that1.CustomErrorMessage) {
+		return false
+	}
+	return true
+}
+func (this *CodecServerPropertySpec_CustomErrorMessage) Equal(that interface{}) bool {
+	if that == nil {
+		return this == nil
+	}
+
+	that1, ok := that.(*CodecServerPropertySpec_CustomErrorMessage)
+	if !ok {
+		that2, ok := that.(CodecServerPropertySpec_CustomErrorMessage)
+		if ok {
+			that1 = &that2
+		} else {
+			return false
+		}
+	}
+	if that1 == nil {
+		return this == nil
+	} else if this == nil {
+		return false
+	}
+	if !this.Default.Equal(that1.Default) {
+		return false
+	}
+	return true
+}
+func (this *CodecServerPropertySpec_CustomErrorMessage_ErrorMessage) Equal(that interface{}) bool {
+	if that == nil {
+		return this == nil
+	}
+
+	that1, ok := that.(*CodecServerPropertySpec_CustomErrorMessage_ErrorMessage)
+	if !ok {
+		that2, ok := that.(CodecServerPropertySpec_CustomErrorMessage_ErrorMessage)
+		if ok {
+			that1 = &that2
+		} else {
+			return false
+		}
+	}
+	if that1 == nil {
+		return this == nil
+	} else if this == nil {
+		return false
+	}
+	if this.Message != that1.Message {
+		return false
+	}
+	if this.Link != that1.Link {
 		return false
 	}
 	return true
@@ -1130,6 +1521,14 @@ func (this *NamespaceURI) Equal(that interface{}) bool {
 	}
 	if this.RegionalGrpc != that1.RegionalGrpc {
 		return false
+	}
+	if len(this.PassiveRegionalGrpcAddresses) != len(that1.PassiveRegionalGrpcAddresses) {
+		return false
+	}
+	for i := range this.PassiveRegionalGrpcAddresses {
+		if this.PassiveRegionalGrpcAddresses[i] != that1.PassiveRegionalGrpcAddresses[i] {
+			return false
+		}
 	}
 	return true
 }
@@ -1261,15 +1660,30 @@ func (this *Namespace) Equal(that interface{}) bool {
 			return false
 		}
 	}
+	if len(this.ConnectivityRules) != len(that1.ConnectivityRules) {
+		return false
+	}
+	for i := range this.ConnectivityRules {
+		if !this.ConnectivityRules[i].Equal(that1.ConnectivityRules[i]) {
+			return false
+		}
+	}
+	if len(this.Tags) != len(that1.Tags) {
+		return false
+	}
+	for i := range this.Tags {
+		if this.Tags[i] != that1.Tags[i] {
+			return false
+		}
+	}
 	return true
 }
 func (this *NamespaceSpec) GoString() string {
 	if this == nil {
 		return "nil"
 	}
-	s := make([]string, 0, 15)
+	s := make([]string, 0, 17)
 	s = append(s, "&namespace.NamespaceSpec{")
-	s = append(s, "Region: "+fmt.Sprintf("%#v", this.Region)+",\n")
 	s = append(s, "AcceptedClientCa: "+fmt.Sprintf("%#v", this.AcceptedClientCa)+",\n")
 	s = append(s, "RetentionDays: "+fmt.Sprintf("%#v", this.RetentionDays)+",\n")
 	keysForSearchAttributes := make([]string, 0, len(this.SearchAttributes))
@@ -1293,11 +1707,40 @@ func (this *NamespaceSpec) GoString() string {
 		s = append(s, "CodecSpec: "+fmt.Sprintf("%#v", this.CodecSpec)+",\n")
 	}
 	s = append(s, "PassiveRegions: "+fmt.Sprintf("%#v", this.PassiveRegions)+",\n")
-	s = append(s, "CloudProvider: "+fmt.Sprintf("%#v", this.CloudProvider)+",\n")
 	s = append(s, "AuthMethod: "+fmt.Sprintf("%#v", this.AuthMethod)+",\n")
 	if this.RegionId != nil {
 		s = append(s, "RegionId: "+fmt.Sprintf("%#v", this.RegionId)+",\n")
 	}
+	if this.Lifecycle != nil {
+		s = append(s, "Lifecycle: "+fmt.Sprintf("%#v", this.Lifecycle)+",\n")
+	}
+	if this.HighAvailability != nil {
+		s = append(s, "HighAvailability: "+fmt.Sprintf("%#v", this.HighAvailability)+",\n")
+	}
+	if this.PassiveRegionIds != nil {
+		s = append(s, "PassiveRegionIds: "+fmt.Sprintf("%#v", this.PassiveRegionIds)+",\n")
+	}
+	s = append(s, "ConnectivityRuleIds: "+fmt.Sprintf("%#v", this.ConnectivityRuleIds)+",\n")
+	s = append(s, "}")
+	return strings.Join(s, "")
+}
+func (this *HighAvailabilitySpec) GoString() string {
+	if this == nil {
+		return "nil"
+	}
+	s := make([]string, 0, 5)
+	s = append(s, "&namespace.HighAvailabilitySpec{")
+	s = append(s, "DisableManagedFailover: "+fmt.Sprintf("%#v", this.DisableManagedFailover)+",\n")
+	s = append(s, "}")
+	return strings.Join(s, "")
+}
+func (this *LifecycleSpec) GoString() string {
+	if this == nil {
+		return "nil"
+	}
+	s := make([]string, 0, 5)
+	s = append(s, "&namespace.LifecycleSpec{")
+	s = append(s, "EnableDeleteProtection: "+fmt.Sprintf("%#v", this.EnableDeleteProtection)+",\n")
 	s = append(s, "}")
 	return strings.Join(s, "")
 }
@@ -1305,11 +1748,37 @@ func (this *CodecServerPropertySpec) GoString() string {
 	if this == nil {
 		return "nil"
 	}
-	s := make([]string, 0, 7)
+	s := make([]string, 0, 8)
 	s = append(s, "&namespace.CodecServerPropertySpec{")
 	s = append(s, "Endpoint: "+fmt.Sprintf("%#v", this.Endpoint)+",\n")
 	s = append(s, "PassAccessToken: "+fmt.Sprintf("%#v", this.PassAccessToken)+",\n")
 	s = append(s, "IncludeCredentials: "+fmt.Sprintf("%#v", this.IncludeCredentials)+",\n")
+	if this.CustomErrorMessage != nil {
+		s = append(s, "CustomErrorMessage: "+fmt.Sprintf("%#v", this.CustomErrorMessage)+",\n")
+	}
+	s = append(s, "}")
+	return strings.Join(s, "")
+}
+func (this *CodecServerPropertySpec_CustomErrorMessage) GoString() string {
+	if this == nil {
+		return "nil"
+	}
+	s := make([]string, 0, 5)
+	s = append(s, "&namespace.CodecServerPropertySpec_CustomErrorMessage{")
+	if this.Default != nil {
+		s = append(s, "Default: "+fmt.Sprintf("%#v", this.Default)+",\n")
+	}
+	s = append(s, "}")
+	return strings.Join(s, "")
+}
+func (this *CodecServerPropertySpec_CustomErrorMessage_ErrorMessage) GoString() string {
+	if this == nil {
+		return "nil"
+	}
+	s := make([]string, 0, 6)
+	s = append(s, "&namespace.CodecServerPropertySpec_CustomErrorMessage_ErrorMessage{")
+	s = append(s, "Message: "+fmt.Sprintf("%#v", this.Message)+",\n")
+	s = append(s, "Link: "+fmt.Sprintf("%#v", this.Link)+",\n")
 	s = append(s, "}")
 	return strings.Join(s, "")
 }
@@ -1330,12 +1799,13 @@ func (this *NamespaceURI) GoString() string {
 	if this == nil {
 		return "nil"
 	}
-	s := make([]string, 0, 8)
+	s := make([]string, 0, 9)
 	s = append(s, "&namespace.NamespaceURI{")
 	s = append(s, "Web: "+fmt.Sprintf("%#v", this.Web)+",\n")
 	s = append(s, "Grpc: "+fmt.Sprintf("%#v", this.Grpc)+",\n")
 	s = append(s, "VpcEndpointServiceNames: "+fmt.Sprintf("%#v", this.VpcEndpointServiceNames)+",\n")
 	s = append(s, "RegionalGrpc: "+fmt.Sprintf("%#v", this.RegionalGrpc)+",\n")
+	s = append(s, "PassiveRegionalGrpcAddresses: "+fmt.Sprintf("%#v", this.PassiveRegionalGrpcAddresses)+",\n")
 	s = append(s, "}")
 	return strings.Join(s, "")
 }
@@ -1384,7 +1854,7 @@ func (this *Namespace) GoString() string {
 	if this == nil {
 		return "nil"
 	}
-	s := make([]string, 0, 14)
+	s := make([]string, 0, 16)
 	s = append(s, "&namespace.Namespace{")
 	s = append(s, "Namespace: "+fmt.Sprintf("%#v", this.Namespace)+",\n")
 	s = append(s, "ResourceVersion: "+fmt.Sprintf("%#v", this.ResourceVersion)+",\n")
@@ -1405,6 +1875,22 @@ func (this *Namespace) GoString() string {
 	s = append(s, "AllowedPrincipals: "+fmt.Sprintf("%#v", this.AllowedPrincipals)+",\n")
 	if this.Regions != nil {
 		s = append(s, "Regions: "+fmt.Sprintf("%#v", this.Regions)+",\n")
+	}
+	if this.ConnectivityRules != nil {
+		s = append(s, "ConnectivityRules: "+fmt.Sprintf("%#v", this.ConnectivityRules)+",\n")
+	}
+	keysForTags := make([]string, 0, len(this.Tags))
+	for k, _ := range this.Tags {
+		keysForTags = append(keysForTags, k)
+	}
+	github_com_gogo_protobuf_sortkeys.Strings(keysForTags)
+	mapStringForTags := "map[string]string{"
+	for _, k := range keysForTags {
+		mapStringForTags += fmt.Sprintf("%#v: %#v,", k, this.Tags[k])
+	}
+	mapStringForTags += "}"
+	if this.Tags != nil {
+		s = append(s, "Tags: "+mapStringForTags+",\n")
 	}
 	s = append(s, "}")
 	return strings.Join(s, "")
@@ -1437,6 +1923,59 @@ func (m *NamespaceSpec) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
+	if len(m.ConnectivityRuleIds) > 0 {
+		for iNdEx := len(m.ConnectivityRuleIds) - 1; iNdEx >= 0; iNdEx-- {
+			i -= len(m.ConnectivityRuleIds[iNdEx])
+			copy(dAtA[i:], m.ConnectivityRuleIds[iNdEx])
+			i = encodeVarintMessage(dAtA, i, uint64(len(m.ConnectivityRuleIds[iNdEx])))
+			i--
+			dAtA[i] = 0x1
+			i--
+			dAtA[i] = 0x92
+		}
+	}
+	if len(m.PassiveRegionIds) > 0 {
+		for iNdEx := len(m.PassiveRegionIds) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.PassiveRegionIds[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintMessage(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0x1
+			i--
+			dAtA[i] = 0x8a
+		}
+	}
+	if m.HighAvailability != nil {
+		{
+			size, err := m.HighAvailability.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintMessage(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x1
+		i--
+		dAtA[i] = 0x82
+	}
+	if m.Lifecycle != nil {
+		{
+			size, err := m.Lifecycle.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintMessage(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x7a
+	}
 	if m.RegionId != nil {
 		{
 			size, err := m.RegionId.MarshalToSizedBuffer(dAtA[:i])
@@ -1453,13 +1992,6 @@ func (m *NamespaceSpec) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		i = encodeVarintMessage(dAtA, i, uint64(m.AuthMethod))
 		i--
 		dAtA[i] = 0x68
-	}
-	if len(m.CloudProvider) > 0 {
-		i -= len(m.CloudProvider)
-		copy(dAtA[i:], m.CloudProvider)
-		i = encodeVarintMessage(dAtA, i, uint64(len(m.CloudProvider)))
-		i--
-		dAtA[i] = 0x52
 	}
 	if len(m.PassiveRegions) > 0 {
 		for iNdEx := len(m.PassiveRegions) - 1; iNdEx >= 0; iNdEx-- {
@@ -1530,12 +2062,71 @@ func (m *NamespaceSpec) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 		i--
 		dAtA[i] = 0x12
 	}
-	if len(m.Region) > 0 {
-		i -= len(m.Region)
-		copy(dAtA[i:], m.Region)
-		i = encodeVarintMessage(dAtA, i, uint64(len(m.Region)))
+	return len(dAtA) - i, nil
+}
+
+func (m *HighAvailabilitySpec) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *HighAvailabilitySpec) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *HighAvailabilitySpec) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.DisableManagedFailover {
 		i--
-		dAtA[i] = 0xa
+		if m.DisableManagedFailover {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *LifecycleSpec) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *LifecycleSpec) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *LifecycleSpec) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.EnableDeleteProtection {
+		i--
+		if m.EnableDeleteProtection {
+			dAtA[i] = 1
+		} else {
+			dAtA[i] = 0
+		}
+		i--
+		dAtA[i] = 0x8
 	}
 	return len(dAtA) - i, nil
 }
@@ -1560,6 +2151,18 @@ func (m *CodecServerPropertySpec) MarshalToSizedBuffer(dAtA []byte) (int, error)
 	_ = i
 	var l int
 	_ = l
+	if m.CustomErrorMessage != nil {
+		{
+			size, err := m.CustomErrorMessage.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintMessage(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x22
+	}
 	if m.IncludeCredentials {
 		i--
 		if m.IncludeCredentials {
@@ -1584,6 +2187,78 @@ func (m *CodecServerPropertySpec) MarshalToSizedBuffer(dAtA []byte) (int, error)
 		i -= len(m.Endpoint)
 		copy(dAtA[i:], m.Endpoint)
 		i = encodeVarintMessage(dAtA, i, uint64(len(m.Endpoint)))
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *CodecServerPropertySpec_CustomErrorMessage) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *CodecServerPropertySpec_CustomErrorMessage) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *CodecServerPropertySpec_CustomErrorMessage) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Default != nil {
+		{
+			size, err := m.Default.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintMessage(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *CodecServerPropertySpec_CustomErrorMessage_ErrorMessage) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *CodecServerPropertySpec_CustomErrorMessage_ErrorMessage) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *CodecServerPropertySpec_CustomErrorMessage_ErrorMessage) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Link) > 0 {
+		i -= len(m.Link)
+		copy(dAtA[i:], m.Link)
+		i = encodeVarintMessage(dAtA, i, uint64(len(m.Link)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Message) > 0 {
+		i -= len(m.Message)
+		copy(dAtA[i:], m.Message)
+		i = encodeVarintMessage(dAtA, i, uint64(len(m.Message)))
 		i--
 		dAtA[i] = 0xa
 	}
@@ -1661,6 +2336,15 @@ func (m *NamespaceURI) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
+	if len(m.PassiveRegionalGrpcAddresses) > 0 {
+		for iNdEx := len(m.PassiveRegionalGrpcAddresses) - 1; iNdEx >= 0; iNdEx-- {
+			i -= len(m.PassiveRegionalGrpcAddresses[iNdEx])
+			copy(dAtA[i:], m.PassiveRegionalGrpcAddresses[iNdEx])
+			i = encodeVarintMessage(dAtA, i, uint64(len(m.PassiveRegionalGrpcAddresses[iNdEx])))
+			i--
+			dAtA[i] = 0x2a
+		}
+	}
 	if len(m.RegionalGrpc) > 0 {
 		i -= len(m.RegionalGrpc)
 		copy(dAtA[i:], m.RegionalGrpc)
@@ -1854,6 +2538,39 @@ func (m *Namespace) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	_ = i
 	var l int
 	_ = l
+	if len(m.Tags) > 0 {
+		for k := range m.Tags {
+			v := m.Tags[k]
+			baseI := i
+			i -= len(v)
+			copy(dAtA[i:], v)
+			i = encodeVarintMessage(dAtA, i, uint64(len(v)))
+			i--
+			dAtA[i] = 0x12
+			i -= len(k)
+			copy(dAtA[i:], k)
+			i = encodeVarintMessage(dAtA, i, uint64(len(k)))
+			i--
+			dAtA[i] = 0xa
+			i = encodeVarintMessage(dAtA, i, uint64(baseI-i))
+			i--
+			dAtA[i] = 0x7a
+		}
+	}
+	if len(m.ConnectivityRules) > 0 {
+		for iNdEx := len(m.ConnectivityRules) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.ConnectivityRules[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintMessage(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0x72
+		}
+	}
 	if len(m.Regions) > 0 {
 		for iNdEx := len(m.Regions) - 1; iNdEx >= 0; iNdEx-- {
 			{
@@ -1971,10 +2688,6 @@ func (m *NamespaceSpec) Size() (n int) {
 	}
 	var l int
 	_ = l
-	l = len(m.Region)
-	if l > 0 {
-		n += 1 + l + sovMessage(uint64(l))
-	}
 	l = len(m.AcceptedClientCa)
 	if l > 0 {
 		n += 1 + l + sovMessage(uint64(l))
@@ -2009,16 +2722,56 @@ func (m *NamespaceSpec) Size() (n int) {
 			n += 1 + l + sovMessage(uint64(l))
 		}
 	}
-	l = len(m.CloudProvider)
-	if l > 0 {
-		n += 1 + l + sovMessage(uint64(l))
-	}
 	if m.AuthMethod != 0 {
 		n += 1 + sovMessage(uint64(m.AuthMethod))
 	}
 	if m.RegionId != nil {
 		l = m.RegionId.Size()
 		n += 1 + l + sovMessage(uint64(l))
+	}
+	if m.Lifecycle != nil {
+		l = m.Lifecycle.Size()
+		n += 1 + l + sovMessage(uint64(l))
+	}
+	if m.HighAvailability != nil {
+		l = m.HighAvailability.Size()
+		n += 2 + l + sovMessage(uint64(l))
+	}
+	if len(m.PassiveRegionIds) > 0 {
+		for _, e := range m.PassiveRegionIds {
+			l = e.Size()
+			n += 2 + l + sovMessage(uint64(l))
+		}
+	}
+	if len(m.ConnectivityRuleIds) > 0 {
+		for _, s := range m.ConnectivityRuleIds {
+			l = len(s)
+			n += 2 + l + sovMessage(uint64(l))
+		}
+	}
+	return n
+}
+
+func (m *HighAvailabilitySpec) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.DisableManagedFailover {
+		n += 2
+	}
+	return n
+}
+
+func (m *LifecycleSpec) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.EnableDeleteProtection {
+		n += 2
 	}
 	return n
 }
@@ -2038,6 +2791,40 @@ func (m *CodecServerPropertySpec) Size() (n int) {
 	}
 	if m.IncludeCredentials {
 		n += 2
+	}
+	if m.CustomErrorMessage != nil {
+		l = m.CustomErrorMessage.Size()
+		n += 1 + l + sovMessage(uint64(l))
+	}
+	return n
+}
+
+func (m *CodecServerPropertySpec_CustomErrorMessage) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Default != nil {
+		l = m.Default.Size()
+		n += 1 + l + sovMessage(uint64(l))
+	}
+	return n
+}
+
+func (m *CodecServerPropertySpec_CustomErrorMessage_ErrorMessage) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = len(m.Message)
+	if l > 0 {
+		n += 1 + l + sovMessage(uint64(l))
+	}
+	l = len(m.Link)
+	if l > 0 {
+		n += 1 + l + sovMessage(uint64(l))
 	}
 	return n
 }
@@ -2090,6 +2877,12 @@ func (m *NamespaceURI) Size() (n int) {
 	l = len(m.RegionalGrpc)
 	if l > 0 {
 		n += 1 + l + sovMessage(uint64(l))
+	}
+	if len(m.PassiveRegionalGrpcAddresses) > 0 {
+		for _, s := range m.PassiveRegionalGrpcAddresses {
+			l = len(s)
+			n += 1 + l + sovMessage(uint64(l))
+		}
 	}
 	return n
 }
@@ -2195,6 +2988,20 @@ func (m *Namespace) Size() (n int) {
 			n += 1 + l + sovMessage(uint64(l))
 		}
 	}
+	if len(m.ConnectivityRules) > 0 {
+		for _, e := range m.ConnectivityRules {
+			l = e.Size()
+			n += 1 + l + sovMessage(uint64(l))
+		}
+	}
+	if len(m.Tags) > 0 {
+		for k, v := range m.Tags {
+			_ = k
+			_ = v
+			mapEntrySize := 1 + len(k) + sovMessage(uint64(len(k))) + 1 + len(v) + sovMessage(uint64(len(v)))
+			n += mapEntrySize + 1 + sovMessage(uint64(mapEntrySize))
+		}
+	}
 	return n
 }
 
@@ -2213,6 +3020,11 @@ func (this *NamespaceSpec) String() string {
 		repeatedStringForCertificateFilters += strings.Replace(f.String(), "CertificateFilterSpec", "CertificateFilterSpec", 1) + ","
 	}
 	repeatedStringForCertificateFilters += "}"
+	repeatedStringForPassiveRegionIds := "[]*RegionID{"
+	for _, f := range this.PassiveRegionIds {
+		repeatedStringForPassiveRegionIds += strings.Replace(fmt.Sprintf("%v", f), "RegionID", "v1.RegionID", 1) + ","
+	}
+	repeatedStringForPassiveRegionIds += "}"
 	keysForSearchAttributes := make([]string, 0, len(this.SearchAttributes))
 	for k, _ := range this.SearchAttributes {
 		keysForSearchAttributes = append(keysForSearchAttributes, k)
@@ -2224,7 +3036,6 @@ func (this *NamespaceSpec) String() string {
 	}
 	mapStringForSearchAttributes += "}"
 	s := strings.Join([]string{`&NamespaceSpec{`,
-		`Region:` + fmt.Sprintf("%v", this.Region) + `,`,
 		`AcceptedClientCa:` + fmt.Sprintf("%v", this.AcceptedClientCa) + `,`,
 		`RetentionDays:` + fmt.Sprintf("%v", this.RetentionDays) + `,`,
 		`SearchAttributes:` + mapStringForSearchAttributes + `,`,
@@ -2232,9 +3043,32 @@ func (this *NamespaceSpec) String() string {
 		`Environment:` + fmt.Sprintf("%v", this.Environment) + `,`,
 		`CodecSpec:` + strings.Replace(this.CodecSpec.String(), "CodecServerPropertySpec", "CodecServerPropertySpec", 1) + `,`,
 		`PassiveRegions:` + fmt.Sprintf("%v", this.PassiveRegions) + `,`,
-		`CloudProvider:` + fmt.Sprintf("%v", this.CloudProvider) + `,`,
 		`AuthMethod:` + fmt.Sprintf("%v", this.AuthMethod) + `,`,
 		`RegionId:` + strings.Replace(fmt.Sprintf("%v", this.RegionId), "RegionID", "v1.RegionID", 1) + `,`,
+		`Lifecycle:` + strings.Replace(this.Lifecycle.String(), "LifecycleSpec", "LifecycleSpec", 1) + `,`,
+		`HighAvailability:` + strings.Replace(this.HighAvailability.String(), "HighAvailabilitySpec", "HighAvailabilitySpec", 1) + `,`,
+		`PassiveRegionIds:` + repeatedStringForPassiveRegionIds + `,`,
+		`ConnectivityRuleIds:` + fmt.Sprintf("%v", this.ConnectivityRuleIds) + `,`,
+		`}`,
+	}, "")
+	return s
+}
+func (this *HighAvailabilitySpec) String() string {
+	if this == nil {
+		return "nil"
+	}
+	s := strings.Join([]string{`&HighAvailabilitySpec{`,
+		`DisableManagedFailover:` + fmt.Sprintf("%v", this.DisableManagedFailover) + `,`,
+		`}`,
+	}, "")
+	return s
+}
+func (this *LifecycleSpec) String() string {
+	if this == nil {
+		return "nil"
+	}
+	s := strings.Join([]string{`&LifecycleSpec{`,
+		`EnableDeleteProtection:` + fmt.Sprintf("%v", this.EnableDeleteProtection) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -2247,6 +3081,28 @@ func (this *CodecServerPropertySpec) String() string {
 		`Endpoint:` + fmt.Sprintf("%v", this.Endpoint) + `,`,
 		`PassAccessToken:` + fmt.Sprintf("%v", this.PassAccessToken) + `,`,
 		`IncludeCredentials:` + fmt.Sprintf("%v", this.IncludeCredentials) + `,`,
+		`CustomErrorMessage:` + strings.Replace(fmt.Sprintf("%v", this.CustomErrorMessage), "CodecServerPropertySpec_CustomErrorMessage", "CodecServerPropertySpec_CustomErrorMessage", 1) + `,`,
+		`}`,
+	}, "")
+	return s
+}
+func (this *CodecServerPropertySpec_CustomErrorMessage) String() string {
+	if this == nil {
+		return "nil"
+	}
+	s := strings.Join([]string{`&CodecServerPropertySpec_CustomErrorMessage{`,
+		`Default:` + strings.Replace(fmt.Sprintf("%v", this.Default), "CodecServerPropertySpec_CustomErrorMessage_ErrorMessage", "CodecServerPropertySpec_CustomErrorMessage_ErrorMessage", 1) + `,`,
+		`}`,
+	}, "")
+	return s
+}
+func (this *CodecServerPropertySpec_CustomErrorMessage_ErrorMessage) String() string {
+	if this == nil {
+		return "nil"
+	}
+	s := strings.Join([]string{`&CodecServerPropertySpec_CustomErrorMessage_ErrorMessage{`,
+		`Message:` + fmt.Sprintf("%v", this.Message) + `,`,
+		`Link:` + fmt.Sprintf("%v", this.Link) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -2273,6 +3129,7 @@ func (this *NamespaceURI) String() string {
 		`Grpc:` + fmt.Sprintf("%v", this.Grpc) + `,`,
 		`VpcEndpointServiceNames:` + fmt.Sprintf("%v", this.VpcEndpointServiceNames) + `,`,
 		`RegionalGrpc:` + fmt.Sprintf("%v", this.RegionalGrpc) + `,`,
+		`PassiveRegionalGrpcAddresses:` + fmt.Sprintf("%v", this.PassiveRegionalGrpcAddresses) + `,`,
 		`}`,
 	}, "")
 	return s
@@ -2313,6 +3170,21 @@ func (this *Namespace) String() string {
 		repeatedStringForRegions += strings.Replace(f.String(), "NamespaceRegion", "NamespaceRegion", 1) + ","
 	}
 	repeatedStringForRegions += "}"
+	repeatedStringForConnectivityRules := "[]*ConnectivityRule{"
+	for _, f := range this.ConnectivityRules {
+		repeatedStringForConnectivityRules += strings.Replace(fmt.Sprintf("%v", f), "ConnectivityRule", "v11.ConnectivityRule", 1) + ","
+	}
+	repeatedStringForConnectivityRules += "}"
+	keysForTags := make([]string, 0, len(this.Tags))
+	for k, _ := range this.Tags {
+		keysForTags = append(keysForTags, k)
+	}
+	github_com_gogo_protobuf_sortkeys.Strings(keysForTags)
+	mapStringForTags := "map[string]string{"
+	for _, k := range keysForTags {
+		mapStringForTags += fmt.Sprintf("%v: %v,", k, this.Tags[k])
+	}
+	mapStringForTags += "}"
 	s := strings.Join([]string{`&Namespace{`,
 		`Namespace:` + fmt.Sprintf("%v", this.Namespace) + `,`,
 		`ResourceVersion:` + fmt.Sprintf("%v", this.ResourceVersion) + `,`,
@@ -2324,6 +3196,8 @@ func (this *Namespace) String() string {
 		`Envelope:` + strings.Replace(this.Envelope.String(), "NamespaceEnvelope", "NamespaceEnvelope", 1) + `,`,
 		`AllowedPrincipals:` + fmt.Sprintf("%v", this.AllowedPrincipals) + `,`,
 		`Regions:` + repeatedStringForRegions + `,`,
+		`ConnectivityRules:` + repeatedStringForConnectivityRules + `,`,
+		`Tags:` + mapStringForTags + `,`,
 		`}`,
 	}, "")
 	return s
@@ -2365,38 +3239,6 @@ func (m *NamespaceSpec) Unmarshal(dAtA []byte) error {
 			return fmt.Errorf("proto: NamespaceSpec: illegal tag %d (wire type %d)", fieldNum, wire)
 		}
 		switch fieldNum {
-		case 1:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Region", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowMessage
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthMessage
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthMessage
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.Region = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
 		case 2:
 			if wireType != 2 {
 				return fmt.Errorf("proto: wrong wireType = %d for field AcceptedClientCa", wireType)
@@ -2682,38 +3524,6 @@ func (m *NamespaceSpec) Unmarshal(dAtA []byte) error {
 			}
 			m.PassiveRegions = append(m.PassiveRegions, string(dAtA[iNdEx:postIndex]))
 			iNdEx = postIndex
-		case 10:
-			if wireType != 2 {
-				return fmt.Errorf("proto: wrong wireType = %d for field CloudProvider", wireType)
-			}
-			var stringLen uint64
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowMessage
-				}
-				if iNdEx >= l {
-					return io.ErrUnexpectedEOF
-				}
-				b := dAtA[iNdEx]
-				iNdEx++
-				stringLen |= uint64(b&0x7F) << shift
-				if b < 0x80 {
-					break
-				}
-			}
-			intStringLen := int(stringLen)
-			if intStringLen < 0 {
-				return ErrInvalidLengthMessage
-			}
-			postIndex := iNdEx + intStringLen
-			if postIndex < 0 {
-				return ErrInvalidLengthMessage
-			}
-			if postIndex > l {
-				return io.ErrUnexpectedEOF
-			}
-			m.CloudProvider = string(dAtA[iNdEx:postIndex])
-			iNdEx = postIndex
 		case 13:
 			if wireType != 0 {
 				return fmt.Errorf("proto: wrong wireType = %d for field AuthMethod", wireType)
@@ -2769,6 +3579,290 @@ func (m *NamespaceSpec) Unmarshal(dAtA []byte) error {
 				return err
 			}
 			iNdEx = postIndex
+		case 15:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Lifecycle", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMessage
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthMessage
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Lifecycle == nil {
+				m.Lifecycle = &LifecycleSpec{}
+			}
+			if err := m.Lifecycle.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 16:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field HighAvailability", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMessage
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthMessage
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.HighAvailability == nil {
+				m.HighAvailability = &HighAvailabilitySpec{}
+			}
+			if err := m.HighAvailability.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 17:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PassiveRegionIds", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMessage
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthMessage
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.PassiveRegionIds = append(m.PassiveRegionIds, &v1.RegionID{})
+			if err := m.PassiveRegionIds[len(m.PassiveRegionIds)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 18:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ConnectivityRuleIds", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMessage
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthMessage
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ConnectivityRuleIds = append(m.ConnectivityRuleIds, string(dAtA[iNdEx:postIndex]))
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipMessage(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *HighAvailabilitySpec) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowMessage
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: HighAvailabilitySpec: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: HighAvailabilitySpec: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field DisableManagedFailover", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMessage
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.DisableManagedFailover = bool(v != 0)
+		default:
+			iNdEx = preIndex
+			skippy, err := skipMessage(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *LifecycleSpec) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowMessage
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: LifecycleSpec: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: LifecycleSpec: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field EnableDeleteProtection", wireType)
+			}
+			var v int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMessage
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				v |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			m.EnableDeleteProtection = bool(v != 0)
 		default:
 			iNdEx = preIndex
 			skippy, err := skipMessage(dAtA[iNdEx:])
@@ -2894,6 +3988,248 @@ func (m *CodecServerPropertySpec) Unmarshal(dAtA []byte) error {
 				}
 			}
 			m.IncludeCredentials = bool(v != 0)
+		case 4:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field CustomErrorMessage", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMessage
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthMessage
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.CustomErrorMessage == nil {
+				m.CustomErrorMessage = &CodecServerPropertySpec_CustomErrorMessage{}
+			}
+			if err := m.CustomErrorMessage.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipMessage(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *CodecServerPropertySpec_CustomErrorMessage) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowMessage
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: CustomErrorMessage: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: CustomErrorMessage: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Default", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMessage
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthMessage
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Default == nil {
+				m.Default = &CodecServerPropertySpec_CustomErrorMessage_ErrorMessage{}
+			}
+			if err := m.Default.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipMessage(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if skippy < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if (iNdEx + skippy) < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *CodecServerPropertySpec_CustomErrorMessage_ErrorMessage) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowMessage
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: ErrorMessage: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: ErrorMessage: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Message", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMessage
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthMessage
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Message = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Link", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMessage
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthMessage
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Link = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
 			skippy, err := skipMessage(dAtA[iNdEx:])
@@ -3255,6 +4591,38 @@ func (m *NamespaceURI) Unmarshal(dAtA []byte) error {
 				return io.ErrUnexpectedEOF
 			}
 			m.RegionalGrpc = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 5:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field PassiveRegionalGrpcAddresses", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMessage
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthMessage
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.PassiveRegionalGrpcAddresses = append(m.PassiveRegionalGrpcAddresses, string(dAtA[iNdEx:postIndex]))
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
@@ -4029,6 +5397,167 @@ func (m *Namespace) Unmarshal(dAtA []byte) error {
 			if err := m.Regions[len(m.Regions)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
+			iNdEx = postIndex
+		case 14:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field ConnectivityRules", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMessage
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthMessage
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.ConnectivityRules = append(m.ConnectivityRules, &v11.ConnectivityRule{})
+			if err := m.ConnectivityRules[len(m.ConnectivityRules)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 15:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Tags", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowMessage
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthMessage
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthMessage
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Tags == nil {
+				m.Tags = make(map[string]string)
+			}
+			var mapkey string
+			var mapvalue string
+			for iNdEx < postIndex {
+				entryPreIndex := iNdEx
+				var wire uint64
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowMessage
+					}
+					if iNdEx >= l {
+						return io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					wire |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				fieldNum := int32(wire >> 3)
+				if fieldNum == 1 {
+					var stringLenmapkey uint64
+					for shift := uint(0); ; shift += 7 {
+						if shift >= 64 {
+							return ErrIntOverflowMessage
+						}
+						if iNdEx >= l {
+							return io.ErrUnexpectedEOF
+						}
+						b := dAtA[iNdEx]
+						iNdEx++
+						stringLenmapkey |= uint64(b&0x7F) << shift
+						if b < 0x80 {
+							break
+						}
+					}
+					intStringLenmapkey := int(stringLenmapkey)
+					if intStringLenmapkey < 0 {
+						return ErrInvalidLengthMessage
+					}
+					postStringIndexmapkey := iNdEx + intStringLenmapkey
+					if postStringIndexmapkey < 0 {
+						return ErrInvalidLengthMessage
+					}
+					if postStringIndexmapkey > l {
+						return io.ErrUnexpectedEOF
+					}
+					mapkey = string(dAtA[iNdEx:postStringIndexmapkey])
+					iNdEx = postStringIndexmapkey
+				} else if fieldNum == 2 {
+					var stringLenmapvalue uint64
+					for shift := uint(0); ; shift += 7 {
+						if shift >= 64 {
+							return ErrIntOverflowMessage
+						}
+						if iNdEx >= l {
+							return io.ErrUnexpectedEOF
+						}
+						b := dAtA[iNdEx]
+						iNdEx++
+						stringLenmapvalue |= uint64(b&0x7F) << shift
+						if b < 0x80 {
+							break
+						}
+					}
+					intStringLenmapvalue := int(stringLenmapvalue)
+					if intStringLenmapvalue < 0 {
+						return ErrInvalidLengthMessage
+					}
+					postStringIndexmapvalue := iNdEx + intStringLenmapvalue
+					if postStringIndexmapvalue < 0 {
+						return ErrInvalidLengthMessage
+					}
+					if postStringIndexmapvalue > l {
+						return io.ErrUnexpectedEOF
+					}
+					mapvalue = string(dAtA[iNdEx:postStringIndexmapvalue])
+					iNdEx = postStringIndexmapvalue
+				} else {
+					iNdEx = entryPreIndex
+					skippy, err := skipMessage(dAtA[iNdEx:])
+					if err != nil {
+						return err
+					}
+					if skippy < 0 {
+						return ErrInvalidLengthMessage
+					}
+					if (iNdEx + skippy) > postIndex {
+						return io.ErrUnexpectedEOF
+					}
+					iNdEx += skippy
+				}
+			}
+			m.Tags[mapkey] = mapvalue
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
